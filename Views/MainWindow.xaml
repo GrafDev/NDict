@@ -12,45 +12,90 @@
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    <Window.Resources>
-        <ControlTemplate TargetType="Button" x:Key="ButtonsAnswer">
-            <Button                
-                FontSize="20"                
-                                Content="ssdas"
-                />
-        </ControlTemplate>
-        <ControlTemplate TargetType="Label" x:Key="LabelQuestion">
-            <Label
-                Background="Black"
-                FontSize="20"
-                Margin="15,5,15,5"
-                Height="1"
-                />
-        </ControlTemplate>
 
 
-
-
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition x:Name="Row_Question_01" Height="2*"/>
+            <RowDefinition x:Name="Row_Question_02" Height="2*"/>
+            <RowDefinition x:Name="Row_Answer_01" Height="2*"/>
+            <RowDefinition x:Name="Row_Answer_02" Height="2*"/>
+            <RowDefinition x:Name="Row_Answer_03" Height="2*"/>
+            <RowDefinition x:Name="Row_Answer_04" Height="2*"/>
+            <RowDefinition x:Name="Row_Answer_05" Height="2*"/>
+            <RowDefinition x:Name="Row_Answer_06" Height="2*"/>
+            <RowDefinition x:Name="Row_Menu" Height="3*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Label x:Name="Label_QuestionHalf_01" Grid.Row="0" Content="Label_QuestionHalf_01" Template="{StaticResource LabelQuestion}"/>
-            <Label x:Name="Label_QuestionHalf_02" Grid.Row="1" Content="Label_QuestionHalf_02" Template="{StaticResource LabelQuestion}"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Button x:Name="Button_01_Ansewer"  Template="{StaticResource ButtonsAnswer}"/>
-            <Button x:Name="Button_02_Ansewer"  Template="{StaticResource ButtonsAnswer}"/>
-            <Button x:Name="Button_03_Ansewer"  Template="{StaticResource ButtonsAnswer}"/>
-            <Button x:Name="Button_04_Ansewer"  Template="{StaticResource ButtonsAnswer}"/>
-            <Button x:Name="Button_05_Ansewer"  Template="{StaticResource ButtonsAnswer}"/>
-            <Button x:Name="Button_06_Ansewer"  Template="{StaticResource ButtonsAnswer}"/>
-        </StackPanel>
 
+        <Label x:Name="Label_QuestionHalf_01" Grid.Row="0" Content="Label_QuestionHalf_01" Background="{Binding Button_01_Ansewer}"/>
+        <Label x:Name="Label_QuestionHalf_02" Grid.Row="1" Content="Label_QuestionHalf_02" Background="{Binding Button_01_Ansewer}"/>
+
+        <Button x:Name="Button_01_Ansewer" Margin="15,5,15,5" Grid.Row="2" Height="{Binding Row_Answer_01}"  >
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock x:Name="Text_Button_Answer_01" />
+                </Viewbox>
+            </Button.Content>
+        </Button>
+        <Button x:Name="Button_02_Ansewer" Margin="15,5,15,5" Grid.Row="3" Height="{Binding Row_Answer_02}"  >
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock x:Name="Text_Button_Answer_02"/>
+                </Viewbox>
+            </Button.Content>
+        </Button>
+        <Button x:Name="Button_03_Ansewer" Margin="15,5,15,5" Grid.Row="4" Height="{Binding Row_Answer_03}"  >
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock x:Name="Text_Button_Answer_03" />
+                </Viewbox>
+            </Button.Content>
+        </Button>
+        <Button x:Name="Button_04_Ansewer" Margin="15,5,15,5" Grid.Row="5" Height="{Binding Row_Answer_04}"  >
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock x:Name="Text_Button_Answer_04" />
+                </Viewbox>
+            </Button.Content>
+        </Button>
+        <Button x:Name="Button_05_Ansewer" Margin="15,5,15,5" Grid.Row="6" Height="{Binding Row_Answer_05}">
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock x:Name="Text_Button_Answer_05"/>
+                </Viewbox>
+            </Button.Content>
+        </Button>
+        <Button x:Name="Button_06_Ansewer" Margin="15,5,15,5" Grid.Row="7" Height="{Binding Row_Answer_06}"  >
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock x:Name="Text_Button_Answer_06"/>
+                </Viewbox>
+            </Button.Content>
+        </Button>
+
+        <DockPanel  Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="Button_Menu_Train" Margin="5,5,5,5"  Height="{Binding Row_Menu}"  >
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock x:Name="Text_Button_Menu_Train"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button x:Name="Button_Menu_Play" Margin="5,5,5,5"  Height="{Binding Row_Menu}"  >
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock x:Name="Text_Button_Menu_Play"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button x:Name="Button_Menu_Close" Margin="5,5,5,5"  Height="{Binding Row_Menu}"  >
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock x:Name="Text_Button_Menu_Close"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+        </DockPanel>
 
 
     </Grid>
