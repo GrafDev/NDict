@@ -7,7 +7,7 @@ namespace NDict.Models
 {
     static class DataReader
     {
-        static internal string text;
+        static internal string textFromFile;
 
         static internal void GetResouce()
         {
@@ -17,7 +17,7 @@ namespace NDict.Models
             var buffer = new byte[2048];
             steam.Read(buffer, 0, buffer.Length);
             var _text = System.Text.ASCIIEncoding.ASCII.GetString(buffer).Replace("\0", "");
-            text = _text;
+            textFromFile = _text;
         }
 
     }

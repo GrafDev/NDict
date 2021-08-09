@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:NDict"
         xmlns:vm="clr-namespace:NDict.ViewModels"    
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Icon="/Services/mainicon.ico"
+        Icon="/Data/mainicon.ico"
         mc:Ignorable="d"
         Title="{Binding Path=Title}" MinHeight="550" MinWidth="350" Height="385" Width="340" >
     <Window.DataContext>
