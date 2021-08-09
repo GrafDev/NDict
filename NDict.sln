@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDict", "NDict.csproj", "{60FDFC8F-7708-4416-84C2-591D7A1301E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDictConsole", "..\NDictConsole\NDictConsole.csproj", "{5AB8E80C-540A-4700-8266-DA1A834D4595}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDictConsole", "..\NDictConsole\NDictConsole.csproj", "{5AB8E80C-540A-4700-8266-DA1A834D4595}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0C91EB49-A310-48E1-92E0-BE96CEB0DACF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5AB8E80C-540A-4700-8266-DA1A834D4595} = {0C91EB49-A310-48E1-92E0-BE96CEB0DACF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3CBA59F-4914-408B-BC5A-9F0658A29672}
