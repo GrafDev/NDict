@@ -50,5 +50,14 @@ namespace NDict.ViewModels
         private string _Button_Func="Close";
         public string Text_Button_Func { get => _Button_Func; set => Set(ref _Button_Func, value); }
         #endregion
+        #region StatusBar
+        private int _ProgressBarValue = 30;
+        public int ProgressBarValue { get => _ProgressBarValue; set => Set(ref _ProgressBarValue, value); }
+
+
+        private int _CountOfError = 5;
+        public int CountOfError { get => _CountOfError; set => Set(ref _CountOfError, value); }
+
+        #endregion
     }
 }

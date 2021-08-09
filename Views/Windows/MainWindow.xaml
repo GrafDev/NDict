@@ -170,12 +170,12 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <ProgressBar Height="20"/>
+                <ProgressBar Height="15" Value="{Binding ProgressBarValue }"/>
             </Grid>
 
             <StackPanel Grid.Column="1" Margin="5,0,5,0" Orientation="Horizontal" VerticalAlignment="Center" >
                 <TextBlock Text="Errors: " FontSize="15"/>
-                <TextBlock Text="0" FontSize="15"/>
+                <TextBlock Text="{Binding CountOfError}" FontSize="15"/>
             </StackPanel>
         </Grid>
     </Grid>
