@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using NDict.Infrastructure.Commands;
+using System.Windows;
+
 
 namespace NDict.ViewModels
 {
@@ -59,5 +63,9 @@ namespace NDict.ViewModels
         public int CountOfError { get => _CountOfError; set => Set(ref _CountOfError, value); }
 
         #endregion
+        public MainWindowViewModel()
+        {
+
+        }
     }
 }
