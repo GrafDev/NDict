@@ -7,9 +7,8 @@
         xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands"
         xmlns:vm="clr-namespace:NDict.ViewModels"    
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Icon="/Data/mainicon.ico"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" MinHeight="450" MinWidth="250" Height="550" Width="340" >
+        Title="{Binding Path=Title}" MinHeight="450" MinWidth="250" Height="500" Width="400" >
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -171,13 +170,26 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" d:IsLocked="True">
-                <ProgressBar Height="15" Value="{Binding ProgressBarValue }" d:IsLocked="True"/>
+            <Grid x:Name="ProgressBar" 
+                  Grid.Column="0" 
+                  d:IsLocked="True">
+                <ProgressBar Height="15" 
+                             Margin="15,0,0,0"
+                             Value="{Binding ProgressBarValue }" 
+                             d:IsLocked="True"/>
             </Grid>
 
-            <StackPanel Grid.Column="1" Margin="5,0,5,0" Orientation="Horizontal" VerticalAlignment="Center" d:IsLocked="True" >
-                <TextBlock Text="Errors: " FontSize="15" d:IsLocked="True"/>
-                <TextBlock Text="{Binding CountOfError}" FontSize="15" d:IsLocked="True"/>
+            <StackPanel Grid.Column="1" 
+                        Margin="15,0,15,0" 
+                        Orientation="Horizontal" 
+                        VerticalAlignment="Center" 
+                        d:IsLocked="True" >
+                <TextBlock Text="Errors: " 
+                           FontSize="15" 
+                           d:IsLocked="True"/>
+                <TextBlock Text="{Binding CountOfError}" 
+                           FontSize="15" 
+                           d:IsLocked="True"/>
             </StackPanel>
         </Grid>
     </Grid>

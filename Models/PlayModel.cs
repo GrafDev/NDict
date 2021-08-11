@@ -4,7 +4,8 @@ using System.Text;
 
 namespace NDict.Models
 {
-    internal class PlayModel
+    internal static class PlayModel
     {
+
     }
 }
