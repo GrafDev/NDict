@@ -1,3 +1,4 @@
+000*Dictionary*5000*English-Russian
 1*abandon*оставить, забросить
 2*abate*уменьшаться, ослабевать
 3*abduct*похищать

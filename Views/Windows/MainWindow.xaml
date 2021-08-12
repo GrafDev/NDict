@@ -163,15 +163,31 @@
                 </Button.Content>
             </Button>
         </Grid>
+        
+        
         <Grid x:Name="StatusBar" 
                   Grid.Row="3" d:IsLocked="True">
             <Grid.ColumnDefinitions  >
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
+            <StackPanel Grid.Column="0" 
+                        Margin="15,0,2,0" 
+                        Orientation="Horizontal" 
+                        VerticalAlignment="Center" 
+                        d:IsLocked="True" >
+                <TextBlock Text="Count words: " 
+                           FontSize="15" 
+                           d:IsLocked="True"/>
+                <TextBlock Text="{Binding CountOfError}" 
+                           FontSize="15" 
+                           d:IsLocked="True"/>
+            </StackPanel>
+
             <Grid x:Name="ProgressBar" 
-                  Grid.Column="0" 
+                  Grid.Column="1" 
                   d:IsLocked="True">
                 <ProgressBar Height="15" 
                              Margin="15,0,0,0"
@@ -179,7 +195,7 @@
                              d:IsLocked="True"/>
             </Grid>
 
-            <StackPanel Grid.Column="1" 
+            <StackPanel Grid.Column="2" 
                         Margin="15,0,15,0" 
                         Orientation="Horizontal" 
                         VerticalAlignment="Center" 
