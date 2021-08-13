@@ -59,5 +59,33 @@ namespace NDict.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 000*Dictionary*5000*English-Russian
+        ///1*abandon*оставить, забросить
+        ///2*abate*уменьшаться, ослабевать
+        ///3*abduct*похищать
+        ///4*abide*смириться, выносить
+        ///5*able*способный, могущий
+        ///6*abnormal*ненормальный, аномальный
+        ///7*aboard*на борту
+        ///8*abolish*упразднять
+        ///9*abort*прерывать
+        ///10*abound*изобиловать
+        ///11*about*примерно
+        ///12*abroad*за границу
+        ///13*abrupt*крутой, резкий
+        ///14*absent*отсутствующий
+        ///15*absorb*впитывать, поглощать
+        ///16*abundant*обильный
+        ///17*abuse*оскорблять, бранить, брань
+        ///18*abuse*злоупотреблять
+        ///19*abuse [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string NDict {
+            get {
+                return ResourceManager.GetString("NDict", resourceCulture);
+            }
+        }
     }
 }

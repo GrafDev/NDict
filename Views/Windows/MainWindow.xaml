@@ -142,6 +142,9 @@
                 Grid.Column="1" 
                 Height="{Binding Row_Menu}" 
                 HorizontalAlignment="Center">
+                <Button.Command>
+                    <cmd:PlayApplicationCommand/>
+                </Button.Command>
                 <Button.Content>
                     <Viewbox Height="Auto">
                         <TextBlock Text="{Binding Text_Button_Play}"/>

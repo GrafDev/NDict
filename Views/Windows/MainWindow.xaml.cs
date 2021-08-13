@@ -24,7 +24,8 @@ namespace NDict
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Dictionary.Loaded();
         }
     }
 }

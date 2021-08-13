@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using NDict.Infrastructure.Commands;
+using NDict.Models;
 using System.Windows;
 
 
@@ -69,7 +70,9 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
+            Dictionary.Loaded();
 
+            CountOfAllWords = Dictionary.CountOfAllWords;
         }
     }
 }

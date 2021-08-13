@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Text;
 using System.Reflection;
 using NDict.Services;
+using NDict.ViewModels;
 
 namespace NDict.Models
 {
     public static class Dictionary
     {
-
-
         static internal string title;        
         static internal List<Word> allLearningWords = new List<Word>();
+        static internal int CountOfAllWords=8;
         static internal void Loaded()
         {
-            GetDictionaryFromResouce();
+           GetDictionaryFromResouce();
             
         }
         static private void GetDictionaryFromResouce()
@@ -27,11 +27,12 @@ namespace NDict.Models
             steam.Read(buffer, 0, buffer.Length);
             var _textFromFile = System.Text.ASCIIEncoding.UTF8.GetString(buffer).Replace("\0", "");
             var k = _textFromFile.IndexOf("000");
-            var strTemp = _textFromFile.Substring(k);
-            dictionaryFromFile = strTemp.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            CountOfAllWords = k;
+            //var strTemp = _textFromFile.Substring(k);
+            //dictionaryFromFile = strTemp.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            title = dictionaryFromFile[0];
-            SetAllLearningWord(dictionaryFromFile[1..^0]);
+            //title = dictionaryFromFile[0];
+            //SetAllLearningWord(dictionaryFromFile[1..^0]);
         }
 
         static private void SetAllLearningWord(string [] words)
