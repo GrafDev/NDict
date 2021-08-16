@@ -68,11 +68,16 @@ namespace NDict.ViewModels
         public int CountOfError { get => _CountOfError; set => Set(ref _CountOfError, value); }
 
         #endregion
+
+
+        #region Test
+        private string _Test = "Test";
+        /// <summary> Title window </summary>
+        public string Test { get => _Test; set => Set(ref _Test, value); }
+        #endregion
         public MainWindowViewModel()
         {
-            Dictionary.Loaded();
-
-            CountOfAllWords = Dictionary.CountOfAllWords;
+            Test = Dictionary.title;
         }
     }
 }

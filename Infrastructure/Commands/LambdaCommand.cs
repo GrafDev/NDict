@@ -9,7 +9,7 @@ namespace NDict.Infrastructure.Commands
     {
         private readonly Action<object> _Execute;
         private readonly Func<object, bool> _CanExecute;
-        internal LambdaCommand(Action<object> Execute, Func<object,bool> CanExecute=null )
+        internal LambdaCommand(Action<object> Execute, Func<object, bool> CanExecute = null)
         {
             _Execute = Execute ?? throw new ArgumentException(nameof(Execute));
             _CanExecute = CanExecute;

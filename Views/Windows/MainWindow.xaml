@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NDict"
         xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands"
-        xmlns:vm="clr-namespace:NDict.ViewModels"    
+        xmlns:vm="clr-namespace:NDict.ViewModels"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" MinHeight="450" MinWidth="250" Height="500" Width="400" >
+        Title="{Binding Path=Title}" MinHeight="450" MinWidth="250" Height="800" Width="400" >
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -19,6 +19,7 @@
             <RowDefinition  Height="6*" MinHeight="180"/>
             <RowDefinition  Height="1.5*" MinHeight="45"/>
             <RowDefinition  Height="20" />
+            <RowDefinition x:Name="Row04" Height="7*" MinHeight="45"/>
         </Grid.RowDefinitions>
         <Grid x:Name="Question"
               Grid.Row="0" d:IsLocked="True" >
@@ -142,9 +143,7 @@
                 Grid.Column="1" 
                 Height="{Binding Row_Menu}" 
                 HorizontalAlignment="Center">
-                <Button.Command>
-                    <cmd:PlayApplicationCommand/>
-                </Button.Command>
+
                 <Button.Content>
                     <Viewbox Height="Auto">
                         <TextBlock Text="{Binding Text_Button_Play}"/>
@@ -158,7 +157,7 @@
                 HorizontalAlignment="Left">
                 <Button.Command>
                     <cmd:CloseApplicationCommand/>
-                </Button.Command>                
+                </Button.Command>
                 <Button.Content>
                     <Viewbox Height="Auto" Width="Auto">
                         <TextBlock Text="{Binding Path=Text_Button_Func}"/>
@@ -166,8 +165,8 @@
                 </Button.Content>
             </Button>
         </Grid>
-        
-        
+
+
         <Grid x:Name="StatusBar" 
                   Grid.Row="3" d:IsLocked="True">
             <Grid.ColumnDefinitions  >
@@ -211,5 +210,12 @@
                            d:IsLocked="True"/>
             </StackPanel>
         </Grid>
+
+            <ScrollViewer  x:Name="Test" Grid.Row="4" VerticalScrollBarVisibility="Auto" Height="62" >
+                <TextBlock   TextWrapping="WrapWithOverflow" Text="{Binding Path=Test}" Height="{Binding Row04}" />
+            </ScrollViewer>
+
+
+
     </Grid>
 </Window>

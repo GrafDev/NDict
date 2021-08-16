@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NDict.ViewModels
 {
-    internal abstract class BaseViewModel : INotifyPropertyChanged, IDisposable
+    internal abstract class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -25,16 +25,7 @@ namespace NDict.ViewModels
             return true;
 
         }
-        public void Dispose()
-        {
-            Dispose(true);
-        }
-        private bool Disposed;
-        protected virtual void Dispose(bool _disposing)
-        {
-            if (!_disposing || Disposed) return;
-            Disposed = true;
-        }
+
 
     }
 }

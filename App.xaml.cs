@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using NDict.ViewModels;
 
 namespace NDict
 {
@@ -13,5 +14,6 @@ namespace NDict
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }
