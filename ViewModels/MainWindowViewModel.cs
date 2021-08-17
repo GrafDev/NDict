@@ -28,22 +28,22 @@ namespace NDict.ViewModels
         public string labelSecondWordOfQuestion { get => _LabelSecondWordOfQuestion; set => Set(ref _LabelSecondWordOfQuestion, value); }
         #endregion
         #region Text of Button of Answers
-        private string _Button01 = "Button1";
+        private string _Button01 = "";
         public string Text_Button01 { get => _Button01; set => Set(ref _Button01, value); }
 
-        private string _Button02 = "Button2 jxtym lkbyyjfz cnhjrf nsdkjasldkjfa;slkdaslkdal";
+        private string _Button02 = "";
         public string Text_Button02 { get => _Button02; set => Set(ref _Button02, value); }
 
-        private string _Button03 = "Button3";
+        private string _Button03 = "";
         public string Text_Button03 { get => _Button03; set => Set(ref _Button03, value); }
 
-        private string _Button04 = "Button4";
+        private string _Button04 = "";
         public string Text_Button04 { get => _Button04; set => Set(ref _Button04, value); }
 
-        private string _Button05 = "Button5";
+        private string _Button05 = "";
         public string Text_Button05 { get => _Button05; set => Set(ref _Button05, value); }
 
-        private string _Button06 = "Button6";
+        private string _Button06 = "";
         public string Text_Button06 { get => _Button06; set => Set(ref _Button06, value); }
         #endregion
         #region Text of Button of Menu
@@ -78,7 +78,14 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
-            Test = Utils.ConvertArrayToString(Dictionary.dictionaryFromFile);
+            Knobs.SetKnobs();
+            Text_Button01 = Knobs.Text[0];
+            Text_Button02 = Knobs.Text[1];
+            Text_Button03 = Knobs.Text[2];
+            Text_Button04 = Knobs.Text[3];
+            Text_Button05 = Knobs.Text[4];
+            Text_Button06 = Knobs.Text[5];
+            //Test = Dictionary.TestOfArray;
         }
     }
 }
