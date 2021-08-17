@@ -5,6 +5,7 @@ using System.Windows.Input;
 using NDict.Infrastructure.Commands;
 using NDict.Models;
 using System.Windows;
+using NDict.Services;
 
 
 namespace NDict.ViewModels
@@ -77,7 +78,7 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
-            Test = Dictionary.title;
+            Test = Utils.ConvertArrayToString(Dictionary.dictionaryFromFile);
         }
     }
 }

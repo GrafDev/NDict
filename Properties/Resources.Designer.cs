@@ -82,9 +82,29 @@ namespace NDict.Properties {
         ///18*abuse*злоупотреблять
         ///19*abuse [остаток строки не уместился]&quot;;.
         /// </summary>
-        internal static string NDict {
+        internal static string NDict_Dictionary {
             get {
-                return ResourceManager.GetString("NDict", resourceCulture);
+                return ResourceManager.GetString("NDict_Dictionary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] NDictIcon {
+            get {
+                object obj = ResourceManager.GetObject("NDictIcon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] NDictPNGIcon {
+            get {
+                object obj = ResourceManager.GetObject("NDictPNGIcon", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:NDict.ViewModels"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" MinHeight="450" MinWidth="250" Height="800" Width="400" >
+        Title="{Binding Path=Title}" MinHeight="450" MinWidth="250" Height="500" Width="400" >
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -19,7 +19,7 @@
             <RowDefinition  Height="6*" MinHeight="180"/>
             <RowDefinition  Height="1.5*" MinHeight="45"/>
             <RowDefinition  Height="20" />
-            <RowDefinition x:Name="Row04" Height="7*" MinHeight="45"/>
+            <!--<RowDefinition x:Name="Row04" Height="7*" MinHeight="45"/>-->
         </Grid.RowDefinitions>
         <Grid x:Name="Question"
               Grid.Row="0" d:IsLocked="True" >
@@ -210,10 +210,12 @@
                            d:IsLocked="True"/>
             </StackPanel>
         </Grid>
-
-            <ScrollViewer  x:Name="Test" Grid.Row="4" VerticalScrollBarVisibility="Auto" Height="62" >
+        <!--<Grid x:Name="Test" Grid.Row="4" Margin="5">
+           <ScrollViewer   VerticalScrollBarVisibility="Auto" >
                 <TextBlock   TextWrapping="WrapWithOverflow" Text="{Binding Path=Test}" Height="{Binding Row04}" />
-            </ScrollViewer>
+            </ScrollViewer> 
+        </Grid>-->
+            
 
 
 
