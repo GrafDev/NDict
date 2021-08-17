@@ -78,7 +78,6 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
-            Knobs.SetKnobs();
             Text_Button01 = Knobs.Text[0];
             Text_Button02 = Knobs.Text[1];
             Text_Button03 = Knobs.Text[2];

@@ -11,14 +11,20 @@ namespace NDict.Models
         static private bool Firstlanguage = true;
         public static string[] Text { get => _text; set => _text = value; }
 
+        static internal void Loaded()
+        {
+            SetKnobs();
+        }
         static internal void SetKnobs()
         {
             int i = 0;
-            foreach (Word word in Dictionary.allLearningWords)
+            while (i < countOfKnobs)
             {
-                _text[i] = Firstlanguage ? word.Language1: word.Language2;
+                
+                _text[i] =( i * 10).ToString();
                 i++;
             }
+            _text[0] = Dictionary.allLearningWords[0].ToString();
         }
     }
 }
