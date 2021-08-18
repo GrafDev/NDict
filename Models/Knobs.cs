@@ -13,18 +13,16 @@ namespace NDict.Models
 
         static internal void Loaded()
         {
-            SetKnobs();
+            SetWordsForKnobs();
         }
-        static internal void SetKnobs()
+        static internal void SetWordsForKnobs()
         {
             int i = 0;
             while (i < countOfKnobs)
             {
-                
-                _text[i] =( i * 10).ToString();
+                 _text[i] = Firstlanguage? Dictionary.allLearningWords[i].Language1.ToString(): Dictionary.allLearningWords[i].Language2.ToString();
                 i++;
             }
-            _text[0] = Dictionary.allLearningWords[0].ToString();
         }
     }
 }

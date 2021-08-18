@@ -12,13 +12,13 @@ namespace NDict.Models
         static public string title;
         static public string[] dictionaryFromFile;
         static public int CountOfAllWords;
-        static public Word[] allLearningWords;
+        static public List<Word> allLearningWords;
         static public string TestOfArray;
 
         static internal void Loaded()
         {
-
-           GetDictionaryFromResouce();
+            allLearningWords = new List<Word>();
+            GetDictionaryFromResouce();
             
         }
         static private void GetDictionaryFromResouce()
@@ -42,19 +42,17 @@ namespace NDict.Models
         }        
          static private void SetArrayOfWords(string[] _dictionary)
         {
-            int i= 0;
+
             foreach (string str in _dictionary)
             {                
-                var word = new Word();
-                allLearningWords = new Word[CountOfAllWords];
+                var word = new Word();                
                 var tempString = str.Split(new string[] { "*" }, StringSplitOptions.RemoveEmptyEntries);
                 word.Id = Convert.ToInt32(tempString[0]);
                 word.Language1 = tempString[1];
                 word.Language2 = tempString[2];
-                allLearningWords[i]=word;
-                i++;
+                allLearningWords.Add(word);
                 //TestOfArray = Utils.ConvertArrayOfWordToString(allLearningWords);
-                TestOfArray = allLearningWords.Length.ToString();
+                TestOfArray = allLearningWords.Count.ToString();
             }
         }
 

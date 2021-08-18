@@ -18,6 +18,18 @@ namespace NDict.ViewModels
         /// <summary> Title window </summary>
         public string Title{ get => _Title; set => Set(ref _Title, value); }
         #endregion
+        #region Text of Button of Menu
+
+        private string _Button_Play = "Play";
+        public string Text_Button_Play { get => _Button_Play; set => Set(ref _Button_Play, value); }
+
+
+        private string _Button_Profile = "Profile yakovlev gregory";
+        public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
+
+        private string _Button_Func = "Close";
+        public string Text_Button_Func { get => _Button_Func; set => Set(ref _Button_Func, value); }
+        #endregion
         #region Labels for Question
         private string _LabelFirstWordOfQuestion = "FirstQuestion";
         /// <summary> First word question</summary>
@@ -46,16 +58,7 @@ namespace NDict.ViewModels
         private string _Button06 = "";
         public string Text_Button06 { get => _Button06; set => Set(ref _Button06, value); }
         #endregion
-        #region Text of Button of Menu
-        private string _Button_Train="Train";
-        public string Text_Button_Train { get => _Button_Train; set => Set(ref _Button_Train, value); }
-
-        private string _Button_Play="Play";
-        public string Text_Button_Play { get => _Button_Play; set => Set(ref _Button_Play, value); }
-
-        private string _Button_Func="Close";
-        public string Text_Button_Func { get => _Button_Func; set => Set(ref _Button_Func, value); }
-        #endregion
+       
         #region StatusBar
 
         private int _CountOfAllWords = 0;

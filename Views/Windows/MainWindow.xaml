@@ -8,21 +8,69 @@
         xmlns:vm="clr-namespace:NDict.ViewModels"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" MinHeight="450" MinWidth="250" Height="500" Width="400" >
+        Title="{Binding Path=Title}" MinHeight="450" MinWidth="300" Height="500" Width="400" >
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Grid d:IsLocked="True">
 
         <Grid.RowDefinitions>
+            <RowDefinition  Height="45" />
             <RowDefinition  Height="2*" MinHeight="60"/>
             <RowDefinition  Height="6*" MinHeight="180"/>
-            <RowDefinition  Height="1.5*" MinHeight="45"/>
             <RowDefinition  Height="20" />
             <!--<RowDefinition x:Name="Row04" Height="7*" MinHeight="45"/>-->
         </Grid.RowDefinitions>
+        <Grid x:Name="Row_Menu" 
+              Grid.Row="0" 
+              MinHeight="45">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_Play"
+                    Margin="15,5,5,5"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    Height="{Binding Row_Menu}">
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Text_Button_Play}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="Button_Profile"
+                    Margin="5,5,5,5"
+                    Height="{Binding Row_Menu}"
+                    Grid.Column="1" 
+                    Width="Auto">
+                <Button.Content>
+                    <Viewbox Height="Auto"  >
+                        <TextBlock Text="{Binding Text_Button_Profile}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+        
+        <Button x:Name="Button_Close"
+                    Margin="5,5,15,5"
+                    Grid.Column="2"
+                    Height="{Binding Row_Menu}"
+                    HorizontalAlignment="Right">
+            <Button.Command>
+                <cmd:CloseApplicationCommand/>
+            </Button.Command>
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock Text="{Binding Text_Button_Func}" FontSize="20"/>
+                </Viewbox>
+            </Button.Content>
+        </Button>
+        </Grid>
+
         <Grid x:Name="Question"
-              Grid.Row="0" d:IsLocked="True" >
+              Grid.Row="1" d:IsLocked="True" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -50,7 +98,8 @@
             </Label>
         </Grid>
         <Grid x:Name="Grid_Answers"
-              Grid.Row="1" d:IsLocked="True">
+              Grid.Row="2" 
+              d:IsLocked="True">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="Row_Answer_01" Height="2*"/>
                 <RowDefinition x:Name="Row_Answer_02" Height="2*"/>
@@ -120,55 +169,9 @@
                 </Button.Content>
             </Button>
         </Grid>
-        <Grid x:Name="Menu" 
-                      Grid.Row="2" d:IsLocked="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="Button_Train"
-                    Margin="15,15,15,15"
-                    Grid.Column="0"
-                    Height="{Binding Row_Menu}"
-                    HorizontalAlignment="Right">
-                <Button.Content>
-                    <Viewbox Height="Auto">
-                        <TextBlock Text="{Binding Text_Button_Train}"/>
-                    </Viewbox>
-                </Button.Content>
-            </Button>
-            <Button x:Name="Button_Play"
-                    Margin="15,15,15,15"
-                Grid.Column="1" 
-                Height="{Binding Row_Menu}" 
-                HorizontalAlignment="Center">
-
-                <Button.Content>
-                    <Viewbox Height="Auto">
-                        <TextBlock Text="{Binding Text_Button_Play}"/>
-                    </Viewbox>
-                </Button.Content>
-            </Button>
-            <Button x:Name="Button_Close"
-                    Margin="15,15,15,15"
-                Grid.Column="2" 
-                Height="{Binding Row_Menu}"
-                HorizontalAlignment="Left">
-                <Button.Command>
-                    <cmd:CloseApplicationCommand/>
-                </Button.Command>
-                <Button.Content>
-                    <Viewbox Height="Auto" Width="Auto">
-                        <TextBlock Text="{Binding Path=Text_Button_Func}"/>
-                    </Viewbox>
-                </Button.Content>
-            </Button>
-        </Grid>
-
-
         <Grid x:Name="StatusBar" 
-                  Grid.Row="3" d:IsLocked="True">
+              Grid.Row="3" 
+              d:IsLocked="True">
             <Grid.ColumnDefinitions  >
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition />
@@ -215,7 +218,7 @@
                 <TextBlock   TextWrapping="WrapWithOverflow" Text="{Binding Path=Test}" Height="{Binding Row04}" />
             </ScrollViewer> 
         </Grid>-->
-            
+
 
 
 
