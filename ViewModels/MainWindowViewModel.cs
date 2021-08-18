@@ -20,11 +20,11 @@ namespace NDict.ViewModels
         #endregion
         #region Text of Button of Menu
 
-        private string _Button_Play = "Play";
+        private string _Button_Play = "Play ";
         public string Text_Button_Play { get => _Button_Play; set => Set(ref _Button_Play, value); }
 
 
-        private string _Button_Profile = "Profile yakovlev gregory";
+        private string _Button_Profile = "Select Profile";
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
 
         private string _Button_Func = "Close";
