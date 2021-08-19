@@ -8,7 +8,7 @@
         xmlns:vm="clr-namespace:NDict.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" MinHeight="450" MinWidth="300" Height="500" Width="400" >
+        Title="{Binding Path=Title}" MinHeight="450" MinWidth="300" Height="500" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" >
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -16,13 +16,19 @@
     <Grid d:IsLocked="True">
 
         <Grid.RowDefinitions>
+            <RowDefinition x:Name="Row_Title" Height="20"/>
             <RowDefinition x:Name="Row_Menu" Height="0.7*" MinHeight="45"/>
             <RowDefinition x:Name="Row_Question" Height="2*" MinHeight="60"/>
             <RowDefinition x:Name="Row_Answer" Height="6*" MinHeight="180"/>
             <RowDefinition x:Name="Row_StatusBar" Height="20" />
         </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Viewbox Height="Auto">
+                <TextBlock Text="{Binding Path=Title}"/>
+            </Viewbox>
+        </Grid>
         <Grid x:Name="Menu" 
-              Grid.Row="0" 
+              Grid.Row="1" 
               MinHeight="45"
               d:IsLocked="True">
             <Grid.ColumnDefinitions>
@@ -81,7 +87,7 @@
         </Grid>
 
         <Grid x:Name="Question"
-              Grid.Row="1" d:IsLocked="True" >
+              Grid.Row="2" d:IsLocked="True" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -109,7 +115,7 @@
             </Label>
         </Grid>
         <Grid x:Name="Grid_Answers"
-              Grid.Row="2" 
+              Grid.Row="3" 
               d:IsLocked="True">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="Row_Answer_01" Height="2*"/>
@@ -181,7 +187,7 @@
             </Button>
         </Grid>
         <Grid x:Name="StatusBar" 
-              Grid.Row="3" 
+              Grid.Row="4" 
               d:IsLocked="True">
             <Grid.ColumnDefinitions  >
                 <ColumnDefinition Width="Auto"/>
