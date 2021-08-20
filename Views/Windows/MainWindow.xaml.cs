@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NDict.ViewModels;
 using NDict.Models;
+using NDict.Services;
 
 namespace NDict
 {
@@ -26,6 +27,7 @@ namespace NDict
         {
             Dictionary.Loaded();
             Knobs.Loaded();
+            ApplicationContext db;
             InitializeComponent();
         }
     }
