@@ -11,7 +11,7 @@
     <Window.DataContext>
         <vm:UsersWindowViewModel/>
     </Window.DataContext>
-    <Grid >        
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -22,67 +22,70 @@
         </Grid.RowDefinitions>
         <Grid >
             <StackPanel Orientation="Vertical">
-               <TextBox x:Name="Name_Of_User"
-                 Grid.Row="0" 
-                 Grid.Column="0"                  
-                 Height="Auto"                  
-                 BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
-                 Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
-                 BorderThickness="1"
-                 Margin="5"
-                 /> 
-                <DockPanel LastChildFill="True" Margin="5,5,0,0">
-                         <Label Content="Choose the difficult" 
-                                VerticalContentAlignment="Center"/>              
+                <Label x:Name="Selected_User"                        
+                      Height="Auto" 
+                      FontSize="15"
+                      FontWeight="Bold"                
+                      Margin="5,5,5,5"
+                      Content="{Binding Path=Text_Select_User}"
+                 />
+                <DockPanel LastChildFill="True" Margin="5,15,15,0">
+                    <Label Content="Difficult" 
+                                VerticalContentAlignment="Center"
+                                />
 
-                    <TextBox DockPanel.Dock="Right" 
+                    <Label DockPanel.Dock="Right" 
                              Width="Auto"
                              Margin="0,0,5,0"
                              VerticalContentAlignment="Center" 
-                             HorizontalContentAlignment="Right"
+                             HorizontalContentAlignment="Left"
                              FontSize="15"
                              FontWeight="Bold"
                              Background="{x:Null}" 
                              BorderBrush="{x:Null}"
-                             Text="{Binding ElementName=Difficult, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
+                             Content="{Binding ElementName=Difficult, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
                 </DockPanel>
                 <Slider x:Name="Difficult" Height="Auto" 
                      Maximum="10"
                      Minimum="1"
+                        MinHeight="40"
                      VerticalAlignment="Stretch" 
                      TickFrequency="1"
                      TickPlacement="BottomRight"
                      IsSnapToTickEnabled="True"
                      IsSelectionRangeEnabled="True"
-                     Margin="5"/>
-            <Label Content="Choose type of game" 
+                     Margin="20,15,15,15"/>
+                <Label Content="Choose type of game" 
                    VerticalAlignment="Top"
                    Margin="5,5,0,0"/>
-            <RadioButton Content="Train"
-                         Margin="5" IsChecked="True"
+                <StackPanel Orientation="Vertical" Margin="15,5,15,5">
+                    <RadioButton Content="Train"
+                          IsChecked="True"
+                                 Margin="0"
                          />
-            <RadioButton Content="Play"
-                         Margin="5"/>
-            </StackPanel> 
+                    <RadioButton Content="Play"
+                                 Margin="0,5"
+                         />
+                </StackPanel>
+
+            </StackPanel>
         </Grid>
-        
-          
-            <Button x:Name="Button_Ok" 
+        <Button x:Name="Button_Ok" 
                     Grid.Column="0"
                     Grid.Row="1"
                     Cursor="Hand" 
                     HorizontalAlignment="Center" 
                     Margin="0,0,15,0"
                     >
-                <Button.Command>
-                    <cmd:CloseProfileCommand/>
-                </Button.Command>
-                <Button.Content>
-                    <Viewbox Height="Auto">
-                        <TextBlock Text="{Binding Text_Button_Ok}"/>
-                    </Viewbox>
-                </Button.Content>                
-            </Button>
+            <Button.Command>
+                <cmd:CloseProfileCommand/>
+            </Button.Command>
+            <Button.Content>
+                <Viewbox Height="Auto">
+                    <TextBlock Text="{Binding Text_Button_Ok}"/>
+                </Viewbox>
+            </Button.Content>
+        </Button>
         <StackPanel Grid.Column="1"
                    Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="Button_Add"
@@ -112,20 +115,32 @@
                 </Button.Content>
             </Button>
         </StackPanel>
-        <ListBox x:Name="List_Of_Users"
-            Grid.Column="1"                  
-                 HorizontalAlignment="Stretch" 
+        <DockPanel Grid.Column="1" 
+                   LastChildFill="True">
+
+            <TextBox x:Name="Add_User"
+                     DockPanel.Dock="Bottom"                 
+                     Height="Auto"                 
+                     BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"                 
+                     Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"                 
+                     BorderThickness="1"                 
+                     Margin="5"
+                 />
+            <ListBox x:Name="List_Of_Users"                              
                  Margin="5,5,5,5"
-                 ScrollViewer.HorizontalScrollBarVisibility="Hidden" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                     Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
                  BorderThickness="1"
                  >
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Name}" />
-                </DataTemplate>
-            </ListBox.ItemTemplate> />
-        </ListBox>
-        
-        
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate> />
+            </ListBox>
+        </DockPanel>
+
+
+
     </Grid>
 </Window>
