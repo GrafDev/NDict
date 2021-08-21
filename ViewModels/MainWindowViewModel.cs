@@ -81,6 +81,7 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
+            Text_Button_Profile = $"{Player.User.Name} {Player.User.Difficult.ToString()}";
             Text_Button01 = Knobs.Text[0];
             Text_Button02 = Knobs.Text[1];
             Text_Button03 = Knobs.Text[2];
@@ -89,5 +90,6 @@ namespace NDict.ViewModels
             Text_Button06 = Knobs.Text[5];
             //Test = Dictionary.TestOfArray;
         }
+
     }
 }

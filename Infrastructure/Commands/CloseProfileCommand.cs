@@ -4,6 +4,8 @@ using System.Text;
 using NDict.Infrastructure.Commands.Base;
 using NDict.Infrastructure;
 using System.Windows;
+using NDict.Views.Windows;
+using NDict.Models;
 
 namespace NDict.Infrastructure.Commands
 {
@@ -12,13 +14,12 @@ namespace NDict.Infrastructure.Commands
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
-            Window _window;
-            if (parameter is Window)
+            foreach (Window window in App.Current.Windows)
             {
-                _window= (Window)parameter;
-                _window.Close();                
+                if (window is UsersWindow)
+                    window.Close();
+                //ЗАписать все изменения в базу данных юзеров
             }
-
         }
     }
 }

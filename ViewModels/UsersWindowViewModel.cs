@@ -31,8 +31,7 @@ namespace NDict.ViewModels
 
         public UsersWindowViewModel() 
         {
-
-            
+            Player.User.Name = $"{Text_Select_User}";
         }
 
     }

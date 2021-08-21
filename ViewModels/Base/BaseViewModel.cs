@@ -23,7 +23,6 @@ namespace NDict.ViewModels
             field = value;
             OnPropertyChanged(propertyName);
             return true;
-
         }
 
 

@@ -7,10 +7,10 @@ namespace NDict.Models
     class User
     {
         int Id { get; set; }
-        string Name { get; set; }
-        int[] LearningWords { get; set; }
-        int[] LearnedWords { get; set; }
-        int Difficult { get; set; }
+        internal string Name { get; set; }
+        internal int[] LearningWords { get; set; }
+        internal int[] LearnedWords { get; set; }
+        internal int Difficult { get; set; }
         public User() { } 
 
         public User(string _name, int _difficult)
