@@ -24,7 +24,7 @@ namespace NDict.ViewModels
         public string Text_Button_Play { get => _Button_Play; set => Set(ref _Button_Play, value); }
 
 
-        private string _Button_Profile = "Select Profile";
+        private string _Button_Profile = Player.Current.Name;
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
 
         private string _Button_Func = "Close";
@@ -81,7 +81,6 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
-            Text_Button_Profile = $"{Player.User.Name} {Player.User.Difficult.ToString()}";
             Text_Button01 = Knobs.Text[0];
             Text_Button02 = Knobs.Text[1];
             Text_Button03 = Knobs.Text[2];

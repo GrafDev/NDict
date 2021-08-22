@@ -6,8 +6,8 @@ namespace NDict.Models
 {
     static class Player
     {
-        static User user = new User();
+        static User _current = new User();
 
-        internal static User User { get => user; set => user = value; }
+        internal static User Current { get => _current; set => _current = value; }
     }
 }
