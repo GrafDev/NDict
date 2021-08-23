@@ -19,4 +19,6 @@ namespace NDict.Infrastructure.Commands
 
         public override void Execute(object parameter) => _Execute(parameter);
     }
+
+
 }

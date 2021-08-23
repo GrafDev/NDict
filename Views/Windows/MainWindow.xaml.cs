@@ -30,6 +30,9 @@ namespace NDict
             ApplicationContext db;
             InitializeComponent();
         }
-
+        private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

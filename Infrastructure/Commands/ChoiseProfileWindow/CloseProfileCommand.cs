@@ -7,7 +7,7 @@ using System.Windows;
 using NDict.Views.Windows;
 using NDict.Models;
 
-namespace NDict.Infrastructure.Commands
+namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
 {
     class CloseProfileCommand: Command
     {
