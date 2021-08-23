@@ -16,7 +16,8 @@ namespace NDict.Infrastructure.Commands
             userWindow = new UsersWindow();
             userWindow.Owner= NDict.App.Current.MainWindow;
             userWindow.Show();
-            userWindow.Activate();           
+            userWindow.Activate();
+            NDict.App.Current.MainWindow.IsEnabled = false;
         }
     }
 }

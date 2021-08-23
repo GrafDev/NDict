@@ -7,11 +7,16 @@
         xmlns:vm="clr-namespace:NDict.ViewModels"
         xmlns:local="clr-namespace:NDict.Views.Windows"
         mc:Ignorable="d"
-        Title="UsersWindow" Height="300" Width="400" WindowStartupLocation="CenterOwner" WindowStyle="None" Padding="15" MinHeight="400" MinWidth="400" MaxWidth="400">
+        Title="UsersWindow" Height="300" Width="500" WindowStartupLocation="CenterOwner" Padding="15" MinHeight="400" MinWidth="400" WindowStyle="None" ShowInTaskbar="False" Background="{x:Null}" AllowsTransparency="True" ResizeMode="CanResizeWithGrip"  >
     <Window.DataContext>
         <vm:UsersWindowViewModel/>
     </Window.DataContext>
-    <Grid >
+    <Border Width="Auto" Height="Auto" Name="windowFrame"
+    
+          BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
+          BorderThickness="1"
+          CornerRadius="5,5,5,5" AllowDrop="True" Background="{DynamicResource MaterialDesignBackground}" >
+        <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
@@ -28,8 +33,9 @@
                       FontWeight="Bold"                
                       Margin="5,5,5,5"
                       Content="{Binding Path=Text_Select_User}"
-                 />
-                <DockPanel LastChildFill="True" Margin="5,15,15,0">
+                 >
+                    </Label>
+                    <DockPanel LastChildFill="True" Margin="5,15,15,0">
                     <Label Content="Difficult" 
                                 VerticalContentAlignment="Center"
                                 />
@@ -142,5 +148,6 @@
 
 
 
-    </Grid>
+        </Grid>
+    </Border>
 </Window>
