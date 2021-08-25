@@ -27,7 +27,6 @@ namespace NDict
         {
             Dictionary.Loaded();
             Knobs.Loaded();
-            ApplicationContext db;
             InitializeComponent();
         }
         private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
