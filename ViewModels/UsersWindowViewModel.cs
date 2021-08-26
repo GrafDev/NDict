@@ -37,10 +37,10 @@ namespace NDict.ViewModels
 
             //// Create
 
-            using (var _user = new User();)
+            var _user = new User();
 {
-                _user.Name = "Пкфа1";
-                _user.Difficult = 1;
+                _user.Name = "Пкфа2";
+                _user.Difficult = 2;
                 db.Add(_user);
 
                 db.SaveChanges();
@@ -53,7 +53,7 @@ namespace NDict.ViewModels
                     .OrderBy(b => b.Name)
                     .First();
             // Update
-            user.Name = "Pola";
+            user.Name = "555";
             //user.LearningWords.Add(new int { Title = "Hello World", Content = "I wrote an app using EF Core!" });
             db.SaveChanges();
 
