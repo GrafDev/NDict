@@ -22,7 +22,7 @@ namespace NDict.Services
             string str = "";
             foreach (Word name in names)
             {
-                str = str + ($"ID {name.Id .ToString()}, ENG- {name.Language1}, RUS- {name.Language2}  \n");
+                str = str + ($"ID {name.Id .ToString()}, ENG- {name.Language01}, RUS- {name.Language02}  \n");
             }
             return str;
         }

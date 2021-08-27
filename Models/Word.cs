@@ -4,14 +4,13 @@ using System.Text;
 
 namespace NDict.Models
 {
-    internal class Word
+    public class Word
     {
-        private int _id;
-        private string _language1;
-        private string _language2;
-
-        public int Id { get => _id; set => _id = value; }
-        public string Language1 { get => _language1; set => _language1 = value; }
-        public string Language2 { get => _language2; set => _language2 = value; }
+        private int id;
+        private string language01;
+        private string language02;
+        public int Id { get => id; set => id = Convert.ToInt32(value); }
+        public string Language01 { get => language01; set => language01 = value; }
+        public string Language02 { get => language02; set => language02 = value; }
     }
 }

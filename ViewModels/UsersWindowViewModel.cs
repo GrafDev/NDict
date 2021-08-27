@@ -32,37 +32,6 @@ namespace NDict.ViewModels
 
         public UsersWindowViewModel()
         {
-            var db = new ApplicationContext();
-
-
-            //// Create
-
-            using (var _user = new User();)
-{
-                _user.Name = "Пкфа1";
-                _user.Difficult = 1;
-                db.Add(_user);
-
-                db.SaveChanges();
-            }
-
-
-
-            // Read
-            var user = db.Users
-                    .OrderBy(b => b.Name)
-                    .First();
-            // Update
-            user.Name = "Pola";
-            //user.LearningWords.Add(new int { Title = "Hello World", Content = "I wrote an app using EF Core!" });
-            db.SaveChanges();
-
-            // Delete
-            //Console.WriteLine("Delete the blog");
-            //db.Remove(user);
-            //db.SaveChanges();
-
-
         }
 
     }
