@@ -81,12 +81,12 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
-            //Text_Button01 = Knobs.Text[0];
-            //Text_Button02 = Knobs.Text[1];
-            //Text_Button03 = Knobs.Text[2];
-            //Text_Button04 = Knobs.Text[3];
-            //Text_Button05 = Knobs.Text[4];
-            //Text_Button06 = Knobs.Text[5];
+            Text_Button01 = Knobs.Text[0];
+            Text_Button02 = Knobs.Text[1];
+            Text_Button03 = Knobs.Text[2];
+            Text_Button04 = Knobs.Text[3];
+            Text_Button05 = Knobs.Text[4];
+            Text_Button06 = Knobs.Text[5];
             //Test = Dictionary.TestOfArray;
         }
 
