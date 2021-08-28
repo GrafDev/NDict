@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using NDict.ViewModels;
 using NDict.Models;
 using NDict.Services;
+using NDict.Views.Windows;
 
 namespace NDict
 {
@@ -25,13 +26,30 @@ namespace NDict
     {
         public MainWindow()
         {
-            Dictionary.Loaded();
-            Knobs.Loaded();
+            Test();
+            //Dictionary.Loaded();
+            //Knobs.Loaded();
             InitializeComponent();
+
         }
+
         private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
+
+        void Test()
+        {
+            TestWindow testWindow;
+            Dictionary.Loaded();            
+            //Knobs.Loaded();
+            testWindow = new TestWindow();
+            testWindow.Show();
+            testWindow.Activate();
+            var testViewModel = new TestViewModel();
+            testViewModel.TestBlock = Dictionary.Words.Count.ToString();
+
+        }
+
     }
 }

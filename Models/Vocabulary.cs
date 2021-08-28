@@ -23,7 +23,10 @@ namespace NDict.Models
 
         public Vocabulary()
         {
-            LoadXML();
+            if (!loaded)
+            {
+                LoadXML();
+            }
         }
 
         private void LoadXML()
