@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NDict.ViewModels
 {
-    internal abstract class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Xml.Serialization;
+using NDict.ViewModels;
 
 namespace NDict.Models
 {
@@ -12,7 +13,6 @@ namespace NDict.Models
         private int countOfWords;
         private List<Word> words;
 
-        static private bool loaded=false;
         public string Title { get => title; set => title = value; }
         public int CountOfWords { get => countOfWords; set => countOfWords = value; }  
         public List<Word> Words { get => words; set => words = value; }
@@ -21,15 +21,14 @@ namespace NDict.Models
         XmlSerializer formatter = new XmlSerializer(typeof(Vocabulary));
         string nameOfFileXML = "NDict_Dictionary.xml";
 
-        public Vocabulary()
+        public Vocabulary() { }
+        public Vocabulary(TestViewModel _testVM)
         {
-            if (!loaded)
-            {
-                LoadXML();
-            }
+
+                LoadXML(_testVM);
         }
 
-        private void LoadXML()
+        private void LoadXML(TestViewModel testVM)
         {
             
             using (FileStream fs = new FileStream(nameOfFileXML, FileMode.OpenOrCreate))
@@ -44,20 +43,17 @@ namespace NDict.Models
                     title = newDict.Title;
                     countOfWords = newDict.CountOfWords;
                     words = newDict.Words;
-                    Console.WriteLine(str);
-                    Console.WriteLine("Vocabulary loaded");
-                    Console.WriteLine($"Name of dictionary: {newDict.Title}");
+                    str = str + $"Vocabulary loaded Name of dictionary: {newDict.Title}";
+                    testVM.TestBlock = str;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("Exception: " + e.Message);
+                    testVM.TestBlock =$"Exception: {e.Message}";
                 }
                 finally
                 {
 
-                    loaded = true;
-                    Console.WriteLine("");
-                    
+                    testVM.TestBlock = "";
                 }
 
             }

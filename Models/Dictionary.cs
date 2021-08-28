@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NDict.ViewModels;
+using NDict.Views.Windows;
 
 namespace NDict.Models
 {
@@ -14,10 +16,15 @@ namespace NDict.Models
 
         static public void Loaded()
         {
-            Vocabulary vocabulary = new Vocabulary();
+            var testWindow = new TestViewModel();
+            Vocabulary vocabulary = new Vocabulary(testWindow);
             title= vocabulary.Title;
             countOfWords=vocabulary.CountOfWords;
             Words = vocabulary.Words;
+           
+            testWindow.TestBlock = title;
         }
+
+
     }
 }

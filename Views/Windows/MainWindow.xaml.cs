@@ -47,7 +47,7 @@ namespace NDict
             testWindow.Show();
             testWindow.Activate();
             var testViewModel = new TestViewModel();
-            testViewModel.TestBlock = Dictionary.Words.Count.ToString();
+            //testViewModel.TestBlock = Dictionary.Words.Count.ToString();
 
         }
 
