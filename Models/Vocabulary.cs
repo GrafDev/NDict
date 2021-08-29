@@ -24,8 +24,8 @@ namespace NDict.Models
         public Vocabulary() { }
         public Vocabulary(TestViewModel _testVM)
         {
-
                 LoadXML(_testVM);
+            _testVM.TestBlock = "---";
         }
 
         private void LoadXML(TestViewModel testVM)
@@ -54,6 +54,7 @@ namespace NDict.Models
                 {
 
                     testVM.TestBlock = "";
+
                 }
 
             }

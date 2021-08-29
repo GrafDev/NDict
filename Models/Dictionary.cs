@@ -16,13 +16,14 @@ namespace NDict.Models
 
         static public void Loaded()
         {
-            var testWindow = new TestViewModel();
-            Vocabulary vocabulary = new Vocabulary(testWindow);
+            //var testWindow = new TestViewModel();
+            //testWindow.TestBlock = "1";
+            Vocabulary vocabulary = new Vocabulary();
             title= vocabulary.Title;
             countOfWords=vocabulary.CountOfWords;
             Words = vocabulary.Words;
            
-            testWindow.TestBlock = title;
+            //testWindow.TestBlock = title;
         }
 
 
