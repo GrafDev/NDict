@@ -26,7 +26,6 @@ namespace NDict
     {
         public MainWindow()
         {
-            Test();
             //Dictionary.Loaded();
             //Knobs.Loaded();
             InitializeComponent();
@@ -38,19 +37,7 @@ namespace NDict
             this.DragMove();
         }
 
-        void Test()
-        {
-            TestWindow testWindow;
-            Dictionary.Loaded();            
-            //Knobs.Loaded();
-            testWindow = new TestWindow();
-            testWindow.Show();
-            testWindow.Activate();
-            var testViewModel = new TestViewModel();
-            //TODO: неободимо решить как связать тестовое поле с другими данными (service)
-            //testViewModel.TestBlock = Dictionary.Words.Count.ToString();
 
-        }
 
     }
 }

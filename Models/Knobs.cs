@@ -17,8 +17,8 @@ namespace NDict.Models
             Firstlanguage = true;
             for (int i=1; i<countOfKnobs; i++)
             {
-                string tempStr= Dictionary.Words[0].Language01;
-                _text[0] = tempStr;
+                //string tempStr= Dictionary.Words[0].Language01;
+                //_text[0] = tempStr;
             }
 
         }
