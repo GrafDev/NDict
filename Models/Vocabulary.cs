@@ -21,14 +21,12 @@ namespace NDict.Models
         XmlSerializer formatter = new XmlSerializer(typeof(Vocabulary));
         string nameOfFileXML = "NDict_Dictionary.xml";
 
-        public Vocabulary() { }
-        public Vocabulary(TestViewModel _testVM)
+        public Vocabulary()
         {
-                LoadXML(_testVM);
-            _testVM.TestBlock = "---";
+                           
         }
 
-        private void LoadXML(TestViewModel testVM)
+        public void LoadXML()
         {
             
             using (FileStream fs = new FileStream(nameOfFileXML, FileMode.OpenOrCreate))
@@ -44,16 +42,16 @@ namespace NDict.Models
                     countOfWords = newDict.CountOfWords;
                     words = newDict.Words;
                     str = str + $"Vocabulary loaded Name of dictionary: {newDict.Title}";
-                    testVM.TestBlock = str;
+                    App.TestVM.TestBlock = str;
                 }
                 catch (Exception e)
                 {
-                    testVM.TestBlock =$"Exception: {e.Message}";
+                    App.TestVM.TestBlock = $"Exception: {e.Message}";
                 }
                 finally
                 {
 
-                    testVM.TestBlock = "";
+                    App.TestVM.TestBlock= "------";
 
                 }
 

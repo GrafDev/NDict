@@ -4,6 +4,7 @@ using System.Text;
 using NDict.Infrastructure.Commands.Base;
 using NDict.Views;
 using NDict.Views.Windows;
+
 namespace NDict.Infrastructure.Commands
 {
     class ProfileApplicationCommand : Command
@@ -17,7 +18,7 @@ namespace NDict.Infrastructure.Commands
             userWindow.Owner= NDict.App.Current.MainWindow;
             userWindow.Show();
             userWindow.Activate();
-            NDict.App.Current.MainWindow.IsEnabled = false;
+            App.Current.MainWindow.IsEnabled = false;
         }
     }
 }

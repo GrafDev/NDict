@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="{Binding Path=Title}" MinHeight="450" MinWidth="300" Height="500" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ShowInTaskbar="False" Background="{x:Null}" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
     <Window.DataContext>
-        <vm:MainWindowViewModel/>
+        <x:Static Member="local:App.MainVM"/>
     </Window.DataContext>
     <Border Width="Auto" Height="Auto" Name="windowFrame"
     

@@ -4,13 +4,14 @@ using System.Text;
 using System.Windows.Input;
 using NDict.Infrastructure.Commands;
 using NDict.Models;
+using NDict.Views.Windows;
 using System.Windows;
 using NDict.Services;
 
 
 namespace NDict.ViewModels
 {
-    internal class MainWindowViewModel:BaseViewModel
+    public class MainWindowViewModel:BaseViewModel
     {
         #region Title window
 
@@ -74,11 +75,8 @@ namespace NDict.ViewModels
         #endregion
 
 
-        #region Test
-        private string _Test = "Test";
-        /// <summary> Title window </summary>
-        public string Test { get => _Test; set => Set(ref _Test, value); }
-        #endregion
+
+
         public MainWindowViewModel()
         {
             //Text_Button01 = Knobs.Text[0];
@@ -89,6 +87,8 @@ namespace NDict.ViewModels
             //Text_Button06 = Knobs.Text[5];
             //Test = Dictionary.TestOfArray;
         }
+
+   
 
     }
 }

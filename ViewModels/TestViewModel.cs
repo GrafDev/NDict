@@ -12,7 +12,7 @@ namespace NDict.ViewModels
         public string TestBlock { get => _testBlock; set => Set(ref _testBlock, value); }
         #endregion
 
-        TestViewModel()
+        public TestViewModel()
         {
            
         }

@@ -21,5 +21,9 @@ namespace NDict.Views.Windows
         {
             InitializeComponent();
         }
+        private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

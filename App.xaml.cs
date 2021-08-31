@@ -16,23 +16,16 @@ namespace NDict
     /// </summary>
     public partial class App : Application
     {
-        App()
-        {
-            Test();
-            
-        }
-        void Test()
-        {
-            TestWindow testWindow;
-            Dictionary.Loaded();
-            ////Knobs.Loaded();
-            testWindow = new TestWindow();
-            testWindow.Show();
-            testWindow.Activate();
-            testWindow.Content = Dictionary.Words.ToString();
-            ////TODO: неободимо решить как связать тестовое поле с другими данными (service)
-            ////testViewModel.TestBlock = Dictionary.Words.Count.ToString();
 
-        }
+       public static MainWindowViewModel MainVM { get; }
+        public static UsersWindowViewModel UsersVM { get; }
+        public static TestViewModel TestVM { get;  }
+        static App()
+        {
+            MainVM = new MainWindowViewModel();
+            UsersVM = new UsersWindowViewModel();
+            TestVM = new TestViewModel();
+            NDictionary.Loaded();
+        }        
     }
 }

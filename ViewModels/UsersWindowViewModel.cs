@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace NDict.ViewModels
 {
-    class UsersWindowViewModel : BaseViewModel
+    public class UsersWindowViewModel : BaseViewModel
     {
 
         #region Text of Button of User

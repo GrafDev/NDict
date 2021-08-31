@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands.ChoiseProfileWindow"
         xmlns:vm="clr-namespace:NDict.ViewModels"        
-        xmlns:local="clr-namespace:NDict.Views.Windows"
+        xmlns:local="clr-namespace:NDict"
+        xmlns:localvm="clr-namespace:NDict.Views.Windows"
         mc:Ignorable="d"
         Title="UsersWindow" Height="300" Width="500" WindowStartupLocation="CenterOwner" Padding="15" MinHeight="400" MinWidth="520" WindowStyle="None" ShowInTaskbar="False" Background="{x:Null}" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
     <Window.DataContext>
-        <vm:UsersWindowViewModel/>
+        <x:Static Member="local:App.UsersVM"/>
     </Window.DataContext>
     <Border MinWidth="520" Width="Auto" Height="Auto" Name="windowFrame"
             BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"          
@@ -18,8 +19,8 @@
             AllowDrop="True" 
             Background="{DynamicResource MaterialDesignBackground}"
             MouseLeftButtonDown="titleBar_MouseLeftButtonDown">
-        
-            <DockPanel LastChildFill="True" >
+
+        <DockPanel LastChildFill="True" >
             <Grid x:Name="Info_Block" 
                   DockPanel.Dock="Left" 
                   Width="250">
@@ -28,20 +29,20 @@
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Vertical" Grid.Row="0">
-                        <Label x:Name="Selected_User"                        
+                    <Label x:Name="Selected_User"                        
                       Height="Auto" 
                       FontSize="15"
                       FontWeight="Bold"                
                       Margin="5,5,5,5"
                       Content="{Binding Path=Text_Select_User}"
                  >
-                        </Label>
-                        <DockPanel LastChildFill="True" Margin="5,15,15,0">
-                            <Label Content="Difficult" 
+                    </Label>
+                    <DockPanel LastChildFill="True" Margin="5,15,15,0">
+                        <Label Content="Difficult" 
                                 VerticalContentAlignment="Center"
                                 />
 
-                            <Label DockPanel.Dock="Right" 
+                        <Label DockPanel.Dock="Right" 
                              Width="Auto"
                              Margin="0,0,5,0"
                              VerticalContentAlignment="Center" 
@@ -51,8 +52,8 @@
                              Background="{x:Null}" 
                              BorderBrush="{x:Null}"
                              Content="{Binding ElementName=Difficult, Path=Value, UpdateSourceTrigger=PropertyChanged}"/>
-                        </DockPanel>
-                        <Slider x:Name="Difficult" Height="Auto" 
+                    </DockPanel>
+                    <Slider x:Name="Difficult" Height="Auto" 
                      Maximum="10"
                      Minimum="1"
                         MinHeight="40"
@@ -62,20 +63,20 @@
                      IsSnapToTickEnabled="True"
                      IsSelectionRangeEnabled="True"
                      Margin="20,15,15,15"/>
-                        <Label Content="Choose type of game" 
+                    <Label Content="Choose type of game" 
                    VerticalAlignment="Top"
                    Margin="5,5,0,0"/>
-                        <StackPanel Orientation="Vertical" Margin="15,5,15,5">
-                            <RadioButton Content="Train"
+                    <StackPanel Orientation="Vertical" Margin="15,5,15,5">
+                        <RadioButton Content="Train"
                           IsChecked="True"
                                  Margin="0"
                          />
-                            <RadioButton Content="Play"
+                        <RadioButton Content="Play"
                                  Margin="0,5"
                          />
-                        </StackPanel>
-
                     </StackPanel>
+
+                </StackPanel>
                 <Button x:Name="Button_Ok"                     
                     Grid.Row="1"
                     Cursor="Hand" 
@@ -89,7 +90,7 @@
                             <TextBlock Text="{Binding Text_Button_Ok}"/>
                         </Viewbox>
                     </Button.Content>
-                </Button>           
+                </Button>
             </Grid>
 
             <Grid x:Name="Choise_Block"
@@ -127,8 +128,8 @@
                             </Viewbox>
                         </Button.Content>
                     </Button>
-                </StackPanel>  
-                 <DockPanel Grid.Column="1"                    
+                </StackPanel>
+                <DockPanel Grid.Column="1"                    
                             LastChildFill="True">
 
                     <TextBox x:Name="Add_User"                     
