@@ -24,6 +24,7 @@ namespace NDict
         {
             TestVM = new TestViewModel();
             NDictionary.Loaded();
+            Knobs.Loaded();
             MainVM = new MainWindowViewModel();
             UsersVM = new UsersWindowViewModel();
             

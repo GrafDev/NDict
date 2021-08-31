@@ -15,10 +15,11 @@ namespace NDict.Models
         {
             
             Firstlanguage = true;
-            for (int i=1; i<countOfKnobs; i++)
+            for (int i=0; i<countOfKnobs; i++)
             {
-                string tempStr= NDictionary.Words[0].Language01;
-                _text[0] = tempStr;
+                string tempStr;
+                tempStr = Firstlanguage ?  tempStr = NDictionary.Words[i].Language01: tempStr = NDictionary.Words[i].Language02;
+                Text.Add(tempStr);
             }
 
         }

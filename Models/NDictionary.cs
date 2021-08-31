@@ -26,7 +26,7 @@ namespace NDict.Models
         {
             Words = new List<Word>();
             LoadXML();
-            ShowWords();
+            //ShowWords();
         }
 
         static void LoadXML()
