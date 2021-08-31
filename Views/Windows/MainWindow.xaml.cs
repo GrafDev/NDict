@@ -26,18 +26,13 @@ namespace NDict
     {
         public MainWindow()
         {
-            //Dictionary.Loaded();
+            //App.TestVM.TestBlock = NDictionary.Title;
             //Knobs.Loaded();
             InitializeComponent();
-
         }
-
         private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-
-
-
     }
 }

@@ -22,10 +22,12 @@ namespace NDict
         public static TestViewModel TestVM { get;  }
         static App()
         {
-            MainVM = new MainWindowViewModel();
-            UsersVM = new UsersWindowViewModel();
             TestVM = new TestViewModel();
             NDictionary.Loaded();
+            MainVM = new MainWindowViewModel();
+            UsersVM = new UsersWindowViewModel();
+            
+            
         }        
     }
 }
