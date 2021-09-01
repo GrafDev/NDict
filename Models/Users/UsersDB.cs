@@ -14,7 +14,6 @@ using System.ComponentModel;
 using System.Windows.Data;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
-using System.Data.Linq;
 
 
 
@@ -45,25 +44,21 @@ namespace NDict.Models.Users
             db.SaveChanges();
         }
 
-        public static void DeleteUser(User _user)
+        public static void DeleteUser(User user)
         {
-            db.Database.EnsureCreated();
-            db.Users.Add(_user);
-            db.SaveChanges();
-
             var deleteUser =
-                from user in db.Users
-                where user.Id == _user.Id
-                select user;
+                from tempUser in db.Users
+                where tempUser.Id == user.Id
+                select tempUser;
 
-            foreach (var user in deleteUser)
+            foreach (var _user in deleteUser)
             {
-                db.Users.DeleteOnSubmit(user);
+                db.Users.Remove(_user);
             }
 
             try
             {
-                db.SubmitChanges();
+                db.SaveChanges();
             }
             catch (Exception e)
             {
