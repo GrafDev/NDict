@@ -25,7 +25,7 @@ namespace NDict.ViewModels
         public string Text_Button_Play { get => _Button_Play; set => Set(ref _Button_Play, value); }
 
 
-        private string _Button_Profile = Player.Current.Name;
+        private string _Button_Profile = Players.Current.Name;
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
 
         private string _Button_Func = "Close";

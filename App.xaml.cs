@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using NDict.ViewModels;
 using NDict.Models;
+using NDict.Models.Users;
 using NDict.Views.Windows;
+using NDict.Services;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace NDict
 {
@@ -20,15 +25,19 @@ namespace NDict
        public static MainWindowViewModel MainVM { get; }
         public static UsersWindowViewModel UsersVM { get; }
         public static TestViewModel TestVM { get;  }
+
         static App()
         {
             TestVM = new TestViewModel();
+            UsersDB.Loaded();
             NDictionary.Loaded();
+            Players.Loaded();
             Knobs.Loaded();
             MainVM = new MainWindowViewModel();
-            UsersVM = new UsersWindowViewModel();
+            UsersVM = new UsersWindowViewModel();          
             
-            
-        }        
+        }
+
+
     }
 }

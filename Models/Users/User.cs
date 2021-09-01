@@ -9,10 +9,16 @@ namespace NDict.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        //public int[] LearningWords { get; set; }
-        //public int[] LearnedWords { get; set; }
+        //public IEnumerable<int> LearningWords { get; set; }
+        //public IEnumerable<int> LearnedWords { get; set; }
         public int Difficult { get; set; }
-        public User() { }
+        public User() 
+        {
+        }
+        public User(string _name)
+        {
+            Name = _name;
+        }
 
         //public User(string _name, int _difficult)
         //{
