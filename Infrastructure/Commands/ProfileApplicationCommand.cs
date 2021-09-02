@@ -4,6 +4,7 @@ using System.Text;
 using NDict.Infrastructure.Commands.Base;
 using NDict.Views;
 using NDict.Views.Windows;
+using NDict.Models;
 
 namespace NDict.Infrastructure.Commands
 {
@@ -14,11 +15,20 @@ namespace NDict.Infrastructure.Commands
 
         public override void Execute(object parameter)
         {
+            FillInterface();
             userWindow = new UsersWindow();
             userWindow.Owner= NDict.App.Current.MainWindow;
             userWindow.Show();
             userWindow.Activate();
             App.Current.MainWindow.IsEnabled = false;
+        }
+
+        public void FillInterface()
+        {
+            foreach (User user in Players.Users)
+            {
+                App.UsersVM.ListBox_ListOfUsers.Add(user.Name);
+            }
         }
     }
 }

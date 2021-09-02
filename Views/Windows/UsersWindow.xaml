@@ -144,12 +144,8 @@
                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
-                             BorderThickness="1">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Label Content="{Binding Name}" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate> />
+                             BorderThickness="1"
+                             ItemsSource="{Binding ListBox_ListOfUsers}">
                     </ListBox>
                 </DockPanel>
             </Grid>

@@ -27,15 +27,12 @@ namespace NDict.Models.Users
         public static void Loaded()
         {
             LoadDB();
-            User user = new User("Name3");
-            AddUser(user);
         }
         public static void LoadDB()
         {
             db = new ApplicationContext();
-
+            Players.Users = db.Users.ToList();
             // App.TestVM.TestBlock = db.Users.ToList().ToString();
-
         }
         public static void AddUser(User user)
         {
@@ -44,14 +41,37 @@ namespace NDict.Models.Users
             db.SaveChanges();
         }
 
-        public static void DeleteUser(User user)
+        public static void UpdateUser(User user)
         {
-            var deleteUser =
+            var updateUsers =
                 from tempUser in db.Users
                 where tempUser.Id == user.Id
                 select tempUser;
 
-            foreach (var _user in deleteUser)
+            foreach (var _user in updateUsers)
+            {
+                db.Users.Update(_user);
+            }
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                // Provide for exceptions.
+            }
+
+        }
+        public static void DeleteUser(User user)
+        {
+            var deleteusers =
+                from tempUser in db.Users
+                where tempUser.Id == user.Id
+                select tempUser;
+
+            foreach (var _user in deleteusers)
             {
                 db.Users.Remove(_user);
             }

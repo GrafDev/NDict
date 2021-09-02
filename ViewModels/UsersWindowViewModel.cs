@@ -27,12 +27,15 @@ namespace NDict.ViewModels
         private string _Select_User = Players.Current.Name;
         public string Text_Select_User { get => _Select_User; set => Set(ref _Select_User, value); }
 
+        private List<string> _ListOfUsers;
+        public List<string> ListBox_ListOfUsers { get => _ListOfUsers; set => Set(ref _ListOfUsers, value); }
+
         #endregion
 
 
         public UsersWindowViewModel()
         {
+            ListBox_ListOfUsers = new List<string>();
         }
-
     }
 }
