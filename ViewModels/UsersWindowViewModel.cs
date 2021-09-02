@@ -15,27 +15,29 @@ namespace NDict.ViewModels
 
         #region Text of Button of User
 
-        private string _Button_Ok = "Ok";
-        public string Text_Button_Ok { get => _Button_Ok; set => Set(ref _Button_Ok, value); }
+        private string text_Button_Ok = "Ok";
+        public string Text_Button_Ok { get => text_Button_Ok; set => Set(ref text_Button_Ok, value); }
 
-        private string _Button_Add = "Add";
-        public string Text_Button_Add { get => _Button_Add; set => Set(ref _Button_Add, value); }
+        private string text_Button_Add = "Add";
+        public string Text_Button_Add { get => text_Button_Add; set => Set(ref text_Button_Add, value); }
 
-        private string _Button_Delete = "Delete";
-        public string Text_Button_Delete { get => _Button_Delete; set => Set(ref _Button_Delete, value); }
+        private string text_Button_Delete = "Delete";
+        public string Text_Button_Delete { get => text_Button_Delete; set => Set(ref text_Button_Delete, value); }
 
-        private string _Select_User = Players.Current.Name;
-        public string Text_Select_User { get => _Select_User; set => Set(ref _Select_User, value); }
+        private string text_Select_User = Players.Current.Name;
+        public string Text_Select_User { get => text_Select_User; set => Set(ref text_Select_User, value); }
 
-        private List<string> _ListOfUsers;
-        public List<string> ListBox_ListOfUsers { get => _ListOfUsers; set => Set(ref _ListOfUsers, value); }
+        private List<string> listBox_ListOfUsers=new List<string>();
+        public List<string> ListBox_ListOfUsers { get => listBox_ListOfUsers; set => Set(ref listBox_ListOfUsers, value); }
 
         #endregion
 
 
         public UsersWindowViewModel()
         {
-            ListBox_ListOfUsers = new List<string>();
+
         }
+
+
     }
 }

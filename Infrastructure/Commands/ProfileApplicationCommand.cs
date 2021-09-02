@@ -13,9 +13,13 @@ namespace NDict.Infrastructure.Commands
         UsersWindow userWindow;
         public override bool CanExecute(object parameter) => true;
 
+        private bool FlagLoadedDB = false;
         public override void Execute(object parameter)
         {
-            FillInterface();
+            if (!FlagLoadedDB)
+            {
+                FillInterface();
+                    }
             userWindow = new UsersWindow();
             userWindow.Owner= NDict.App.Current.MainWindow;
             userWindow.Show();
@@ -28,6 +32,7 @@ namespace NDict.Infrastructure.Commands
             foreach (User user in Players.Users)
             {
                 App.UsersVM.ListBox_ListOfUsers.Add(user.Name);
+                FlagLoadedDB = true;
             }
         }
     }

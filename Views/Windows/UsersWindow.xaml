@@ -34,8 +34,8 @@
                       FontSize="15"
                       FontWeight="Bold"                
                       Margin="5,5,5,5"
-                      Content="{Binding Path=Text_Select_User}"
-                 >
+                      Content="{Binding ElementName=List_Of_Users, Path=SelectedValue}"
+                                    >
                     </Label>
                     <DockPanel LastChildFill="True" Margin="5,15,15,0">
                         <Label Content="Difficult" 
@@ -144,7 +144,7 @@
                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
-                             BorderThickness="1"
+                             BorderThickness="1"                             
                              ItemsSource="{Binding ListBox_ListOfUsers}">
                     </ListBox>
                 </DockPanel>
