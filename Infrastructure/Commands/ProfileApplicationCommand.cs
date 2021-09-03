@@ -31,6 +31,7 @@ namespace NDict.Infrastructure.Commands
         {
             foreach (User user in Players.Users)
             {
+                App.UsersVM.Text_Select_User = App.MainVM.Text_Button_Profile;
                 App.UsersVM.ListBox_ListOfUsers.Add(user.Name);
                 FlagLoadedDB = true;
             }

@@ -33,9 +33,11 @@ namespace NDict
             NDictionary.Loaded();
             Players.Loaded();
             Knobs.Loaded();
-            MainVM = new MainWindowViewModel();
-            UsersVM = new UsersWindowViewModel();          
             
+            MainVM = new MainWindowViewModel();
+            UsersVM = new UsersWindowViewModel();
+            MainVM.Text_Button_Profile=UsersVM.Text_Select_User;
+
         }
 
 

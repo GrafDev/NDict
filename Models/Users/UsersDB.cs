@@ -59,8 +59,7 @@ namespace NDict.Models.Users
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e);
-                // Provide for exceptions.
+                App.TestVM.TestBlock = e.ToString();
             }
 
         }
@@ -82,8 +81,7 @@ namespace NDict.Models.Users
             }
             catch (Exception e)
             {
-                //Console.WriteLine(e);
-                // Provide for exceptions.
+                App.TestVM.TestBlock = e.ToString();
             }
         }
 

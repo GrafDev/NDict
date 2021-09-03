@@ -24,7 +24,7 @@ namespace NDict.ViewModels
         private string text_Button_Delete = "Delete";
         public string Text_Button_Delete { get => text_Button_Delete; set => Set(ref text_Button_Delete, value); }
 
-        private string text_Select_User = Players.Current.Name;
+        private string text_Select_User;
         public string Text_Select_User { get => text_Select_User; set => Set(ref text_Select_User, value); }
 
         private List<string> listBox_ListOfUsers=new List<string>();

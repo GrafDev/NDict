@@ -20,7 +20,7 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
                 if (window is UsersWindow)
                 {
                     window.Close();
-                    NDict.App.Current.MainWindow.IsEnabled = true;
+                    App.Current.MainWindow.IsEnabled = true;
                 }               
                     
                 //ЗАписать все изменения в базу данных юзеров
