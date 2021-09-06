@@ -26,8 +26,6 @@ namespace NDict
     {
         public MainWindow()
         {
-            //App.TestVM.TestBlock = NDictionary.Title;
-            Knobs.Loaded();
             InitializeComponent();
         }
         private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

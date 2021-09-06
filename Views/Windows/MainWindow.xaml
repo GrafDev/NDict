@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NDict"
         xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands"
-        xmlns:vm="clr-namespace:NDict.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="{Binding Path=Title}" MinHeight="450" MinWidth="300" Height="500" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ShowInTaskbar="False" Background="{x:Null}" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
@@ -54,7 +53,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button_Play}"/>
+                            <TextBlock Text="{Binding Button_Play}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -70,7 +69,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button_Profile}"/>
+                            <TextBlock Text="{Binding Button_Profile}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -86,7 +85,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button_Func}"/>
+                            <TextBlock Text="{Binding Button_Func}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>

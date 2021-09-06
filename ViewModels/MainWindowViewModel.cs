@@ -21,15 +21,15 @@ namespace NDict.ViewModels
         #endregion
         #region Text of Button of Menu
 
-        private string _Button_Play = "Play ";
-        public string Text_Button_Play { get => _Button_Play; set => Set(ref _Button_Play, value); }
+        private string button_Play = "Play ";
+        public string Button_Play { get => button_Play; set => Set(ref button_Play, value); }
 
 
-        private string _Button_Profile = Players.Current.Name;
-        public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
+        private string button_Profile = "Hrab";
+        public string Button_Profile { get => button_Profile; set => Set(ref button_Profile, value); }
 
-        private string _Button_Func = "Close";
-        public string Text_Button_Func { get => _Button_Func; set => Set(ref _Button_Func, value); }
+        private string button_Func = "Close";
+        public string Button_Func { get => button_Func; set => Set(ref button_Func, value); }
         #endregion
         #region Labels for Question
         private string _LabelFirstWordOfQuestion = "FirstQuestion";

@@ -10,7 +10,7 @@ namespace NDict.Infrastructure.Commands
 {
     class ProfileApplicationCommand : Command
     {
-        UsersWindow userWindow;
+        UsersWindow userWindow = new UsersWindow();
         public override bool CanExecute(object parameter) => true;
 
         private bool FlagLoadedDB = false;
@@ -19,8 +19,9 @@ namespace NDict.Infrastructure.Commands
             if (!FlagLoadedDB)
             {
                 FillInterface();
-                    }
-            userWindow = new UsersWindow();
+            }
+
+            
             userWindow.Owner= NDict.App.Current.MainWindow;
             userWindow.Show();
             userWindow.Activate();
@@ -29,12 +30,13 @@ namespace NDict.Infrastructure.Commands
 
         public void FillInterface()
         {
+            
             foreach (User user in Players.Users)
             {
-                App.UsersVM.Text_Select_User = App.MainVM.Text_Button_Profile;
-                App.UsersVM.ListBox_ListOfUsers.Add(user.Name);
-                FlagLoadedDB = true;
+               // App.UsersVM.Select_User = App.MainVM.Button_Profile;
+                App.UsersVM.ListOfUsers.Add(user.Name);
             }
+            FlagLoadedDB = true;
         }
     }
 }

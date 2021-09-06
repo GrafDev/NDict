@@ -34,7 +34,7 @@
                       FontSize="15"
                       FontWeight="Bold"                
                       Margin="5,5,5,5"
-                      Content="{Binding ElementName=List_Of_Users, Path=SelectedValue}"
+                      Content="{Binding ElementName=List_Of_Users, Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"
                                     >
                     </Label>
                     <DockPanel LastChildFill="True" Margin="5,15,15,0">
@@ -87,7 +87,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button_Ok}"/>
+                            <TextBlock Text="{Binding Button_Ok}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -111,7 +111,7 @@
                         </Button.Command>
                         <Button.Content>
                             <Viewbox Height="Auto">
-                                <TextBlock Text="{Binding Text_Button_Add}"/>
+                                <TextBlock Text="{Binding Button_Add}"/>
                             </Viewbox>
                         </Button.Content>
                     </Button>
@@ -124,7 +124,7 @@
                         </Button.Command>
                         <Button.Content>
                             <Viewbox Height="Auto">
-                                <TextBlock Text="{Binding Text_Button_Delete}"/>
+                                <TextBlock Text="{Binding Button_Delete}"/>
                             </Viewbox>
                         </Button.Content>
                     </Button>
@@ -145,7 +145,7 @@
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
                              BorderThickness="1"                             
-                             ItemsSource="{Binding ListBox_ListOfUsers}">
+                             ItemsSource="{Binding ListOfUsers}">                        
                     </ListBox>
                 </DockPanel>
             </Grid>

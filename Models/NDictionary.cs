@@ -27,7 +27,6 @@ namespace NDict.Models
             LoadXML();
             //ShowWords();
         }
-
         static void LoadXML()
         {
             using (FileStream fs = new FileStream(nameOfFileXML, FileMode.OpenOrCreate))
@@ -45,7 +44,7 @@ namespace NDict.Models
             {
                 str = $"{str} {word.Id}, {word.Language01}, {word.Language02} \n";
             }
-            App.TestVM.TestBlock = str;
+            App.TestVM.ShowTestWindow( str);
         }
 
     }

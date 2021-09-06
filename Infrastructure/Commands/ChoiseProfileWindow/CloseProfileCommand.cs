@@ -6,6 +6,7 @@ using NDict.Infrastructure;
 using System.Windows;
 using NDict.Views.Windows;
 using NDict.Models;
+using NDict.Models.Users;
 
 namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
 {
@@ -14,7 +15,9 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
-            App.MainVM.Text_Button_Profile = App.UsersVM.Text_Select_User;
+            //Players.Current.Name = App.UsersVM.Text_Select_User;
+            App.MainVM.Button_Profile = App.UsersVM.Select_User;
+            //App.MainVM.Text_Button_Profile = App.UsersVM.Text_Select_User;
             foreach (Window window in App.Current.Windows)
             {
                 if (window is UsersWindow)

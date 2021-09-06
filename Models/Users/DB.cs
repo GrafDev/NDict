@@ -20,9 +20,11 @@ using System.Windows.Controls;
 namespace NDict.Models.Users
 {
 
-    static class UsersDB
+    static class DB
     {
         static private ApplicationContext db;
+
+        static internal List<User> Users;
 
         public static void Loaded()
         {
@@ -31,8 +33,10 @@ namespace NDict.Models.Users
         public static void LoadDB()
         {
             db = new ApplicationContext();
-            Players.Users = db.Users.ToList();
-            // App.TestVM.TestBlock = db.Users.ToList().ToString();
+            Users = db.Users.ToList();
+            //Players.Users = db.Users.ToList();
+            //App.TestVM.TestBlock = db.Users.Count().ToString();
+            //App.TestVM.ShowTestWindow();
         }
         public static void AddUser(User user)
         {
@@ -40,7 +44,6 @@ namespace NDict.Models.Users
             db.Users.Add(user);
             db.SaveChanges();
         }
-
         public static void UpdateUser(User user)
         {
             var updateUsers =
@@ -59,7 +62,7 @@ namespace NDict.Models.Users
             }
             catch (Exception e)
             {
-                App.TestVM.TestBlock = e.ToString();
+                App.TestVM.ShowTestWindow(e.ToString());
             }
 
         }
@@ -81,7 +84,7 @@ namespace NDict.Models.Users
             }
             catch (Exception e)
             {
-                App.TestVM.TestBlock = e.ToString();
+                App.TestVM.ShowTestWindow(e.ToString());
             }
         }
 

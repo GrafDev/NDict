@@ -29,15 +29,14 @@ namespace NDict
         static App()
         {
             TestVM = new TestViewModel();
-            UsersDB.Loaded();
-            NDictionary.Loaded();
+
+            DB.Loaded();
             Players.Loaded();
+            NDictionary.Loaded();
             Knobs.Loaded();
-            
+
             MainVM = new MainWindowViewModel();
             UsersVM = new UsersWindowViewModel();
-            MainVM.Text_Button_Profile=UsersVM.Text_Select_User;
-
         }
 
 
