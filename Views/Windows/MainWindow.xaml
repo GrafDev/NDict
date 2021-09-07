@@ -4,153 +4,250 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NDict"
-        xmlns:vm="clr-namespace:NDict.ViewModels"    
-        xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Icon="/Data/mainicon.ico"
+        xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="{Binding Path=Title}" MinHeight="550" MinWidth="350" Height="385" Width="340" >
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
+        Title="{Binding NDict.App.MainVM.Title}" MinHeight="450" MinWidth="300" Height="500" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" ShowInTaskbar="False" Background="{x:Null}" AllowsTransparency="True" ResizeMode="CanResizeWithGrip" DataContext="{x:Static}">
+    <!--<Window.DataContext>
+        <x:Static Member="local:App.MainVM"/>
+    </Window.DataContext>-->
+    <!--Border Width="Auto" Height="Auto" Name="windowFrame"
+    
+          BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
+          BorderThickness="1"
+          CornerRadius="5,5,5,5" AllowDrop="True" Background="{DynamicResource MaterialDesignBackground}"
+            MouseLeftButtonDown="titleBar_MouseLeftButtonDown"-->
 
+    <Grid d:IsLocked="True">
 
-    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="Row_Question_01" Height="2*"/>
-            <RowDefinition x:Name="Row_Question_02" Height="2*"/>
-            <RowDefinition x:Name="Row_Answer_01" Height="2*"/>
-            <RowDefinition x:Name="Row_Answer_02" Height="2*"/>
-            <RowDefinition x:Name="Row_Answer_03" Height="2*"/>
-            <RowDefinition x:Name="Row_Answer_04" Height="2*"/>
-            <RowDefinition x:Name="Row_Answer_05" Height="2*"/>
-            <RowDefinition x:Name="Row_Answer_06" Height="2*"/>
-            <RowDefinition x:Name="Row_Menu" Height="3*"/>
+            <RowDefinition x:Name="Row_Title" Height="20"/>
+            <RowDefinition x:Name="Row_Menu" Height="0.7*" MinHeight="45"/>
+            <RowDefinition x:Name="Row_Question" Height="2*" MinHeight="60"/>
+            <RowDefinition x:Name="Row_Answer" Height="6*" MinHeight="180"/>
+            <RowDefinition x:Name="Row_StatusBar" Height="20" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0">
+            <Viewbox Height="Auto">
+                <TextBlock Text="{Binding Path=Title}"/>
+            </Viewbox>
+        </Grid>
+        <Grid x:Name="Menu" 
+              Grid.Row="1" 
+              MinHeight="45"
+              d:IsLocked="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label x:Name="Label_QuestionHalf_01" 
-               Grid.Row="0" 
-               Grid.ColumnSpan="3" 
-               Background="{Binding Button_01_Ansewer}" 
+            <Button x:Name="Button_Play"
+                    Margin="15,5,5,5"
+                    Grid.Column="0"
+                    Height="{Binding Menu}"
+                    HorizontalAlignment="Left"
+                Padding="5">
+                <Button.Command>
+                    <cmd:PlayApplicationCommand/>
+                </Button.Command>
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Button_Play}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="Button_Profile"
+                    Margin="5,5,5,5"
+                    Grid.Column="1"
+                    Height="{Binding Menu}"
+                    HorizontalAlignment="Center"
+                    Padding="5">
+                <!--<Button.Command>
+                        <cmd:ProfileApplicationCommand/>
+                    </Button.Command>-->
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding NDict.App.MainVM.Button_Profile}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+
+            <Button x:Name="Button_Close"
+                    Margin="5,5,15,5"
+                    Grid.Column="2"
+                    Height="{Binding Menu}"
+                    HorizontalAlignment="Right"
+                    Padding="5">
+                <Button.Command>
+                    <cmd:CloseApplicationCommand/>
+                </Button.Command>
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Button_Func}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid x:Name="Question"
+              Grid.Row="2" d:IsLocked="True" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="QuestionHalf_01" 
+               Grid.Row="0"               
                HorizontalContentAlignment="Center" 
                VerticalContentAlignment="Bottom">
-            <Label.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Path=labelFirstWordOfQuestion}" />
-                </Viewbox>
-            </Label.Content>
-        </Label>
-        <Label x:Name="Label_QuestionHalf_02" 
-               Grid.Row="1" 
-               Grid.ColumnSpan="3" 
+                <Label.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Path=labelFirstWordOfQuestion}" />
+                    </Viewbox>
+                </Label.Content>
+            </Label>
+            <Label x:Name="QuestionHalf_02"
+               Grid.Row="1"
                Background="{Binding Button_01_Ansewer}"
                HorizontalContentAlignment="Center"
                VerticalContentAlignment="Top">
-            
-            <Label.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Path=labelSecondWordOfQuestion}" />
-                </Viewbox>
-            </Label.Content>
-        </Label>
-
-        <Button Margin="15,5,15,5" 
-                Grid.Row="2" 
-                Grid.ColumnSpan="3" 
+                <Label.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Path=labelSecondWordOfQuestion}" />
+                    </Viewbox>
+                </Label.Content>
+            </Label>
+        </Grid>
+        <Grid x:Name="Grid_Answers"
+              Grid.Row="3" 
+              d:IsLocked="True">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="Row_Answer_01" Height="2*"/>
+                <RowDefinition x:Name="Row_Answer_02" Height="2*"/>
+                <RowDefinition x:Name="Row_Answer_03" Height="2*"/>
+                <RowDefinition x:Name="Row_Answer_04" Height="2*"/>
+                <RowDefinition x:Name="Row_Answer_05" Height="2*"/>
+                <RowDefinition x:Name="Row_Answer_06" Height="2*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="Button_Of_Answer_01" 
+                    Margin="15,5,15,5" 
+                Grid.Row="0" 
                 Height="{Binding Row_Answer_01}"  >
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button01}" />
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <Button Margin="15,5,15,5" 
-                Grid.Row="3" 
-                Grid.ColumnSpan="3" 
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Text_Button01}" />
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button x:Name="Button_Of_Answer_02" 
+                    Margin="15,5,15,5" 
+                Grid.Row="1" 
                 Height="{Binding Row_Answer_02}"  >
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button02}"/>
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <Button Margin="15,5,15,5" 
-                Grid.Row="4" 
-                Grid.ColumnSpan="3" 
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Text_Button02}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button x:Name="Button_Of_Answer_03" 
+                    Margin="15,5,15,5" 
+                Grid.Row="2" 
                 Height="{Binding Row_Answer_03}"  >
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button03}" />
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <Button Margin="15,5,15,5" 
-                Grid.Row="5" 
-                Grid.ColumnSpan="3" 
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Text_Button03}" />
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button x:Name="Button_Of_Answer_04" 
+                    Margin="15,5,15,5" 
+                Grid.Row="3" 
                 Height="{Binding Row_Answer_04}"  >
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button04}" />
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <Button Margin="15,5,15,5" 
-                Grid.Row="6"
-                Grid.ColumnSpan="3"
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Text_Button04}" />
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button x:Name="Button_Of_Answer_05" 
+                    Margin="15,5,15,5" 
+                Grid.Row="4"
                 Height="{Binding Row_Answer_05}">
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button05}"/>
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <Button Margin="15,5,15,5"
-                Grid.Row="7" 
-                Grid.ColumnSpan="3"
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Text_Button05}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+            <Button x:Name="Button_Of_Answer_06" 
+                    Margin="15,5,15,5"
+                Grid.Row="5" 
                 Height="{Binding Row_Answer_06}"  >
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button06}"/>
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <!--Menu Button-->
-            <Button Margin="15,15,15,15"
-                    Grid.Row="8" 
-                    Grid.Column="0"
-                    Height="{Binding Row_Menu}"
-                    HorizontalAlignment="Right">
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button_Train}"/>
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <Button Margin="15,15,15,15"
-                Grid.Row="8" 
-                Grid.Column="1" 
-                Height="{Binding Row_Menu}" 
-                HorizontalAlignment="Center">
-            <Button.Content>
-                <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Text_Button_Play}"/>
-                </Viewbox>
-            </Button.Content>
-        </Button>
-        <Button  Margin="15,15,15,15"
-                 Grid.Row="8" 
-                 Grid.Column="2" 
-                 Height="{Binding Row_Menu}"
-                 HorizontalAlignment="Left" >
-            <Button.Content>                
-                <Viewbox Height="Auto" Width="Auto">
-                        <TextBlock Text="{Binding Path=Text_Button_Func}" />
-                </Viewbox>
-            </Button.Content>
-        </Button>
+                <Button.Content>
+                    <Viewbox Height="Auto">
+                        <TextBlock Text="{Binding Text_Button06}"/>
+                    </Viewbox>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid x:Name="StatusBar" 
+              Grid.Row="4" 
+              d:IsLocked="True" >
+            <Grid.ColumnDefinitions  >
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" 
+                        Margin="15,0,2,0" 
+                        Orientation="Horizontal" 
+                        VerticalAlignment="Center" 
+                        d:IsLocked="True" >
+                <TextBlock Text="Count words: " 
+                           FontSize="15" 
+                           d:IsLocked="True"
+                           Foreground="Black"/>
+                <TextBlock Text="{Binding CountOfError}" 
+                           FontSize="15" 
+                           d:IsLocked="True" 
+                           Foreground="Black"/>
+            </StackPanel>
+
+            <Grid x:Name="ProgressBar" 
+                  Grid.Column="1" 
+                  d:IsLocked="True">
+                <ProgressBar Height="15" 
+                             Margin="15,0,0,0"
+                             Value="{Binding ProgressBarValue }" 
+                             d:IsLocked="True"
+                                 />
+            </Grid>
+
+            <StackPanel Grid.Column="2" 
+                        Margin="15,0,15,0" 
+                        Orientation="Horizontal" 
+                        VerticalAlignment="Center" 
+                        d:IsLocked="True" >
+                <TextBlock Text="Errors: " 
+                           FontSize="15" 
+                           d:IsLocked="True"
+                           Foreground="Black"/>
+                <TextBlock Text="{Binding CountOfError}" 
+                           FontSize="15" 
+                           d:IsLocked="True"
+                           Foreground="Black"/>
+            </StackPanel>
+        </Grid>
+        <!--<Grid x:Name="Test" Grid.Row="4" Margin="5">
+           <ScrollViewer   VerticalScrollBarVisibility="Auto" >
+                <TextBlock   TextWrapping="WrapWithOverflow" Text="{Binding Path=Test}" Height="{Binding Row04}" />
+            </ScrollViewer> 
+        </Grid>-->
+
+
+
+
     </Grid>
+    <!--/Border-->
 </Window>
