@@ -29,12 +29,14 @@ namespace NDict
         static App()
         {
             TestVM = new TestViewModel();
+
             UsersDB.Loaded();
             NDictionary.Loaded();
             Players.Loaded();
             Knobs.Loaded();
+
             MainVM = new MainWindowViewModel();
-            UsersVM = new UsersWindowViewModel();          
+            UsersVM = new UsersWindowViewModel();  
             
         }
 
