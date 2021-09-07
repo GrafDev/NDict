@@ -39,9 +39,13 @@ namespace NDict.ViewModels
 
         public UsersWindowViewModel()
         {
-            var tempNames = from name in Players.Users
-                            select name.Name;
-            ListOfUsers = tempNames.ToList();
+            ListOfUsers.Add("asda");
+            ListOfUsers.Add("asda11");
+            ListOfUsers.Add("asdaaa");
+            ListOfUsers.Add("asddasdfa");
+            //var tempNames = from name in Players.Users
+            //                select name.Name;
+            //ListOfUsers = tempNames.ToList();
         }
 
 

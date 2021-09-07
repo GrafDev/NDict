@@ -16,23 +16,22 @@ namespace NDict.Infrastructure.Commands
         private bool FlagLoadedDB = false;
         public override void Execute(object parameter)
         {
+            App.TestVM.ShowTestWindow("1");
             if (!FlagLoadedDB)
             {
                 FillInterface();
-            }
-
-            
+            }                       
             userWindow.Owner= NDict.App.Current.MainWindow;
-            userWindow.Show();
             userWindow.Activate();
+            userWindow.Show();            
             App.Current.MainWindow.IsEnabled = false;
         }
 
         public void FillInterface()
         {
-            
             foreach (User user in Players.Users)
             {
+                App.TestVM.ShowTestWindow("");
                // App.UsersVM.Select_User = App.MainVM.Button_Profile;
                 App.UsersVM.ListOfUsers.Add(user.Name);
             }

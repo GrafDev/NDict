@@ -22,7 +22,7 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
             {
                 if (window is UsersWindow)
                 {
-                    window.Close();
+                    window.Hide();
                     App.Current.MainWindow.IsEnabled = true;
                 }               
                     
