@@ -62,7 +62,8 @@
                      TickPlacement="BottomRight"
                      IsSnapToTickEnabled="True"
                      IsSelectionRangeEnabled="True"
-                     Margin="20,15,15,15"/>
+                     Margin="20,15,15,15"
+                     ValueChanged="SliderValueChanged"/>
                     <Label Content="Choose type of game" 
                    VerticalAlignment="Top"
                    Margin="5,5,0,0"/>
@@ -145,7 +146,7 @@
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
                              BorderThickness="1"                             
-                             ItemsSource="{Binding ListBox_ListOfUsers}"
+                             ItemsSource="{Binding ListOfUsers}"
                              SelectedItem="{Binding Select_User}">
                     </ListBox>
                 </DockPanel>
