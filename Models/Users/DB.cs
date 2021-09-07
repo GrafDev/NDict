@@ -20,7 +20,7 @@ using System.Windows.Controls;
 namespace NDict.Models.Users
 {
 
-    static class UsersDB
+    static class DB
     {
         static private ApplicationContext db;
 

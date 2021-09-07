@@ -14,15 +14,17 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
-            App.MainVM.Text_Button_Profile = App.UsersVM.Text_Select_User;
+            App.MainVM.Text_Button_Profile = App.UsersVM.Select_User;
             foreach (Window window in App.Current.Windows)
             {
                 if (window is UsersWindow)
                 {
-                    window.Close();
+                    window.Hide();
+                    App.MainVM.Text_Button_Profile = App.UsersVM.Select_User;                    
                     NDict.App.Current.MainWindow.IsEnabled = true;
-                }               
-                    
+
+                }
+                                    
                 //ЗАписать все изменения в базу данных юзеров
             }
            

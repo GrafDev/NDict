@@ -145,7 +145,8 @@
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
                              BorderThickness="1"                             
-                             ItemsSource="{Binding ListBox_ListOfUsers}">
+                             ItemsSource="{Binding ListBox_ListOfUsers}"
+                             SelectedItem="{Binding Select_User}">
                     </ListBox>
                 </DockPanel>
             </Grid>
