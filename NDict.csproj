@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationIcon>NDict.ico</ApplicationIcon>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    
     <PackageIcon>NDict.png</PackageIcon>
     <PackageIconUrl />
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
@@ -22,10 +22,8 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
-    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="5.0.9" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.115" />
   </ItemGroup>
 
   <ItemGroup>

@@ -29,14 +29,22 @@ namespace NDict.Models.Users
         public static void Loaded()
         {
             LoadDB();
+            User user = new User("Name3");
+            AddUser(user);
         }
         public static void LoadDB()
         {
             db = new ApplicationContext();
+<<<<<<< HEAD:Models/Users/DB.cs
             Users = db.Users.ToList();
             //Players.Users = db.Users.ToList();
             //App.TestVM.TestBlock = db.Users.Count().ToString();
             //App.TestVM.ShowTestWindow();
+=======
+
+            // App.TestVM.TestBlock = db.Users.ToList().ToString();
+
+>>>>>>> parent of f16510c () Загружена DB в список пользователей.):Models/Users/UsersDB.cs
         }
         public static void AddUser(User user)
         {
@@ -44,6 +52,7 @@ namespace NDict.Models.Users
             db.Users.Add(user);
             db.SaveChanges();
         }
+<<<<<<< HEAD:Models/Users/DB.cs
         public static void UpdateUser(User user)
         {
             var updateUsers =
@@ -66,14 +75,17 @@ namespace NDict.Models.Users
             }
 
         }
+=======
+
+>>>>>>> parent of f16510c () Загружена DB в список пользователей.):Models/Users/UsersDB.cs
         public static void DeleteUser(User user)
         {
-            var deleteusers =
+            var deleteUser =
                 from tempUser in db.Users
                 where tempUser.Id == user.Id
                 select tempUser;
 
-            foreach (var _user in deleteusers)
+            foreach (var _user in deleteUser)
             {
                 db.Users.Remove(_user);
             }

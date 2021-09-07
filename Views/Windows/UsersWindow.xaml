@@ -144,8 +144,17 @@
                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
+<<<<<<< HEAD
                              BorderThickness="1"                             
                              ItemsSource="{Binding ListOfUsers}">                        
+=======
+                             BorderThickness="1">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate> />
+>>>>>>> parent of f16510c () Загружена DB в список пользователей.)
                     </ListBox>
                 </DockPanel>
             </Grid>

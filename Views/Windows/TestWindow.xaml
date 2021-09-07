@@ -11,9 +11,8 @@
         Title="TestWindow" Height="450" Width="400" >
     <Window.DataContext>        
         <x:Static Member="local:App.TestVM"/>
-        <!--<vm:TestViewModel/>-->
     </Window.DataContext>
     <Grid>
-        <TextBlock Text="{Binding TestBlock}"/>
+        <TextBlock Text="{Binding Path=TestBlock}"/>
     </Grid>
 </Window>

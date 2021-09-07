@@ -28,17 +28,21 @@ namespace NDict.ViewModels
         private string select_User="Default";
         public string Select_User { get => select_User; set => Set(ref select_User, value); }
 
+<<<<<<< HEAD
         private List<string> listOfUsers=new List<string>();
         internal List<string> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
 
         //private List<User> listOfUsers = new List<User>();
         //internal List<User> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
 
+=======
+>>>>>>> parent of f16510c () Загружена DB в список пользователей.)
         #endregion
 
 
         public UsersWindowViewModel()
         {
+<<<<<<< HEAD
             ListOfUsers.Add("asda");
             ListOfUsers.Add("asda11");
             ListOfUsers.Add("asdaaa");
@@ -49,5 +53,9 @@ namespace NDict.ViewModels
         }
 
 
+=======
+        }
+
+>>>>>>> parent of f16510c () Загружена DB в список пользователей.)
     }
 }

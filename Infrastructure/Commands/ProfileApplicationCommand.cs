@@ -4,7 +4,6 @@ using System.Text;
 using NDict.Infrastructure.Commands.Base;
 using NDict.Views;
 using NDict.Views.Windows;
-using NDict.Models;
 
 namespace NDict.Infrastructure.Commands
 {
@@ -16,16 +15,21 @@ namespace NDict.Infrastructure.Commands
         private bool FlagLoadedDB = false;
         public override void Execute(object parameter)
         {
+<<<<<<< HEAD
             App.TestVM.ShowTestWindow("1");
             if (!FlagLoadedDB)
             {
                 FillInterface();
             }                       
+=======
+            userWindow = new UsersWindow();
+>>>>>>> parent of f16510c () Загружена DB в список пользователей.)
             userWindow.Owner= NDict.App.Current.MainWindow;
             userWindow.Activate();
             userWindow.Show();            
             App.Current.MainWindow.IsEnabled = false;
         }
+<<<<<<< HEAD
 
         public void FillInterface()
         {
@@ -37,5 +41,7 @@ namespace NDict.Infrastructure.Commands
             }
             FlagLoadedDB = true;
         }
+=======
+>>>>>>> parent of f16510c () Загружена DB в список пользователей.)
     }
 }

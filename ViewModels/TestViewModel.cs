@@ -16,6 +16,7 @@ namespace NDict.ViewModels
 
         public TestViewModel()
         {
+
         }
 
         public void ShowTestWindow<T>(T elem)
