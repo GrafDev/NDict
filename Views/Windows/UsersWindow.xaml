@@ -34,8 +34,13 @@
                       FontSize="15"
                       FontWeight="Bold"                
                       Margin="5,5,5,5"
+<<<<<<< HEAD
                       Content="{Binding ElementName=List_Of_Users, Path=SelectedValue, UpdateSourceTrigger=PropertyChanged}"
                                     >
+=======
+                      Content="{Binding Path=Text_Select_User}"
+                 >
+>>>>>>> parent of fbd4757 ())
                     </Label>
                     <DockPanel LastChildFill="True" Margin="5,15,15,0">
                         <Label Content="Difficult" 
@@ -145,6 +150,7 @@
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
 <<<<<<< HEAD
+<<<<<<< HEAD
                              BorderThickness="1"                             
                              ItemsSource="{Binding ListOfUsers}">                        
 =======
@@ -155,6 +161,10 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate> />
 >>>>>>> parent of f16510c () Загружена DB в список пользователей.)
+=======
+                             BorderThickness="1"
+                             ItemsSource="{Binding ListBox_ListOfUsers}">
+>>>>>>> parent of fbd4757 ())
                     </ListBox>
                 </DockPanel>
             </Grid>

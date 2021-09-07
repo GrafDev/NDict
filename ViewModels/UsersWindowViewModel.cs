@@ -16,6 +16,7 @@ namespace NDict.ViewModels
 
         #region Text of Button of User
 
+<<<<<<< HEAD
         private string button_Ok = "Ok";
         public string Button_Ok { get => button_Ok; set => Set(ref button_Ok, value); }
 
@@ -31,6 +32,22 @@ namespace NDict.ViewModels
 <<<<<<< HEAD
         private List<string> listOfUsers=new List<string>();
         internal List<string> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
+=======
+        private string _Button_Ok = "Ok";
+        public string Text_Button_Ok { get => _Button_Ok; set => Set(ref _Button_Ok, value); }
+
+        private string _Button_Add = "Add";
+        public string Text_Button_Add { get => _Button_Add; set => Set(ref _Button_Add, value); }
+
+        private string _Button_Delete = "Delete";
+        public string Text_Button_Delete { get => _Button_Delete; set => Set(ref _Button_Delete, value); }
+
+        private string _Select_User = Players.Current.Name;
+        public string Text_Select_User { get => _Select_User; set => Set(ref _Select_User, value); }
+
+        private List<string> _ListOfUsers;
+        public List<string> ListBox_ListOfUsers { get => _ListOfUsers; set => Set(ref _ListOfUsers, value); }
+>>>>>>> parent of fbd4757 ())
 
         //private List<User> listOfUsers = new List<User>();
         //internal List<User> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
@@ -42,6 +59,7 @@ namespace NDict.ViewModels
 
         public UsersWindowViewModel()
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             ListOfUsers.Add("asda");
             ListOfUsers.Add("asda11");
@@ -57,5 +75,9 @@ namespace NDict.ViewModels
         }
 
 >>>>>>> parent of f16510c () Загружена DB в список пользователей.)
+=======
+            ListBox_ListOfUsers = new List<string>();
+        }
+>>>>>>> parent of fbd4757 ())
     }
 }

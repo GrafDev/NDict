@@ -12,9 +12,9 @@ namespace NDict.Infrastructure.Commands
         UsersWindow userWindow = new UsersWindow();
         public override bool CanExecute(object parameter) => true;
 
-        private bool FlagLoadedDB = false;
         public override void Execute(object parameter)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             App.TestVM.ShowTestWindow("1");
             if (!FlagLoadedDB)
@@ -22,6 +22,9 @@ namespace NDict.Infrastructure.Commands
                 FillInterface();
             }                       
 =======
+=======
+            FillInterface();
+>>>>>>> parent of fbd4757 ())
             userWindow = new UsersWindow();
 >>>>>>> parent of f16510c () Загружена DB в список пользователей.)
             userWindow.Owner= NDict.App.Current.MainWindow;
@@ -35,9 +38,13 @@ namespace NDict.Infrastructure.Commands
         {
             foreach (User user in Players.Users)
             {
+<<<<<<< HEAD
                 App.TestVM.ShowTestWindow("");
                // App.UsersVM.Select_User = App.MainVM.Button_Profile;
                 App.UsersVM.ListOfUsers.Add(user.Name);
+=======
+                App.UsersVM.ListBox_ListOfUsers.Add(user.Name);
+>>>>>>> parent of fbd4757 ())
             }
             FlagLoadedDB = true;
         }
