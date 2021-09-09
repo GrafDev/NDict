@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using NDict.Infrastructure.Commands.Base;
 
-namespace NDict.Infrastructure.Commands
+namespace NDict.Infrastructure.Commands.MainWindowCommand
 {
     class LambdaCommand:Command
     {

@@ -6,7 +6,7 @@ using NDict.Views;
 using NDict.Views.Windows;
 using NDict.Models;
 
-namespace NDict.Infrastructure.Commands
+namespace NDict.Infrastructure.Commands.MainWindowCommand
 {
     class ProfileApplicationCommand : Command
     {
@@ -31,7 +31,7 @@ namespace NDict.Infrastructure.Commands
         {
             foreach (User user in Players.Users)
             {
-                App.UsersVM.ListBox_ListOfUsers.Add(user.Name);
+                App.UsersVM.ListOfUsers.Add(user.Name);
                 FlagLoadedDB = true;
             }
         }

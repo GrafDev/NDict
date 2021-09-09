@@ -6,7 +6,7 @@ using NDict.Views;
 using NDict.Views.Windows;
 using NDict.Models;
 
-namespace NDict.Infrastructure.Commands
+namespace NDict.Infrastructure.Commands.MainWindowCommand
 
 {
     class PlayApplicationCommand : Command

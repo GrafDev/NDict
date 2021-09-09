@@ -5,7 +5,7 @@ using NDict.Infrastructure.Commands.Base;
 using NDict.Infrastructure;
 using System.Windows;
 
-namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
+namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
 {
     class DeleteProfileCommand:Command
     {
@@ -13,7 +13,6 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
         public override void Execute(object parameter)
         {
 
-            //ЗАписать все изменения в базу данных юзеров
 
         }
 

@@ -5,7 +5,7 @@ using NDict.Infrastructure.Commands.Base;
 using NDict.Infrastructure;
 using System.Windows;
 
-namespace NDict.Infrastructure.Commands
+namespace NDict.Infrastructure.Commands.MainWindowCommand
 {
     internal class CloseApplicationCommand : Command
     {

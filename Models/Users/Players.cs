@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using NDict.Models.Users;
+using NDict.Models;
 
 namespace NDict.Models
+
 {
     static class Players
     {

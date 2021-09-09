@@ -7,22 +7,25 @@ using System.Windows;
 using NDict.Views.Windows;
 using NDict.Models;
 
-namespace NDict.Infrastructure.Commands.ChoiseProfileWindow
+namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
 {
-    class CloseProfileCommand: Command
+    class OkProfileCommand: Command
     {
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
-            App.MainVM.Text_Button_Profile = App.UsersVM.Text_Select_User;
-            foreach (Window window in App.Current.Windows)
+
+            foreach (Window _window in App.Current.Windows)
             {
-                if (window is UsersWindow)
+                if (_window is UsersWindow)
                 {
-                    window.Close();
+                    _window.Close();
                     NDict.App.Current.MainWindow.IsEnabled = true;
-                }               
-                    
+                    NDict.App.Current.MainWindow.Activate();
+                }
+
+                App.MainVM.Text_Button_Profile = App.UsersVM.Select_User;
+                Players.Current.Name = App.UsersVM.Select_User;
                 //ЗАписать все изменения в базу данных юзеров
             }
            

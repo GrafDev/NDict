@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands.ChoiseProfileWindow"
+        xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands.ChoiseProfileCommand"
         xmlns:vm="clr-namespace:NDict.ViewModels"        
         xmlns:local="clr-namespace:NDict"
         xmlns:localvm="clr-namespace:NDict.Views.Windows"
@@ -56,7 +56,7 @@
                     <Slider x:Name="Difficult" Height="Auto" 
                      Maximum="10"
                      Minimum="1"
-                        MinHeight="40"
+                     MinHeight="40"
                      VerticalAlignment="Stretch" 
                      TickFrequency="1"
                      TickPlacement="BottomRight"
@@ -83,7 +83,7 @@
                     HorizontalAlignment="Center" 
                     >
                     <Button.Command>
-                        <cmd:CloseProfileCommand/>
+                        <cmd:OkProfileCommand/>
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
@@ -131,21 +131,15 @@
                 </StackPanel>
                 <DockPanel Grid.Column="1"                    
                             LastChildFill="True">
-
-                    <TextBox x:Name="Add_User"                     
-                             DockPanel.Dock="Bottom"
-                             BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}" 
-                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
-                             BorderThickness="1"
-                             Margin="5"
-                             />
                     <ListBox x:Name="List_Of_Users" 
                              Margin="5,5,5,5"
                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" 
+                             FontSize="15"
+                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
                              BorderThickness="1"                             
-                             ItemsSource="{Binding ListBox_ListOfUsers}">
+                             ItemsSource="{Binding ListOfUsers}"
+                             SelectedItem="{Binding Select_User}">
                     </ListBox>
                 </DockPanel>
             </Grid>

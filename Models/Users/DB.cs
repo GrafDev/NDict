@@ -17,10 +17,10 @@ using System.Windows.Controls;
 
 
 
-namespace NDict.Models.Users
+namespace NDict.Models
 {
 
-    static class UsersDB
+    static class DB
     {
         static private ApplicationContext db;
 
@@ -32,6 +32,7 @@ namespace NDict.Models.Users
         {
             db = new ApplicationContext();
             Players.Users = db.Users.ToList();
+            
             // App.TestVM.TestBlock = db.Users.ToList().ToString();
         }
         public static void AddUser(User user)

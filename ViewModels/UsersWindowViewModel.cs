@@ -24,11 +24,13 @@ namespace NDict.ViewModels
         private string text_Button_Delete = "Delete";
         public string Text_Button_Delete { get => text_Button_Delete; set => Set(ref text_Button_Delete, value); }
 
-        private string text_Select_User = Players.Current.Name;
-        public string Text_Select_User { get => text_Select_User; set => Set(ref text_Select_User, value); }
+        private string select_User = "Default";
+        public string Select_User { get => select_User; set => Set(ref select_User, value); }
 
-        private List<string> listBox_ListOfUsers=new List<string>();
-        public List<string> ListBox_ListOfUsers { get => listBox_ListOfUsers; set => Set(ref listBox_ListOfUsers, value); }
+        private List<string> listOfUsers=new List<string>();
+        public List<string> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
+
+
 
         #endregion
 
