@@ -7,7 +7,7 @@ namespace NDict.ViewModels
     public class AddUserViewModel : BaseViewModel
     {
 
-        private string userName = "Default";
+        private string userName = "";
         public string UserName { get => userName; set => Set(ref userName, value); }
         public AddUserViewModel()
         {

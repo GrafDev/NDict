@@ -36,8 +36,7 @@ namespace NDict
             Knobs.Loaded();
 
             MainVM = new MainWindowViewModel();
-            UsersVM = new UsersWindowViewModel();
-            UsersVM.LListOfUsers = Players.Users.ToList();
+            UsersVM = new UsersWindowViewModel();            
             AddUserVM = new AddUserViewModel();
             
         }

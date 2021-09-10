@@ -27,12 +27,8 @@ namespace NDict.ViewModels
         private string select_User = "Default";
         public string Select_User { get => select_User; set => Set(ref select_User, value); }
 
-        private List<string> listOfUsers=new List<string>();
-        public List<string> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
-
-        private List<User> _listOfUsers = new List<User>();
-        public List<User> LListOfUsers { get => _listOfUsers; set => Set(ref _listOfUsers, value); }
-
+        private List<User> listOfUsers = new List<User>();
+        public List<User> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
 
         #endregion
 

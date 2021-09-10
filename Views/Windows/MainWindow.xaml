@@ -12,15 +12,13 @@
     <Window.DataContext>
         <x:Static Member="local:App.MainVM"/>
     </Window.DataContext>
-    <Border Width="Auto" Height="Auto" Name="windowFrame"
-    
-          BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
-          BorderThickness="1"
-          CornerRadius="5,5,5,5" AllowDrop="True" Background="{DynamicResource MaterialDesignBackground}"
-            MouseLeftButtonDown="titleBar_MouseLeftButtonDown">
-        
-        <Grid d:IsLocked="True">
 
+    <Border Width="Auto" Height="Auto" Name="windowFrame"              
+            BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"          
+            BorderThickness="1"          
+            CornerRadius="5,5,5,5" AllowDrop="True" Background="{DynamicResource MaterialDesignBackground}"
+            MouseLeftButtonDown="titleBar_MouseLeftButtonDown">
+        <Grid d:IsLocked="True">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="Row_Title" Height="20"/>
                 <RowDefinition x:Name="Row_Menu" Height="0.7*" MinHeight="45"/>
@@ -47,8 +45,11 @@
                     Margin="15,5,5,5"
                     Grid.Column="0"
                     Height="{Binding Menu}"
-                    HorizontalAlignment="Left"
-                Padding="5">
+                    HorizontalAlignment="Left" 
+                        Padding="5">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Command>
                         <cmd:PlayApplicationCommand/>
                     </Button.Command>
@@ -65,6 +66,9 @@
                     Height="{Binding Menu}"
                     HorizontalAlignment="Center"
                     Padding="5">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Command>
                         <cmd:ProfileApplicationCommand/>
                     </Button.Command>
@@ -81,6 +85,9 @@
                     Height="{Binding Menu}"
                     HorizontalAlignment="Right"
                     Padding="5">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Command>
                         <cmd:CloseApplicationCommand/>
                     </Button.Command>
@@ -134,26 +141,37 @@
                     Margin="15,5,15,5" 
                 Grid.Row="0" 
                 Height="{Binding Row_Answer_01}"  >
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
                             <TextBlock Text="{Binding Text_Button01}" />
                         </Viewbox>
                     </Button.Content>
                 </Button>
+
                 <Button x:Name="Button_Of_Answer_02" 
                     Margin="15,5,15,5" 
                 Grid.Row="1" 
                 Height="{Binding Row_Answer_02}"  >
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
                             <TextBlock Text="{Binding Text_Button02}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
+
                 <Button x:Name="Button_Of_Answer_03" 
                     Margin="15,5,15,5" 
                 Grid.Row="2" 
                 Height="{Binding Row_Answer_03}"  >
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
                             <TextBlock Text="{Binding Text_Button03}" />
@@ -164,6 +182,9 @@
                     Margin="15,5,15,5" 
                 Grid.Row="3" 
                 Height="{Binding Row_Answer_04}"  >
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
                             <TextBlock Text="{Binding Text_Button04}" />
@@ -174,6 +195,9 @@
                     Margin="15,5,15,5" 
                 Grid.Row="4"
                 Height="{Binding Row_Answer_05}">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
                             <TextBlock Text="{Binding Text_Button05}"/>
@@ -184,6 +208,9 @@
                     Margin="15,5,15,5"
                 Grid.Row="5" 
                 Height="{Binding Row_Answer_06}"  >
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                    </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
                             <TextBlock Text="{Binding Text_Button06}"/>
@@ -224,7 +251,6 @@
                              d:IsLocked="True"
                                  />
                 </Grid>
-
                 <StackPanel Grid.Column="2" 
                         Margin="15,0,15,0" 
                         Orientation="Horizontal" 
@@ -240,15 +266,6 @@
                            Foreground="Black"/>
                 </StackPanel>
             </Grid>
-            <!--<Grid x:Name="Test" Grid.Row="4" Margin="5">
-           <ScrollViewer   VerticalScrollBarVisibility="Auto" >
-                <TextBlock   TextWrapping="WrapWithOverflow" Text="{Binding Path=Test}" Height="{Binding Row04}" />
-            </ScrollViewer> 
-        </Grid>-->
-
-
-
-
         </Grid>
     </Border>
 </Window>

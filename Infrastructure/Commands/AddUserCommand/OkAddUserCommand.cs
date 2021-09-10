@@ -6,6 +6,16 @@ using NDict.Infrastructure;
 using System.Windows;
 using NDict.Views.Windows;
 using NDict.Models;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
+
+using NDict.ViewModels;
+using NDict.Services;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace NDict.Infrastructure.Commands.AddUserCommand
 {
@@ -13,26 +23,43 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
     {
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
-        {
-            foreach (Window window in App.Current.Windows)
+        {             
+            string _name = App.AddUserVM.UserName;
+            if (_name.Length <= 3)
             {
-                if (window is AddUserWindow)
+                foreach (Window _window in App.Current.Windows)
                 {
-                    window.Close();
-                }
-                if (window is UsersWindow)
-                {
-                    window.IsEnabled = true;
+                    if (_window is AddUserWindow)
+                    {
+                        object obj = _window.FindName("NewUserName"); 
+                        System.Windows.Controls.TextBox pop = (System.Windows.Controls.TextBox)obj;
+                        pop.ToolTip = "Введите имя длиннее трех символов";
+
+                    }
 
                 }
             }
+            else
+            {
+                User user = new User { Name = _name };
+                DB.AddUser(user);
+                Players.Users.Add(user);
+                App.UsersVM.ListOfUsers = Players.Users.ToList();
 
-            User user = new User { Name = App.AddUserVM.UserName};
-            DB.AddUser(user);
-            App.UsersVM.ListOfUsers.Add(user.Name);
-            Players.Users.Add(user);
-            //ЗАписать все изменения в базу данных юзеров
+                foreach (Window window in App.Current.Windows)
+                {
+                    if (window is AddUserWindow)
+                    {
+                        window.Close();
+                    }
+                    if (window is UsersWindow)
+                    {
+                        window.IsEnabled = true;
+                    }
 
+                }
+                App.AddUserVM.UserName = "";
+            }
         }
     }
 }

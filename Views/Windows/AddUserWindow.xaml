@@ -1,5 +1,6 @@
 ﻿<Window x:Class="NDict.Views.Windows.AddUserWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,50 +20,50 @@
             AllowDrop="True" 
             Background="{DynamicResource MaterialDesignBackground}"
             MouseLeftButtonDown="titleBar_MouseLeftButtonDown">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20" ShadowDepth="0" Color="LightGray"/>
+        </Border.Effect>
 
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="60"/>                
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            
-            <TextBox x:Name="UserName" 
-                             Grid.Row="0"
-                                Grid.ColumnSpan="2"
-                             BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}" 
-                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+            <StackPanel Orientation="Vertical">
+                <Grid>
+                    <TextBox x:Name="NewUserName" 
+                             materialDesign:HintAssist.Hint="Enter name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                              BorderThickness="1"
-                             Margin="5" Cursor="IBeam"                            
-                             Text="{Binding UserName}"/>                
-                <Button x:Name="Button_Ok"
-                                                     Grid.Row="1"
-                                Grid.Column="0"
+                             Margin="5" Cursor="IBeam" 
+                             Height="Auto"
+                             Text="{Binding UserName, Mode=TwoWay}"/>
+                </Grid>
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Button_Ok"
                         Cursor="Hand"                     
                         HorizontalAlignment="Center" 
                         Content="Ok"
                         Width="80"
                         >
-                    <Button.Command>
-                        <cmd:OkAddUserCommand/>
-                    </Button.Command>
 
-                </Button>
-                <Button x:Name="Button_Cancel" 
-                                                     Grid.Row="1"
+                        <Button.Command>
+                            <cmd:OkAddUserCommand/>
+                        </Button.Command>
+                    </Button>
+                    <Button x:Name="Button_Cancel" 
+                                Grid.Row="1"
                                 Grid.Column="1"
                         HorizontalAlignment="Center" 
                         Content="Cancel"                             
-                        Width="80"
+                        Width="80" Cursor="Hand"
                         >
-                    <Button.Command>
-                        <cmd:CancelAddUserCommand/>
-                    </Button.Command>
 
-                </Button>
+                        <Button.Command>
+                            <cmd:CancelAddUserCommand/>
+                        </Button.Command>
+                    </Button>
+                </Grid>
+            </StackPanel>
         </Grid>
     </Border>
 </Window>
