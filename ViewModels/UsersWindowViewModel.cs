@@ -30,6 +30,8 @@ namespace NDict.ViewModels
         private List<string> listOfUsers=new List<string>();
         public List<string> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
 
+        private List<User> _listOfUsers = new List<User>();
+        public List<User> LListOfUsers { get => _listOfUsers; set => Set(ref _listOfUsers, value); }
 
 
         #endregion
@@ -37,7 +39,7 @@ namespace NDict.ViewModels
 
         public UsersWindowViewModel()
         {
-
+            
         }
 
 

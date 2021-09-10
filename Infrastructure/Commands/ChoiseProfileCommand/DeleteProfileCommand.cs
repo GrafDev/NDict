@@ -13,7 +13,6 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
         public override void Execute(object parameter)
         {
 
-
         }
 
     }

@@ -12,7 +12,8 @@
     <Window.DataContext>
         <x:Static Member="local:App.UsersVM"/>
     </Window.DataContext>
-    <Border MinWidth="520" Width="Auto" Height="Auto" Name="windowFrame"
+
+            <Border MinWidth="520" Width="Auto" Height="Auto" Name="windowFrame"
             BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"          
             BorderThickness="1"          
             CornerRadius="5,5,5,5" 
@@ -131,16 +132,25 @@
                 </StackPanel>
                 <DockPanel Grid.Column="1"                    
                             LastChildFill="True">
-                    <ListBox x:Name="List_Of_Users" 
+                    <Grid>
+                        <!--<Grid.Resources>
+                            <DataTemplate x:Key="userNameTemplate">
+                                <TextBlock Text="{Binding ListOfUsers}"/>
+                            </DataTemplate>
+                        </Grid.Resources>-->
+                        <ListBox x:Name="List_Of_Users" 
                              Margin="5,5,5,5"
                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                              FontSize="15"
                              Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
                              BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
-                             BorderThickness="1"                             
-                             ItemsSource="{Binding ListOfUsers}"
-                             SelectedItem="{Binding Select_User}">
-                    </ListBox>
+                             BorderThickness="1"    
+                             ItemsSource="{Binding LListOfUsers}"
+                             SelectedItem="{Binding Select_User}"
+                             DisplayMemberPath="Name"
+                             >
+                        </ListBox>
+                    </Grid>
                 </DockPanel>
             </Grid>
         </DockPanel>

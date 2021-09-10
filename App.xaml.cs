@@ -37,6 +37,7 @@ namespace NDict
 
             MainVM = new MainWindowViewModel();
             UsersVM = new UsersWindowViewModel();
+            UsersVM.LListOfUsers = Players.Users.ToList();
             AddUserVM = new AddUserViewModel();
             
         }

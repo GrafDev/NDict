@@ -5,7 +5,7 @@ using NDict.Models;
 
 namespace NDict.Models
 {
-    class User
+    public class User
     {
 
         public int Id { get; set; }
