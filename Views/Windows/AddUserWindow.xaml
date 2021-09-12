@@ -28,7 +28,8 @@
             <StackPanel Orientation="Vertical">
                 <Grid>
                     <TextBox x:Name="NewUserName" 
-                             materialDesign:HintAssist.Hint="Enter name" Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                             materialDesign:HintAssist.Hint="Enter name"                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                             ToolTip="Введите имя длинее трех символов!"
                              BorderThickness="1"
                              Margin="5" Cursor="IBeam" 
                              Height="Auto"

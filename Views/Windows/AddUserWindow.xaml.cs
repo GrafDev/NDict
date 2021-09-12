@@ -13,6 +13,7 @@ using NDict.Infrastructure.Commands.Base;
 using NDict.Views;
 using NDict.Views.Windows;
 using NDict.Models;
+using System.Linq;
 
 namespace NDict.Views.Windows
 {
@@ -29,5 +30,8 @@ namespace NDict.Views.Windows
         {
             this.DragMove();
         }
+
+            
     }
+    
 }
