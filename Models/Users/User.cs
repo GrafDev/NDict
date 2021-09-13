@@ -13,6 +13,7 @@ namespace NDict.Models
         //public IEnumerable<int> LearningWords { get; set; }
         //public IEnumerable<int> LearnedWords { get; set; }
         public int Difficult { get; set; }
+        public int Current { get; set; }
         public User() 
         {
         }

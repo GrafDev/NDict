@@ -15,6 +15,11 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
         public override void Execute(object parameter)
         {
 
+            Players.Current = App.UsersVM.Select_User;
+            App.MainVM.Text_Button_Profile = Players.Current.Name;
+            Players.SetCurrent(Players.Current);
+            DB.UpdateUser(Players.Current);
+
             foreach (Window _window in App.Current.Windows)
             {
                 if (_window is UsersWindow)
@@ -24,11 +29,9 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
                     NDict.App.Current.MainWindow.Activate();
                 }
 
-                App.MainVM.Text_Button_Profile = App.UsersVM.Select_User;
-                Players.Current.Name = App.UsersVM.Select_User;
-                //ЗАписать все изменения в базу данных юзеров
+                             
             }
-           
+
         }
     }
 }

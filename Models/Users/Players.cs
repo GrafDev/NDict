@@ -17,8 +17,32 @@ namespace NDict.Models
 
         public static void Loaded()
         {
-            _current = new User("Graf");
-               
+            Current = new User();
+            bool FlagCurrent = false;
+            Users = DB.GetUsers();
+            foreach(User _user in Users)
+            {
+                if (!FlagCurrent && _user.Current > 0)
+                {
+                    Current = _user;
+                    FlagCurrent = true;
+                }                   
+            }
+            if (!FlagCurrent)
+            {
+                Current = Users.ToList()[0];
+            }
+
+        }
+        public static void SetCurrent(User _user)
+        {
+            foreach(User user in Users)
+            {
+                user.Current = 0;
+                DB.UpdateUser(user);
+            }
+            _user.Current = 1;
+            DB.UpdateUser(_user);
         }
 
     }

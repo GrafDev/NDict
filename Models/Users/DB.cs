@@ -27,35 +27,38 @@ namespace NDict.Models
         public static void Loaded()
         {
             LoadDB();
+            Players.Loaded();
         }
+
         public static void LoadDB()
         {
             db = new ApplicationContext();
-            Players.Users = db.Users.ToList();
-            
+
             // App.TestVM.TestBlock = db.Users.ToList().ToString();
         }
         public static void AddUser(User user)
         {
             db.Database.EnsureCreated();
             db.Users.Add(user);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e);
+                // Provide for exceptions.
+            }
+            App.UsersVM.ListOfUsers = GetUsers();
         }
 
         public static void UpdateUser(User user)
         {
-            var updateUsers =
-                from tempUser in db.Users
-                where tempUser.Id == user.Id
-                select tempUser;
-
-            foreach (var _user in updateUsers)
-            {
-                db.Users.Update(_user);
-            }
+            db.Database.EnsureCreated();
+            db.Users.Update(user);
 
             try
-            {
+            {   
                 db.SaveChanges();
             }
             catch (Exception e)
@@ -63,19 +66,13 @@ namespace NDict.Models
                 //Console.WriteLine(e);
                 // Provide for exceptions.
             }
-
+            App.UsersVM.ListOfUsers = GetUsers();
         }
         public static void DeleteUser(User user)
         {
-            var deleteusers =
-                from tempUser in db.Users
-                where tempUser.Id == user.Id
-                select tempUser;
+            db.Database.EnsureCreated();
+            db.Users.Remove(user);
 
-            foreach (var _user in deleteusers)
-            {
-                db.Users.Remove(_user);
-            }
 
             try
             {
@@ -86,11 +83,13 @@ namespace NDict.Models
                 //Console.WriteLine(e);
                 // Provide for exceptions.
             }
+            App.UsersVM.ListOfUsers = GetUsers();
+
         }
-
-
-
-
+        public static List<User> GetUsers()
+        {
+            var _users = db.Users.ToList();
+            return _users;
+        }
     }
-
 }

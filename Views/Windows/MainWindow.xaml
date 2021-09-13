@@ -55,7 +55,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button_Play}"/>
+                            <TextBlock Text="Play"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -93,7 +93,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button_Func}"/>
+                            <TextBlock Text="Close"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>

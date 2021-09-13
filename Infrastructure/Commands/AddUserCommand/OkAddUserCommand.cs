@@ -28,11 +28,12 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
             if (_name.Length > 3)
             {
                 User user = new User { Name = _name };
-                DB.AddUser(user);
+                DB.AddUser(user);                
                 Players.Users.Add(user);
                 Players.Current = user; //TODO: Current name
+                Players.SetCurrent(Players.Current);
                 App.UsersVM.ListOfUsers = Players.Users.ToList();
-                App.UsersVM.Select_User = user.Name; // TODO: Current name
+                App.UsersVM.Select_User = user; // TODO: Current name
                 foreach (Window window in App.Current.Windows)
                 {
 

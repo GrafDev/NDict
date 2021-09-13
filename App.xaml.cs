@@ -31,8 +31,7 @@ namespace NDict
             TestVM = new TestViewModel();
 
             DB.Loaded();
-            NDictionary.Loaded();
-            Players.Loaded();
+            NDictionary.Loaded();            
             Knobs.Loaded();
 
             MainVM = new MainWindowViewModel();
