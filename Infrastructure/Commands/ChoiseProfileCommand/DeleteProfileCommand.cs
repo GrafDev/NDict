@@ -16,6 +16,8 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
         {
             var user = App.UsersVM.Select_User;
             DBUsers.DeleteUser(user);
+            Players.DeleteUser(user);
+            App.UsersVM.ListOfUsers.Remove(user);
             App.UsersVM.Select_User = Players.Users.ToList()[0];
         }
 

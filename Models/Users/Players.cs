@@ -34,7 +34,7 @@ namespace NDict.Models
             }
 
         }
-        public static void SetCurrent(User _user)
+        public static void SetCurrentUser(User _user)
         {
             
             foreach(User user in Users)
@@ -45,6 +45,15 @@ namespace NDict.Models
             _user.FlagCurrent = 1;
             _currentUser = _user;
             DBUsers.UpdateUser(_user);
+        }
+        public static void DeleteUser(User _user)
+        {
+            Users.Remove(_user);
+        }
+
+        public static void AddUser(User _user)
+        {
+            Users.Add(_user);
         }
 
     }

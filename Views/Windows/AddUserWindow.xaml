@@ -37,7 +37,8 @@
                              Margin="5" Cursor="IBeam" 
                              Height="Auto"
                              Text="{Binding UserName, Mode=TwoWay}"
-                             KeyDown="OnKeyDownHandler"/>
+                             KeyDown="OnKeyDownHandler"
+                             AcceptsReturn="False"/>
                 </Grid>
                 <Grid Margin="5">
                     <Grid.ColumnDefinitions>

@@ -29,15 +29,15 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
         public void Action()
         {
             string _name = App.AddUserVM.UserName.TrimEnd().TrimStart();
-            if (_name.Length > 3 || _name=="Default")
+            if (_name.Length > 3 && _name!="Default")
             {
                 User user = new User { Name = _name };
                 DBUsers.AddUser(user);
-                Players.Users.Add(user);
-                Players.SetCurrent(user);
+                Players.AddUser(user);
+                Players.SetCurrentUser(user);
                 App.UsersVM.ListOfUsers = Players.Users.ToList();
                 App.UsersVM.Select_User = user; // TODO: Current name
-                CheckDwfaultName();
+                CheckDefaultName();
 
                 foreach (Window window in App.Current.Windows)
                 {
@@ -54,14 +54,16 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
             }
         }
 
-        private void CheckDwfaultName()
+        private void CheckDefaultName()
         {
             foreach(User user in Players.Users)
             {
                 if (user.Name == "Default")
                 {
                     DBUsers.DeleteUser(user);
+                    Players.DeleteUser(user);
                 }
+
             }
         }
     }

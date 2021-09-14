@@ -14,6 +14,11 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
+            Action();
+           
+        }
+        public void Action()
+        {
 
             foreach (Window window in App.Current.Windows)
             {
@@ -24,7 +29,7 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
                 }
                 if (window is UsersWindow)
                 {
-                    window.IsEnabled=true;
+                    window.IsEnabled = true;
                     //NDict.App.Current.MainWindow.IsEnabled = true;
                 }
 
@@ -32,7 +37,7 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
                 //Players.Current.Name = App.UsersVM.Select_User;
                 //ЗАписать все изменения в базу данных юзеров
             }
-           
+
         }
     }
 }

@@ -26,6 +26,7 @@ namespace NDict.Views.Windows
         public AddUserWindow()
         {
             InitializeComponent();
+            this.PreviewKeyDown += new KeyEventHandler(OnKeyDownHandler);
         }
         private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -35,10 +36,16 @@ namespace NDict.Views.Windows
         {
             if (e.Key == Key.Return)
             {
-                var command = new OkAddUserCommand();
-                command.Action();
+                var commandOk = new OkAddUserCommand();
+                commandOk.Action();
+            } 
+
+            if (e.Key == Key.Escape)
+            {
+                var commandCancel = new CancelAddUserCommand();
+                commandCancel.Action();
             }
         }
     }
-    
+
 }
