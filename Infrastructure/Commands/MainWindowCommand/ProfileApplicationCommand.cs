@@ -35,6 +35,7 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
             userWindow.Show();
             userWindow.Activate();
             App.UsersVM.ListOfUsers = Players.Users.ToList();
+            App.UsersVM.Select_User = Players.CurrentUser;
             App.Current.MainWindow.IsEnabled = false;
         }
             

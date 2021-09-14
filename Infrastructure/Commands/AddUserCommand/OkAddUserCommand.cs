@@ -24,31 +24,44 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
+            Action();            
+        }
+        public void Action()
+        {
             string _name = App.AddUserVM.UserName.TrimEnd().TrimStart();
-            if (_name.Length > 3)
+            if (_name.Length > 3 || _name=="Default")
             {
                 User user = new User { Name = _name };
-                DB.AddUser(user);                
+                DBUsers.AddUser(user);
                 Players.Users.Add(user);
-                Players.Current = user; //TODO: Current name
-                Players.SetCurrent(Players.Current);
+                Players.SetCurrent(user);
                 App.UsersVM.ListOfUsers = Players.Users.ToList();
                 App.UsersVM.Select_User = user; // TODO: Current name
+                CheckDwfaultName();
+
                 foreach (Window window in App.Current.Windows)
                 {
-
                     if (window is AddUserWindow)
                     {
                         window.Close();
                     }
-
                     if (window is UsersWindow)
                     {
                         window.IsEnabled = true;
                     }
-
                 }
                 App.AddUserVM.UserName = "";
+            }
+        }
+
+        private void CheckDwfaultName()
+        {
+            foreach(User user in Players.Users)
+            {
+                if (user.Name == "Default")
+                {
+                    DBUsers.DeleteUser(user);
+                }
             }
         }
     }

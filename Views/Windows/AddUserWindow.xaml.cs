@@ -14,6 +14,7 @@ using NDict.Views;
 using NDict.Views.Windows;
 using NDict.Models;
 using System.Linq;
+using NDict.Infrastructure.Commands.AddUserCommand;
 
 namespace NDict.Views.Windows
 {
@@ -30,8 +31,14 @@ namespace NDict.Views.Windows
         {
             this.DragMove();
         }
-
-            
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                var command = new OkAddUserCommand();
+                command.Action();
+            }
+        }
     }
     
 }

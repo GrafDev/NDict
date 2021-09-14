@@ -15,7 +15,7 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
         public override void Execute(object parameter)
         {
             var user = App.UsersVM.Select_User;
-            DB.DeleteUser(user);
+            DBUsers.DeleteUser(user);
             App.UsersVM.Select_User = Players.Users.ToList()[0];
         }
 

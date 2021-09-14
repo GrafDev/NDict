@@ -16,7 +16,7 @@ namespace NDict.ViewModels
         #region Text of Button of User
 
         private User select_User;
-        public User Select_User { get => select_User; set => Set(ref select_User, value); }
+        public User Select_User { get => select_User; set => Set(ref select_User, value);}
 
         private List<User> listOfUsers = new List<User>();
         public List<User> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }

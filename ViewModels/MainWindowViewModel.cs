@@ -21,7 +21,7 @@ namespace NDict.ViewModels
         #endregion
         #region Text of Button of Menu
 
-        private string _Button_Profile = Players.Current.Name;
+        private string _Button_Profile = Players.CurrentUser.Name;
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
 
         #endregion
@@ -69,7 +69,7 @@ namespace NDict.ViewModels
         #endregion
         public MainWindowViewModel()
         {
-            Text_Button_Profile = Players.Current.Name;
+            Text_Button_Profile = Players.CurrentUser.Name;
             Text_Button01 = Knobs.Text[0];
             Text_Button02 = Knobs.Text[1];
             Text_Button03 = Knobs.Text[2];

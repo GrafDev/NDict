@@ -29,13 +29,15 @@
             <StackPanel Orientation="Vertical">
                 <Grid>
                     <TextBox x:Name="NewUserName" 
-                             materialDesign:HintAssist.Hint="Enter name"                Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                             materialDesign:HintAssist.Hint="Enter name"                
+                             Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
                              ToolTip="Введите имя длинее трех символов!"
                              ToolTipService.VerticalOffset="-90"
                              BorderThickness="1"
                              Margin="5" Cursor="IBeam" 
                              Height="Auto"
-                             Text="{Binding UserName, Mode=TwoWay}"/>
+                             Text="{Binding UserName, Mode=TwoWay}"
+                             KeyDown="OnKeyDownHandler"/>
                 </Grid>
                 <Grid Margin="5">
                     <Grid.ColumnDefinitions>

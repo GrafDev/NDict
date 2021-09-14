@@ -9,40 +9,42 @@ namespace NDict.Models
 {
     static class Players
     {
-        static User _current;
-        public static User Current { get => _current; set => _current = value; }
+        static User _currentUser;
+        public static User CurrentUser { get => _currentUser; set => _currentUser = value; }
         
         private static ICollection<User> users;
         internal static ICollection<User> Users { get => users; set => users = value; }
 
         public static void Loaded()
         {
-            Current = new User();
+            CurrentUser = new User();
             bool FlagCurrent = false;
-            Users = DB.GetUsers();
+            Users = DBUsers.GetUsers();
             foreach(User _user in Users)
             {
-                if (!FlagCurrent && _user.Current > 0)
+                if (!FlagCurrent && _user.FlagCurrent > 0)
                 {
-                    Current = _user;
+                    CurrentUser = _user;
                     FlagCurrent = true;
                 }                   
             }
             if (!FlagCurrent)
             {
-                Current = Users.ToList()[0];
+                CurrentUser = Users.ToList()[0];
             }
 
         }
         public static void SetCurrent(User _user)
         {
+            
             foreach(User user in Users)
             {
-                user.Current = 0;
-                DB.UpdateUser(user);
+                user.FlagCurrent = 0;
+                DBUsers.UpdateUser(user);
             }
-            _user.Current = 1;
-            DB.UpdateUser(_user);
+            _user.FlagCurrent = 1;
+            _currentUser = _user;
+            DBUsers.UpdateUser(_user);
         }
 
     }

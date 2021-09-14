@@ -14,11 +14,11 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
-
-            Players.Current = App.UsersVM.Select_User;
-            App.MainVM.Text_Button_Profile = Players.Current.Name;
-            Players.SetCurrent(Players.Current);
-            DB.UpdateUser(Players.Current);
+            
+            Players.CurrentUser = App.UsersVM.Select_User;  
+            App.MainVM.Text_Button_Profile = Players.CurrentUser.Name;
+            Players.SetCurrent(Players.CurrentUser);
+            DBUsers.UpdateUser(Players.CurrentUser);
 
             foreach (Window _window in App.Current.Windows)
             {
@@ -27,9 +27,7 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
                     _window.Close();
                     NDict.App.Current.MainWindow.IsEnabled = true;
                     NDict.App.Current.MainWindow.Activate();
-                }
-
-                             
+                }                             
             }
 
         }

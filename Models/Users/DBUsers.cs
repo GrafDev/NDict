@@ -20,7 +20,7 @@ using System.Windows.Controls;
 namespace NDict.Models
 {
 
-    static class DB
+    static class DBUsers
     {
         static private ApplicationContext db;
 
@@ -33,13 +33,31 @@ namespace NDict.Models
         public static void LoadDB()
         {
             db = new ApplicationContext();
+            if (db.Users.Count() < 1)
+            {
+                var _user = new User();
+                _user.Name = "Default";
+                _user.Difficult = 1;
+                db.Database.EnsureCreated();
+                db.Users.Add(_user);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    //Console.WriteLine(e);
+                    // Provide for exceptions.
+                }
+            }
 
             // App.TestVM.TestBlock = db.Users.ToList().ToString();
         }
-        public static void AddUser(User user)
+        public static void AddUser(User _user)
         {
             db.Database.EnsureCreated();
-            db.Users.Add(user);
+            _user.Difficult = 1;
+            db.Users.Add(_user);
             try
             {
                 db.SaveChanges();
@@ -52,10 +70,10 @@ namespace NDict.Models
             App.UsersVM.ListOfUsers = GetUsers();
         }
 
-        public static void UpdateUser(User user)
+        public static void UpdateUser(User _user)
         {
             db.Database.EnsureCreated();
-            db.Users.Update(user);
+            db.Users.Update(_user);
 
             try
             {   

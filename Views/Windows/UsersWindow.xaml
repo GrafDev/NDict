@@ -70,19 +70,31 @@
                      TickPlacement="BottomRight"
                      IsSnapToTickEnabled="True"
                      IsSelectionRangeEnabled="True"
-                     Margin="20,15,15,15"/>
+                     Margin="20,0,15,20"
+                     Value="{Binding Select_User.Difficult,Mode=TwoWay}"/>
                     <Label Content="Choose type of game" 
                    VerticalAlignment="Top"
                    Margin="5,5,0,0"/>
-                    <StackPanel Orientation="Vertical" Margin="15,5,15,5">
-                        <RadioButton Content="Train"
-                          IsChecked="True"
-                                 Margin="0"
-                         />
-                        <RadioButton Content="Play"
-                                 Margin="0,5"
-                         />
-                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="15,5,15,5"/>
+                    <Slider x:Name="typeGame" Height="Auto" 
+                     Maximum="1"
+                     Minimum="0"
+                     MinHeight="40"
+                     VerticalAlignment="Stretch" 
+                     TickFrequency="0"
+                     TickPlacement="BottomRight"
+                     IsSnapToTickEnabled="True"
+                     IsSelectionRangeEnabled="True"
+                     Margin="20,0,15,0"
+                     Value="{Binding Select_User.TypeGame,Mode=TwoWay}"/>
+                    <Grid Margin="20,0,15,20" VerticalAlignment="Top">                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Train" HorizontalAlignment="Left"/>
+                        <Label Grid.Column="1" Content="Play" HorizontalAlignment="Right" />
+                    </Grid>
 
                 </StackPanel>
                 <Button x:Name="Button_Ok"                     

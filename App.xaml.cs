@@ -30,7 +30,7 @@ namespace NDict
         {
             TestVM = new TestViewModel();
 
-            DB.Loaded();
+            DBUsers.Loaded();
             NDictionary.Loaded();            
             Knobs.Loaded();
 
