@@ -24,6 +24,7 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
             {
                 Players.CurrentUser = App.UsersVM.Select_User;
                 App.MainVM.Text_Button_Profile = Players.CurrentUser.Name;
+                App.MainVM.Text_Button_Play = Players.CurrentUser.TypeGame == 1 ? "Play":"Train";
                 Players.SetCurrentUser(Players.CurrentUser);
                 DBUsers.UpdateUser(Players.CurrentUser);
             }

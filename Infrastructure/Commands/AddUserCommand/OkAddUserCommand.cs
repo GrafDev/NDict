@@ -19,32 +19,37 @@ using System.Windows.Data;
 
 namespace NDict.Infrastructure.Commands.AddUserCommand
 {
-    class OkAddUserCommand: Command
+    class OkAddUserCommand : Command
     {
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
-            Action();            
+            Action();
         }
         public void Action()
         {
             string _name = App.AddUserVM.UserName.TrimEnd().TrimStart();
-            if (_name.Length > 3 && _name!="Default")
+
+            if (_name.Length > 3 && _name != "Default")
             {
                 User user = new User { Name = _name };
                 DBUsers.AddUser(user);
                 Players.AddUser(user);
                 Players.SetCurrentUser(user);
                 App.UsersVM.ListOfUsers = Players.Users.ToList();
-                App.UsersVM.Select_User = user; // TODO: Current name
+                App.UsersVM.Select_User = user; // TODO: Current name                
                 CheckDefaultName();
 
                 foreach (Window window in App.Current.Windows)
                 {
                     if (window is AddUserWindow)
                     {
+                        window.IsEnabled = false;
                         window.Close();
                     }
+                }
+                foreach (Window window in App.Current.Windows)
+                {
                     if (window is UsersWindow)
                     {
                         window.IsEnabled = true;
@@ -52,18 +57,26 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
                 }
                 App.AddUserVM.UserName = "";
             }
+
         }
 
         private void CheckDefaultName()
         {
-            foreach(User user in Players.Users)
+            User _user = new User();
+            bool FlagDefaultUser = false;
+            foreach (User user in Players.Users)
             {
                 if (user.Name == "Default")
                 {
-                    DBUsers.DeleteUser(user);
-                    Players.DeleteUser(user);
+                    _user = user;
+                    FlagDefaultUser = true;
+                    continue;
                 }
-
+            }
+            if (FlagDefaultUser)
+            {
+                DBUsers.DeleteUser(_user);
+                Players.DeleteUser(_user);
             }
         }
     }

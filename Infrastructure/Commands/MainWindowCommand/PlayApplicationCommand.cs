@@ -16,10 +16,11 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
 
         public override void Execute(object parameter)
         {
-            testWindow = new TestWindow();
-            testWindow.Show();
-            testWindow.Activate();
-            _Test();
+            //testWindow = new TestWindow();
+            //testWindow.Show();
+            //testWindow.Activate();
+            Timers.Start();
+            //_Test();
         }
         void _Test()
 

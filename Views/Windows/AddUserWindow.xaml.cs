@@ -26,19 +26,26 @@ namespace NDict.Views.Windows
         public AddUserWindow()
         {
             InitializeComponent();
-            this.PreviewKeyDown += new KeyEventHandler(OnKeyDownHandler);
+            
+            
         }
         private void titleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+         private void TextBox_KeyEnterUpdate(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
+            if (e.Key == Key.Enter)
             {
+                TextBox tBox = (TextBox)sender;
+                DependencyProperty prop = TextBox.TextProperty;
+
+                BindingExpression binding = BindingOperations.GetBindingExpression(tBox, prop);
+                if (binding != null) { binding.UpdateSource(); }
+
                 var commandOk = new OkAddUserCommand();
                 commandOk.Action();
-            } 
+            }
 
             if (e.Key == Key.Escape)
             {
@@ -46,6 +53,7 @@ namespace NDict.Views.Windows
                 commandCancel.Action();
             }
         }
+
     }
 
 }

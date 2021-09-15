@@ -37,6 +37,7 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
                 //Players.Current.Name = App.UsersVM.Select_User;
                 //ЗАписать все изменения в базу данных юзеров
             }
+            App.AddUserVM.UserName = "";
 
         }
     }

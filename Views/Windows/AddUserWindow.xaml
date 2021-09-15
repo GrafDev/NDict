@@ -5,8 +5,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands.AddUserCommand"
-        xmlns:vm="clr-namespace:NDict.ViewModels"        
         xmlns:local="clr-namespace:NDict"
+        xmlns:b="clr-namespace:NDict.Services"
         xmlns:localvm="clr-namespace:NDict.ViewModels"
         mc:Ignorable="d"
         Title="Add User" Height="Auto" Width="250" WindowStartupLocation="CenterOwner" Padding="15" MinHeight="100" MinWidth="120" WindowStyle="None" ShowInTaskbar="False" Background="{x:Null}" AllowsTransparency="True" ResizeMode="NoResize">
@@ -36,9 +36,10 @@
                              BorderThickness="1"
                              Margin="5" Cursor="IBeam" 
                              Height="Auto"
-                             Text="{Binding UserName, Mode=TwoWay}"
-                             KeyDown="OnKeyDownHandler"
-                             AcceptsReturn="False"/>
+                             Text="{Binding UserName, Mode=TwoWay}"                             
+                             AcceptsReturn="False"
+                             KeyUp="TextBox_KeyEnterUpdate"
+                             />
                 </Grid>
                 <Grid Margin="5">
                     <Grid.ColumnDefinitions>

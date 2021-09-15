@@ -20,9 +20,15 @@ namespace NDict.ViewModels
         public string Title{ get => _Title; set => Set(ref _Title, value); }
         #endregion
         #region Text of Button of Menu
+        private string _Button_Play;
+        public string Text_Button_Play { get => _Button_Play; set => Set(ref _Button_Play, value); }
+
+        private string _Button_Close="Close";
+        public string Text_Button_Close { get => _Button_Close; set => Set(ref _Button_Close, value); }
 
         private string _Button_Profile = Players.CurrentUser.Name;
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
+        public bool FlagButtonClose=true;
 
         #endregion
         #region Labels for Question
@@ -70,6 +76,7 @@ namespace NDict.ViewModels
         public MainWindowViewModel()
         {
             Text_Button_Profile = Players.CurrentUser.Name;
+            Text_Button_Play = Players.CurrentUser.TypeGame == 1 ? "Play" : "Train";
             Text_Button01 = Knobs.Text[0];
             Text_Button02 = Knobs.Text[1];
             Text_Button03 = Knobs.Text[2];
@@ -77,8 +84,5 @@ namespace NDict.ViewModels
             Text_Button05 = Knobs.Text[4];
             Text_Button06 = Knobs.Text[5];
         }
-
-
-
     }
 }

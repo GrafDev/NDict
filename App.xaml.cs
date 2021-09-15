@@ -18,9 +18,11 @@ namespace NDict
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
+    /// 
+  
     public partial class App : Application
     {
-
+        
        public static MainWindowViewModel MainVM { get; }
         public static UsersWindowViewModel UsersVM { get; }
         public static TestViewModel TestVM { get;  }
@@ -39,6 +41,7 @@ namespace NDict
             AddUserVM = new AddUserViewModel();
             
         }
+        
 
 
     }

@@ -36,16 +36,17 @@
               MinHeight="45"
               d:IsLocked="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="7*"/>
                     <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="7*"/>
                 </Grid.ColumnDefinitions>
 
                 <Button x:Name="Button_Play"
                     Margin="15,5,5,5"
                     Grid.Column="0"
                     Height="{Binding Menu}"
-                    HorizontalAlignment="Left" 
+                    HorizontalAlignment="Stretch" 
+                        Width="Auto"
                         Padding="5">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
@@ -55,7 +56,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="Play"/>
+                            <TextBlock Text="{Binding Text_Button_Play}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -64,7 +65,7 @@
                     Margin="5,5,5,5"
                     Grid.Column="1"
                     Height="{Binding Menu}"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Stretch"
                     Padding="5">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
@@ -83,7 +84,7 @@
                     Margin="5,5,15,5"
                     Grid.Column="2"
                     Height="{Binding Menu}"
-                    HorizontalAlignment="Right"
+                    HorizontalAlignment="Stretch"
                     Padding="5">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
@@ -93,7 +94,7 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="Close"/>
+                            <TextBlock Text="{Binding Text_Button_Close}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -220,7 +221,8 @@
             </Grid>
             <Grid x:Name="StatusBar" 
               Grid.Row="4" 
-              d:IsLocked="True" >
+              d:IsLocked="True" 
+                  >
                 <Grid.ColumnDefinitions  >
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition />

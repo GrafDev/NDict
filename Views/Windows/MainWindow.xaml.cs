@@ -32,5 +32,18 @@ namespace NDict
         {
             this.DragMove();
         }
+
+        public void SetAligmentContentPlayButton(string _aligment)
+        {
+            if (_aligment == "Right")
+            {
+                this.Button_Play.HorizontalContentAlignment = HorizontalAlignment.Right;
+            }
+            else
+            {
+                this.Button_Play.HorizontalContentAlignment = HorizontalAlignment.Center;
+            }
+            
+        }
     }
 }
