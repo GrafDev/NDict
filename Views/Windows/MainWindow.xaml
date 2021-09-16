@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NDict"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands.MainWindowCommand"
         xmlns:vm="clr-namespace:NDict.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -28,7 +29,14 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Viewbox Height="Auto">
-                    <TextBlock Text="{Binding Path=Title}"/>
+                    
+                    <Grid Margin="0">
+                        <TextBlock Text="{Binding Path=Title}"/>
+                       
+                    </Grid>
+                    
+                        
+                                      
                 </Viewbox>
             </Grid>
             <Grid x:Name="Menu" 
@@ -66,6 +74,7 @@
                     Grid.Column="1"
                     Height="{Binding Menu}"
                     HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
                     Padding="5">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
@@ -75,7 +84,14 @@
                     </Button.Command>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button_Profile}"/>
+
+                                <StackPanel Orientation="Horizontal">
+                                    <!--<fa:ImageAwesome Height="12" Icon="Regular_User" Margin="5,0,5,0" Foreground="White" />-->
+                                    <TextBlock Text="{Binding Text_Button_Profile}"  Margin="5,0,5,0" Grid.Column="0"/>
+                                    <TextBlock Text="Lv:" Margin="5,0,0,0" Grid.Column="1"/>
+                                    <TextBlock Text="{Binding Text_Button_Profile_Dificult}" Margin="1,0,5,0" Grid.Column="2"/>
+                                </StackPanel>
+                       
                         </Viewbox>
                     </Button.Content>
                 </Button>

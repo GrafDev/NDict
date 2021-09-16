@@ -15,7 +15,7 @@ namespace NDict.ViewModels
     {
         #region Title window
 
-        private string _Title="NDict";
+        private string _Title= "N-Dict copyright by Gregory Yakovlev";
         /// <summary> Title window </summary>
         public string Title{ get => _Title; set => Set(ref _Title, value); }
         #endregion
@@ -28,7 +28,12 @@ namespace NDict.ViewModels
 
         private string _Button_Profile = Players.CurrentUser.Name;
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
+
         public bool FlagButtonClose=true;
+
+        private string _Button_Profile_Dificult = Players.CurrentUser.Difficult.ToString();
+        public string Text_Button_Profile_Dificult { get => _Button_Profile_Dificult; set => Set(ref _Button_Profile_Dificult, value); }
+        
 
         #endregion
         #region Labels for Question

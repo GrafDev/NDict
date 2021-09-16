@@ -18,12 +18,13 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
             Action(true);
 
         }
-        public void Action(bool FlagOkCancel)
+        public void Action(bool flagOkOrCancel)
         {
-            if (FlagOkCancel)
+            if (flagOkOrCancel)
             {
                 Players.CurrentUser = App.UsersVM.Select_User;
                 App.MainVM.Text_Button_Profile = Players.CurrentUser.Name;
+                App.MainVM.Text_Button_Profile_Dificult = Players.CurrentUser.Difficult.ToString();
                 App.MainVM.Text_Button_Play = Players.CurrentUser.TypeGame == 1 ? "Play":"Train";
                 Players.SetCurrentUser(Players.CurrentUser);
                 DBUsers.UpdateUser(Players.CurrentUser);
