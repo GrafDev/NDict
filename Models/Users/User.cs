@@ -11,29 +11,25 @@ namespace NDict.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int Difficult { get; set; }
-        public int FlagCurrent {get; set;}
+        public int FlagCurrent { get; set; }
         public int TypeGame { get; set; }
-        public string WordsForLearning { get; set; }
-        public string LearnedWords { get; set; }
-        public User() 
+        public string dBWordsForLearning;
+        public string DBWordsForLearning
+        { get 
+            { 
+                return dBWordsForLearning; 
+            } 
+            set
+            {
+                
+            } }
+        public string DBLearnedWords { get; set; }
+
+        public List<Word> WordsForLearning;
+        public List<Word> LearnedWords;
+        public User()
         {
         }
-        public User(string _name)
-        {
-            Name = _name;
-        }
 
-
-        //public User(bool flagLearnedWords,  int[] _words)
-        //{
-        //    if (flagLearnedWords)
-        //    {
-        //        LearnedWords = _words;
-        //    }
-        //    else
-        //    {
-        //        LearningWords = _words;
-        //    }
-        //}
     }
 }

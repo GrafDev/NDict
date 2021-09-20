@@ -13,14 +13,14 @@
         <x:Static Member="local:App.UsersVM"/>
     </Window.DataContext>
 
-            <Border MinWidth="520" Width="Auto" Height="Auto" Name="windowFrame"
+    <Border MinWidth="520" Width="Auto" Height="Auto" Name="windowFrame"
             BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"          
             BorderThickness="1"          
             CornerRadius="5,5,5,5" 
             AllowDrop="True" 
             Background="{DynamicResource MaterialDesignBackground}"
             MouseLeftButtonDown="titleBar_MouseLeftButtonDown">
- 
+
         <DockPanel LastChildFill="True" >
             <Grid x:Name="Info_Block" 
                   DockPanel.Dock="Left" 
@@ -36,12 +36,8 @@
                       FontWeight="Bold"                
                       Margin="5,5,5,5"                    
                         >
-                        <TextBlock Text="{Binding Select_User.Name}">
+                        <TextBlock Text="{Binding Select_User.Name}"/>
 
-
-                        </TextBlock>
-                          
-                                    
                     </Label>
                     <DockPanel LastChildFill="True" Margin="5,15,15,0">
                         <Label Content="Difficult" 
@@ -87,7 +83,7 @@
                      IsSelectionRangeEnabled="True"
                      Margin="20,0,15,0"
                      Value="{Binding Select_User.TypeGame,Mode=TwoWay}"/>
-                    <Grid Margin="20,0,15,20" VerticalAlignment="Top">                        
+                    <Grid Margin="20,0,15,20" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -97,23 +93,26 @@
                     </Grid>
 
                 </StackPanel>
-                <Button x:Name="Button_Ok"                     
-                    Grid.Row="1"
+                <StackPanel   Orientation="Horizontal"  Grid.Row="1" HorizontalAlignment="Left">
+                    <Button x:Name="Button_Ok"
                     Cursor="Hand" 
+                             Margin="15,0,15,0"
                     HorizontalAlignment="Center" 
                     >
-                    <Button.Effect>
-                        <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
-                    </Button.Effect>
-                    <Button.Command>
-                        <cmd:OkProfileCommand/>
-                    </Button.Command>
-                    <Button.Content>
-                        <Viewbox Height="Auto">
-                            <TextBlock Text="Ok"/>
-                        </Viewbox>
-                    </Button.Content>
-                </Button>
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                        </Button.Effect>
+                        <Button.Command>
+                            <cmd:OkProfileCommand/>
+                        </Button.Command>
+                        <Button.Content>
+                            <Viewbox Height="Auto">
+                                <TextBlock Text="Ok"/>
+                            </Viewbox>
+                        </Button.Content>
+                    </Button>
+
+                </StackPanel>
             </Grid>
 
             <Grid x:Name="Choise_Block"
@@ -125,10 +124,10 @@
                 <StackPanel                     
                     Grid.Row="1" 
                     Orientation="Horizontal" 
-                    HorizontalAlignment="Center">
+                    HorizontalAlignment="Right">
                     <Button x:Name="Button_Add"                   
                             HorizontalAlignment="Center"                    
-                            Margin="15,0,0,0"                   >
+                            Margin="15,0,15,0"                   >
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
                         </Button.Effect>
@@ -143,7 +142,7 @@
                     </Button>
                     <Button x:Name="Button_Delete" 
                             HorizontalAlignment="Center"                    
-                            Margin="15,0,0,0" Cursor="Hand"
+                            Margin="15,0,15,0" Cursor="Hand"
                    >
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
@@ -158,6 +157,7 @@
                         </Button.Content>
                     </Button>
                 </StackPanel>
+
                 <DockPanel Grid.Column="1"                    
                             LastChildFill="True">
                     <Grid>

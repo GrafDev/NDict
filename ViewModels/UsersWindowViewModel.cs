@@ -18,9 +18,12 @@ namespace NDict.ViewModels
         private User select_User;
         public User Select_User { get => select_User; set => Set(ref select_User, value);}
 
+        public User current_User;
+
         private List<User> listOfUsers = new List<User>();
         public List<User> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
 
+        public List<User> current_BaseOfUsers;
         #endregion
 
 

@@ -36,7 +36,10 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
             userWindow.Activate();
             App.UsersVM.ListOfUsers = Players.Users.ToList();
             App.UsersVM.Select_User = Players.CurrentUser;
+            App.UsersVM.current_User = Players.CurrentUser;
+            App.UsersVM.current_BaseOfUsers = Players.Users.ToList();
             App.Current.MainWindow.IsEnabled = false;
+
         }
             
         public void FillInterface()
