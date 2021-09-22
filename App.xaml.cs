@@ -27,7 +27,7 @@ namespace NDict
         public static UsersWindowViewModel UsersVM { get; }
         public static TestViewModel TestVM { get;  }
         public static AddUserViewModel AddUserVM { get; }
-
+       
         static App()
         {
             TestVM = new TestViewModel();

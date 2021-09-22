@@ -1,0 +1,42 @@
+﻿<Window x:Class="NDict.Views.Windows.Modal.ConfirmationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NDict.Views.Windows.Modal"
+        xmlns:cmd="clr-namespace:NDict.Infrastructure.Commands.Confirmation"
+        xmlns:l="clr-namespace:NDict"
+        mc:Ignorable="d"
+        Height="150" Width="300" 
+        WindowStyle="None"
+        Background="{x:Null}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        AllowsTransparency="True"
+        >
+    <Window.DataContext>
+        <x:Static Member="l:App.UsersVM"/>
+    </Window.DataContext>
+    
+    <Border BorderThickness="1" CornerRadius="5" Background="{StaticResource MaterialDesignBackground}" BorderBrush="{StaticResource MaterialDesignTextBoxBorder}">
+        <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center">            
+            <Label Content="Вы действительно хотите удалить пользователя " FontSize="10" HorizontalAlignment="Center"/>
+            <Label Content="{Binding Select_User.Name}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Button x:Name="Confirm_Button_Ok" Content="Ok" >
+                    <Button.Command>
+                        <cmd:OkConfirmation/>
+                    </Button.Command>
+                </Button>
+                <Button x:Name="Confirm_Button_Cancel" Content="Cancel" Margin="70,0,0,0">
+                    <Button.Command>
+                        <cmd:CancelConfirmation/>
+                    </Button.Command>
+
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+       
+    </Border>
+</Window>

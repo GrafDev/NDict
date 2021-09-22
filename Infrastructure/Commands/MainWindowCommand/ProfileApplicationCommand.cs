@@ -29,9 +29,9 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
             if (!FlagLoadedDB)
             {
                 FillInterface();
-                    }
+            }
             userWindow = new UsersWindow();
-            userWindow.Owner= NDict.App.Current.MainWindow;
+            userWindow.Owner = NDict.App.Current.MainWindow;
             userWindow.Show();
             userWindow.Activate();
             App.UsersVM.ListOfUsers = Players.Users.ToList();
@@ -41,7 +41,7 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
             App.Current.MainWindow.IsEnabled = false;
 
         }
-            
+
         public void FillInterface()
         {
             FlagLoadedDB = true;

@@ -24,6 +24,10 @@ namespace NDict.ViewModels
         public List<User> ListOfUsers { get => listOfUsers; set => Set(ref listOfUsers, value); }
 
         public List<User> current_BaseOfUsers;
+
+        bool isDelete;
+
+        public bool IsDelete { get => isDelete; set => Set(ref isDelete, value); }
         #endregion
 
 

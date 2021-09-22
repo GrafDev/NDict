@@ -36,11 +36,11 @@ namespace NDict.Views.Windows
                 commandOk.Action(true);
             }
 
-            if (e.Key == Key.Escape)
-            {
-                var commandCancel = new OkProfileCommand();
-                commandCancel.Action(false);
-            }
+            //if (e.Key == Key.Escape)
+            //{
+            //    var commandCancel = new OkProfileCommand();
+            //    commandCancel.Action(false);
+            //}
         }
     }
 }

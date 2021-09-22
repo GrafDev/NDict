@@ -39,6 +39,7 @@
                              Text="{Binding UserName, Mode=TwoWay}"                             
                              AcceptsReturn="False"
                              KeyUp="TextBox_KeyEnterUpdate"
+                             FontSize="15"
                              />
                 </Grid>
                 <Grid Margin="5">
@@ -52,7 +53,6 @@
                         Content="Ok"
                         Width="80"
                         >
-
                         <Button.Command>
                             <cmd:OkAddUserCommand/>
                         </Button.Command>

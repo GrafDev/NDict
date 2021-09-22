@@ -6,6 +6,7 @@ using NDict.Infrastructure;
 using System.Windows;
 using NDict.Models;
 using System.Linq;
+using NDict.Views.Windows.Modal;
 using NDict.Views.Windows;
 
 namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
@@ -15,13 +16,27 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
+            
+
             if (Players.Users.Count > 1)
             {
-                var user = App.UsersVM.Select_User;
-                DBUsers.DeleteUser(user);
-                Players.DeleteUser(user);
-                App.UsersVM.ListOfUsers.Remove(user);
-                App.UsersVM.Select_User = Players.Users.ToList()[0];
+
+                var okOrCancelWindow = new ConfirmationWindow();
+                foreach (Window window in App.Current.Windows)
+                {
+
+                    if (window is UsersWindow)
+                    {
+                        okOrCancelWindow.Owner = window;
+                        okOrCancelWindow.Show();
+                        okOrCancelWindow.Activate();
+                        window.IsEnabled = false;
+                        continue;
+
+                    }
+                }
+
+
             }
 
         }
