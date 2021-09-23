@@ -33,10 +33,7 @@
                     <Grid Margin="0">
                         <TextBlock Text="{Binding Path=Title}"/>
                        
-                    </Grid>
-                    
-                        
-                                      
+                    </Grid>                                      
                 </Viewbox>
             </Grid>
             <Grid x:Name="Menu" 
@@ -101,7 +98,10 @@
                     Grid.Column="2"
                     Height="{Binding Menu}"
                     HorizontalAlignment="Stretch"
-                    Padding="5">
+                    Padding="5"
+                    BorderThickness="{Binding Border_CloseButton_Thinkness}"
+                    BorderBrush="{Binding Border_CloseButton_Brash}"
+                        >
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
                     </Button.Effect>
@@ -116,6 +116,7 @@
                 </Button>
             </Grid>
             <Grid x:Name="Question"
+        IsEnabled="{Binding IsEnabled_ButtonOfQuestion}"
               Grid.Row="2" d:IsLocked="True" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -127,7 +128,7 @@
                VerticalContentAlignment="Bottom">
                     <Label.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Path=labelFirstWordOfQuestion}" />
+                            <TextBlock Text="{Binding Path=LabelFirstWordOfQuestion}" />
                         </Viewbox>
                     </Label.Content>
                 </Label>
@@ -138,14 +139,15 @@
                VerticalContentAlignment="Top">
                     <Label.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Path=labelSecondWordOfQuestion}" />
+                            <TextBlock Text="{Binding Path=LabelSecondWordOfQuestion}" />
                         </Viewbox>
                     </Label.Content>
                 </Label>
             </Grid>
             <Grid x:Name="Grid_Answers"
               Grid.Row="3" 
-              d:IsLocked="True">
+              d:IsLocked="True"
+                  IsEnabled="{Binding IsEnabled_ButtonOfAnswer}">
                 <Grid.RowDefinitions>
                     <RowDefinition x:Name="Row_Answer_01" Height="2*"/>
                     <RowDefinition x:Name="Row_Answer_02" Height="2*"/>

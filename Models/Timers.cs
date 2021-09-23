@@ -64,7 +64,7 @@ namespace NDict.Models
                     }
                     else
                     {
-                        EndDownTimer();   
+                        EndDownTimer();  
                     }
                 }
 
@@ -73,14 +73,15 @@ namespace NDict.Models
             {
                 isMainTime = true;
                 stopwatch.Restart();
+                App.MainVM.IsEnabled_ButtonOfAnswer = "True";
+                Knobs.ShowKnobs();
+                //TODO:Тут начало игры
             }
         }
 
         static internal void Stop()
         {
             SetContentAligmentPlayButton("Center");
-            App.MainVM.Text_Button_Close = "Close";
-            App.MainVM.FlagButtonClose = true;
             stopwatch.Restart();
             stopwatch.Stop();
             dispatcherTimer.Stop();
@@ -89,9 +90,8 @@ namespace NDict.Models
         {
             TimeSpan _time = stopwatch.Elapsed;
             var _tempText=string.Format("{00:}: {1:00}:{2:00}", _time.Minutes, _time.Seconds, _time.Milliseconds / 10);
-            App.MainVM.labelFirstWordOfQuestion = _tempText;
-            App.MainVM.labelSecondWordOfQuestion = "";            
-            App.MainVM.Text_Button_Play=Players.CurrentUser.TypeGame==0?"Train":"Play";
+            App.MainVM.LabelFirstWordOfQuestion = "Your time:";
+            App.MainVM.LabelSecondWordOfQuestion = _tempText;
         }
 
         static private void SetContentAligmentPlayButton(String _text)

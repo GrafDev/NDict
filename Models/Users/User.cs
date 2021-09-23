@@ -25,8 +25,15 @@ namespace NDict.Models
             } }
         public string DBLearnedWords { get; set; }
 
-        public List<Word> WordsForLearning;
+
+        public List<Word> wordsForLearning;
         public List<Word> LearnedWords;
+
+        public int countWordsForLearning=50;
+       
+        private int countLeranedWords;
+       
+
         public User()
         {
         }

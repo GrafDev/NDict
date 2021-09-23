@@ -33,13 +33,16 @@ namespace NDict
             TestVM = new TestViewModel();
 
             DBUsers.Loaded();
-            NDictionary.Loaded();            
-            Knobs.Loaded();
+            NDictionary.Loaded();
+                        
+
 
             MainVM = new MainWindowViewModel();
             UsersVM = new UsersWindowViewModel();            
             AddUserVM = new AddUserViewModel();
-            
+            Players.Loaded();
+            Knobs.Loaded();
+
         }
         
 

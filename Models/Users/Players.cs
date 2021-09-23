@@ -10,6 +10,7 @@ namespace NDict.Models
     static class Players
     {
         static User _currentUser;
+        
         public static User CurrentUser { get => _currentUser; set => _currentUser = value; }
         
         private static ICollection<User> users;
@@ -18,21 +19,20 @@ namespace NDict.Models
         public static void Loaded()
         {
             CurrentUser = new User();
-            bool FlagCurrent = false;
+            bool FlagCurrentUser = false;
             Users = DBUsers.GetUsers();
             foreach(User _user in Users)
             {
-                if (!FlagCurrent && _user.FlagCurrent > 0)
+                if (!FlagCurrentUser && _user.FlagCurrent > 0)
                 {
                     CurrentUser = _user;
-                    FlagCurrent = true;
+                    FlagCurrentUser = true;
                 }                   
             }
-            if (!FlagCurrent)
+            if (!FlagCurrentUser)
             {
                 CurrentUser = Users.ToList()[0];
             }
-
         }
         public static void SetCurrentUser(User _user)
         {
@@ -54,6 +54,24 @@ namespace NDict.Models
         public static void AddUser(User _user)
         {
             Users.Add(_user);
+        }
+
+        public static void SetLearningWords()
+        {
+            List<int> idWordsForLeraning=new List<int>();
+            for (int i = 0; i < _currentUser.countWordsForLearning; i++)
+            {
+                var rnd = new Random();
+                int k = rnd.Next(0, NDictionary.countOfWords - 1);
+                for (int j = 0; j < idWordsForLeraning.Count(); i++)
+                {
+                    if (idWordsForLeraning.Count() != 0 && k == idWordsForLeraning[j])
+                    {
+                        k = rnd.Next(0, NDictionary.countOfWords - 1);
+                    }
+                }
+                _currentUser.wordsForLearning.Add(NDictionary.Words[k]);
+            }
         }
 
     }

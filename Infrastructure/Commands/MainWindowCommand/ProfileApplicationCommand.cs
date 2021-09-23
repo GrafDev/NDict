@@ -30,15 +30,18 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
             {
                 FillInterface();
             }
-            userWindow = new UsersWindow();
-            userWindow.Owner = NDict.App.Current.MainWindow;
-            userWindow.Show();
-            userWindow.Activate();
-            App.UsersVM.ListOfUsers = Players.Users.ToList();
-            App.UsersVM.Select_User = Players.CurrentUser;
-            App.UsersVM.current_User = Players.CurrentUser;
-            App.UsersVM.current_BaseOfUsers = Players.Users.ToList();
-            App.Current.MainWindow.IsEnabled = false;
+            if (!App.MainVM.flagPlayProcess)
+            {
+                userWindow = new UsersWindow();
+                userWindow.Owner = NDict.App.Current.MainWindow;
+                userWindow.Show();
+                userWindow.Activate();
+                App.UsersVM.ListOfUsers = Players.Users.ToList();
+                App.UsersVM.Select_User = Players.CurrentUser;
+                App.UsersVM.current_User = Players.CurrentUser;
+                App.UsersVM.current_BaseOfUsers = Players.Users.ToList();
+                App.Current.MainWindow.IsEnabled = false;
+            }
 
         }
 

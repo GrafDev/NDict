@@ -11,7 +11,8 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
 {
     class PlayApplicationCommand : Command
     {
-        TestWindow testWindow;
+        //TestWindow testWindow;
+
         public override bool CanExecute(object parameter) => true;
 
         public override void Execute(object parameter)
@@ -19,21 +20,20 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
             //testWindow = new TestWindow();
             //testWindow.Show();
             //testWindow.Activate();
-            Timers.Start();
+            if (!App.MainVM.flagPlayProcess)
+            {
+                Timers.Start();                
+                App.MainVM.flagPlayProcess = true;
+                App.MainVM.FlagButtonClose = false;
+                App.MainVM.LabelSecondWordOfQuestion = "";
+                App.MainVM.LabelFirstWordOfQuestion = "";
+                App.MainVM.Border_CloseButton_Brash = "red";
+                App.MainVM.Border_CloseButton_Thinkness = "1";
+                App.MainVM.IsEnabled_ButtonOfQuestion = "True";
+            }
+
             //_Test();
-        }
-        void _Test()
-
-        {
-
-            NDictionary.Loaded();
-            //////Knobs.Loaded();
-            //App.TestVM.TestBlock = "sdfsd";
-            //App.TestVM.TestBlock = NDictionary.Words[0].Language01.ToString();
-            ////TODO: неободимо решить как связать тестовое поле с другими данными (service)
-            ////testViewModel.TestBlock = Dictionary.Words.Count.ToString();
-
-        }
+        }        
 
     }
 }

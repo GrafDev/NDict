@@ -11,11 +11,13 @@ namespace NDict.Models
     static class NDictionary
     {
         static string title;
-        static int countOfWords;
-        static List<Word> _words;
-
         public static string Title { get => title; set => title = value; }
+        
+
+        static List<Word> _words;
         public static List<Word> Words { get => _words; set => _words = value; }
+
+        static public int countOfWords;
 
         private static XmlSerializer formatter = new XmlSerializer(typeof(Vocabulary));
         private static string nameOfFileXML = "NDict_Dictionary.xml";
@@ -36,16 +38,7 @@ namespace NDict.Models
                 countOfWords = _vocabulary.CountOfDict;
                 Words = _vocabulary.words;
             }
-        }
-        static private void ShowWords()
-        {
-            string str = "";
-            foreach (Word word in Words)
-            {
-                str = $"{str} {word.Id}, {word.Language01}, {word.Language02} \n";
-            }
-            App.TestVM.TestBlock = str;
-        }
+        }      
 
     }
 }

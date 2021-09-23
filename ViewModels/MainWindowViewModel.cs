@@ -33,17 +33,30 @@ namespace NDict.ViewModels
 
         private string _Button_Profile_Dificult = Players.CurrentUser.Difficult.ToString();
         public string Text_Button_Profile_Dificult { get => _Button_Profile_Dificult; set => Set(ref _Button_Profile_Dificult, value); }
-        
+
+        private string border_Close_Thinkness = "0";
+        public string Border_CloseButton_Thinkness { get => border_Close_Thinkness; set => Set(ref border_Close_Thinkness, value); }
+
+        private string border_CloseButton_Brash = "Black";
+        public string Border_CloseButton_Brash { get => border_CloseButton_Brash; set => Set(ref border_CloseButton_Brash, value); }
+
+        private string isEnabled_ButtonOfQuestion = "False";
+        public string IsEnabled_ButtonOfQuestion { get => isEnabled_ButtonOfQuestion; set => Set(ref isEnabled_ButtonOfQuestion, value); }
+
+        private string isEnabled_ButtonOfAnswer = "False";
+        public string IsEnabled_ButtonOfAnswer { get => isEnabled_ButtonOfAnswer; set => Set(ref isEnabled_ButtonOfAnswer, value); }
+
+
 
         #endregion
         #region Labels for Question
-        private string _LabelFirstWordOfQuestion = "FirstQuestion";
+        private string _LabelFirstWordOfQuestion = "N-Dict";
         /// <summary> First word question</summary>
-        public string labelFirstWordOfQuestion { get => _LabelFirstWordOfQuestion; set => Set(ref _LabelFirstWordOfQuestion, value); }
+        public string LabelFirstWordOfQuestion { get => _LabelFirstWordOfQuestion; set => Set(ref _LabelFirstWordOfQuestion, value); }
 
-        private string _LabelSecondWordOfQuestion = "SecondQuestion";
+        private string labelSecondWordOfQuestion = "";
         /// <summary> Second word question </summary>
-        public string labelSecondWordOfQuestion { get => _LabelSecondWordOfQuestion; set => Set(ref _LabelSecondWordOfQuestion, value); }
+        public string LabelSecondWordOfQuestion { get => labelSecondWordOfQuestion; set => Set(ref labelSecondWordOfQuestion, value); }
         #endregion
         #region Text of Button of Answers
         private string _Button01 = "";
@@ -63,8 +76,7 @@ namespace NDict.ViewModels
 
         private string _Button06 = "";
         public string Text_Button06 { get => _Button06; set => Set(ref _Button06, value); }
-        #endregion
-       
+        #endregion       
         #region StatusBar
 
         private int _CountOfAllWords = 0;
@@ -78,16 +90,15 @@ namespace NDict.ViewModels
         public int CountOfError { get => _CountOfError; set => Set(ref _CountOfError, value); }
 
         #endregion
+ 
+
+
+
+        public bool flagPlayProcess=false;
         public MainWindowViewModel()
         {
             Text_Button_Profile = Players.CurrentUser.Name;
             Text_Button_Play = Players.CurrentUser.TypeGame == 1 ? "Play" : "Train";
-            Text_Button01 = Knobs.Text[0];
-            Text_Button02 = Knobs.Text[1];
-            Text_Button03 = Knobs.Text[2];
-            Text_Button04 = Knobs.Text[3];
-            Text_Button05 = Knobs.Text[4];
-            Text_Button06 = Knobs.Text[5];
         }
     }
 }
