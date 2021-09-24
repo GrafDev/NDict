@@ -7,6 +7,7 @@ namespace NDict.Models
     static internal class Knobs
     {
         static private int countOfKnobs=6;
+ 
         static private List<String> _text = new List<String>();
         static private bool Firstlanguage;
         static public List<String> Text { get => _text; set => _text = value; }        
@@ -30,8 +31,7 @@ namespace NDict.Models
             {
                 var rnd = new Random();
                 int k = rnd.Next(1, Players.CurrentUser.countWordsForLearning);
-
-                App.MainVM.Text_Button01 = Players.CurrentUser.wordsForLearning[k].Language01;
+                App.MainVM.Text_Button02 = Players.CurrentUser.wordsForLearning[k].Language01;
             }
         }
 

@@ -33,6 +33,7 @@ namespace NDict.Models
             {
                 CurrentUser = Users.ToList()[0];
             }
+            SetLearningWords();
         }
         public static void SetCurrentUser(User _user)
         {

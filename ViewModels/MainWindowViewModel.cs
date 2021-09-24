@@ -7,6 +7,10 @@ using NDict.Models;
 using NDict.Views.Windows;
 using System.Windows;
 using NDict.Services;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 
 namespace NDict.ViewModels
@@ -76,6 +80,8 @@ namespace NDict.ViewModels
 
         private string _Button06 = "";
         public string Text_Button06 { get => _Button06; set => Set(ref _Button06, value); }
+
+
         #endregion       
         #region StatusBar
 

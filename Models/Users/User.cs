@@ -31,8 +31,7 @@ namespace NDict.Models
 
         public int countWordsForLearning=50;
        
-        private int countLeranedWords;
-       
+        private int countLeranedWords;       
 
         public User()
         {

@@ -165,7 +165,7 @@
                     </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button01}" />
+                            <TextBlock Text="{Binding Path=Text_ButtonsAnswer[0].Value}" />
                         </Viewbox>
                     </Button.Content>
                 </Button>
