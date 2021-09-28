@@ -8,12 +8,23 @@
         xmlns:localvm="clr-namespace:NDict.Views.Windows"
         xmlns:local="clr-namespace:NDict"
         mc:Ignorable="d"
-        Title="TestWindow" Height="450" Width="800" >
+        Title="{Binding Path=TitleBlock}" Height="450" Width="500" >
     <Window.DataContext>        
         <x:Static Member="local:App.TestVM"/>
         <!--<vm:TestViewModel/>-->
     </Window.DataContext>
     <Grid>
-        <TextBlock Text="{Binding Path=TestBlock}"/>
+
+        <ListView x:Name="List_Of_Users" 
+                             Margin="5,5,5,5"
+                             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                             FontSize="15"
+                             Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                             BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"
+                             BorderThickness="1"    
+                             ItemsSource="{Binding ListOfWordsLearning}"                             
+                             DisplayMemberPath="test"
+                             />
+        <TextBlock Text="{Binding Test2}"/>
     </Grid>
 </Window>

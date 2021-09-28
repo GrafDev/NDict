@@ -9,8 +9,13 @@ namespace NDict.ViewModels
     {
         #region fields
         private string _testBlock="Ok";
-        public string TestBlock { get => _testBlock; set => Set(ref _testBlock, value); }
+        public string TitleBlock { get => _testBlock; set => Set(ref _testBlock, value); }
         #endregion
+        private List<Word> listOfWordsLerning = new List<Word>();
+        public List<Word> ListOfWordsLearning { get => listOfWordsLerning; set => Set(ref listOfWordsLerning, value); }
+
+        private string _test2;
+        public string Test2 { get => _test2; set => Set(ref _test2, value); }
 
         public TestViewModel()
         {

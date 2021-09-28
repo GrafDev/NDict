@@ -40,6 +40,7 @@ namespace NDict
             AddUserVM = new AddUserViewModel();            
             Questions.ShowQuestion("NDict","");
             Knobs.Loaded();
+            Tests.Loaded();
 
         }
         

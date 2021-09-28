@@ -53,8 +53,7 @@
                              FontWeight="Bold"
                              Background="{x:Null}" 
                              BorderBrush="{x:Null}"
-                             Content="{Binding ElementName=Difficult, Path=Value,  UpdateSourceTrigger=PropertyChanged}"
-                               
+                             Content="{Binding ElementName=Difficult, Path=Value,  UpdateSourceTrigger=PropertyChanged}"                               
                                />
                     </DockPanel>
                     <Slider x:Name="Difficult" Height="Auto" 

@@ -9,6 +9,7 @@ namespace NDict.Models
         public int Id;
         public string Language01;
         public string Language02;
+        public string test = "testWord";
         //private int id;
         //private string language01;
         //private string language02;

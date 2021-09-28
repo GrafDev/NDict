@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using NDict.Models;
+using NDict.Services;
 
 namespace NDict.Models
 
@@ -34,6 +35,7 @@ namespace NDict.Models
             {
                 CurrentUser = Users.ToList()[0];// При удалении юзера, текуйщим юзером принимается верхний
             }
+            
         }
         public static void SetCurrentUser(User _user)
         {
@@ -56,12 +58,13 @@ namespace NDict.Models
         public static void AddUser(User _user)
         {
             Users.Add(_user);
-        }  
+        }
 
         public static void GetFlagLanguage()
         {
             var rnd = new Random();
-            flagLanguage = rnd.Next(0,2)==1?true:false;
+            var _language = rnd.Next(0, 2);
+            FlagLanguage = _language>0?true:false;            
         }
     }
 }

@@ -5,6 +5,7 @@ using NDict.Infrastructure.Commands.Base;
 using NDict.Views;
 using NDict.Views.Windows;
 using NDict.Models;
+using NDict.Services;
 
 namespace NDict.Infrastructure.Commands.MainWindowCommand
 
@@ -29,6 +30,8 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
                 App.MainVM.Border_CloseButton_Brash = "red";
                 App.MainVM.Border_CloseButton_Thinkness = "1";
                 App.MainVM.IsEnabled_ButtonOfQuestion = "True";
+                Player.GetFlagLanguage();
+                Tests.ShowWindow();
             }
 
             //_Test();

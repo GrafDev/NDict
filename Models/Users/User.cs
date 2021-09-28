@@ -26,8 +26,7 @@ namespace NDict.Models
             if (wordsForLearning.Count < countWordsForLearning)
             {
                 wordsForLearning = SetLearningWords();
-            }
-            learnedWords  = new List<Word>(); 
+            }            
         }
 
         public List<Word> SetLearningWords()
