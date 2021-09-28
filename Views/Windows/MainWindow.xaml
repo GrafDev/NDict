@@ -17,8 +17,10 @@
     <Border Width="Auto" Height="Auto" Name="windowFrame"              
             BorderBrush="{DynamicResource MaterialDesignTextBoxBorder}"          
             BorderThickness="1"          
-            CornerRadius="5,5,5,5" AllowDrop="True" Background="{DynamicResource MaterialDesignBackground}"
-            MouseLeftButtonDown="titleBar_MouseLeftButtonDown">
+            CornerRadius="5,5,5,5" AllowDrop="True"
+            Background="{DynamicResource MaterialDesignLightBackground}"
+            MouseLeftButtonDown="titleBar_MouseLeftButtonDown"
+            >
         <Grid d:IsLocked="True">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="Row_Title" Height="20"/>
@@ -165,7 +167,7 @@
                     </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Path=Text_ButtonsAnswer[0].Value}" />
+                            <TextBlock Text="{Binding Path=Buttons[0].Value}" />
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -179,7 +181,7 @@
                     </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button02}"/>
+                            <TextBlock Text="{Binding Path=Buttons[1].Value}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -193,7 +195,7 @@
                     </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button03}" />
+                            <TextBlock Text="{Binding Path=Buttons[2].Value}" />
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -206,7 +208,7 @@
                     </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button04}" />
+                            <TextBlock Text="{Binding Path=Buttons[3].Value}" />
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -219,7 +221,7 @@
                     </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button05}"/>
+                            <TextBlock Text="{Binding Path=Buttons[4].Value}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>
@@ -232,7 +234,7 @@
                     </Button.Effect>
                     <Button.Content>
                         <Viewbox Height="Auto">
-                            <TextBlock Text="{Binding Text_Button06}"/>
+                            <TextBlock Text="{Binding Path=Buttons[5].Value}"/>
                         </Viewbox>
                     </Button.Content>
                 </Button>

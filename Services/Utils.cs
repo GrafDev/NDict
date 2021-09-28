@@ -7,6 +7,7 @@ namespace NDict.Services
 {
     static class Utils
     {
+        static Random rnd = new Random();
         internal static string ConvertArrayOfStringToString(string[] names)
         {
             string str = "";
@@ -25,6 +26,20 @@ namespace NDict.Services
                 str = str + ($"ID {name.Id .ToString()}, ENG- {name.Language01}, RUS- {name.Language02}  \n");
             }
             return str;
+        }
+
+        internal static void Shuffle<T>(this IList<T> _list)//перемешивание списка
+        {
+            int n = _list.Count;
+            while (n > 1)
+            {
+                
+                n--;
+                int k = rnd.Next(n + 1);
+                T value = _list[k];
+                _list[k] = _list[n];
+                _list[n] = value;
+            }
         }
     }
 }

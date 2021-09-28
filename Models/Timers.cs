@@ -73,8 +73,7 @@ namespace NDict.Models
             {
                 isMainTime = true;
                 stopwatch.Restart();
-                App.MainVM.IsEnabled_ButtonOfAnswer = "True";
-                Knobs.ShowKnobs();
+                StartGame();
                 //TODO:Тут начало игры
             }
         }
@@ -90,8 +89,8 @@ namespace NDict.Models
         {
             TimeSpan _time = stopwatch.Elapsed;
             var _tempText=string.Format("{00:}: {1:00}:{2:00}", _time.Minutes, _time.Seconds, _time.Milliseconds / 10);
-            App.MainVM.LabelFirstWordOfQuestion = "Your time:";
-            App.MainVM.LabelSecondWordOfQuestion = _tempText;
+            Questions.ShowQuestion("Your time:",_tempText);
+
         }
 
         static private void SetContentAligmentPlayButton(String _text)
@@ -111,6 +110,12 @@ namespace NDict.Models
                     
                 }
             }
+        }
+
+        static private void StartGame()
+        {
+            App.MainVM.IsEnabled_ButtonOfAnswer = "True";
+            Knobs.ShowKnobs();
         }
         
     }

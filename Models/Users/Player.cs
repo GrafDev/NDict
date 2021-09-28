@@ -7,14 +7,15 @@ using NDict.Models;
 namespace NDict.Models
 
 {
-    static class Players
+    static class Player
     {
         static User _currentUser;
-        
+        static bool flagLanguage;
         public static User CurrentUser { get => _currentUser; set => _currentUser = value; }
         
         private static ICollection<User> users;
         internal static ICollection<User> Users { get => users; set => users = value; }
+        public static bool FlagLanguage { get => flagLanguage; set => flagLanguage = value; }
 
         public static void Loaded()
         {
@@ -31,9 +32,8 @@ namespace NDict.Models
             }
             if (!FlagCurrentUser)
             {
-                CurrentUser = Users.ToList()[0];
+                CurrentUser = Users.ToList()[0];// При удалении юзера, текуйщим юзером принимается верхний
             }
-            SetLearningWords();
         }
         public static void SetCurrentUser(User _user)
         {
@@ -46,6 +46,7 @@ namespace NDict.Models
             _user.FlagCurrent = 1;
             _currentUser = _user;
             DBUsers.UpdateUser(_user);
+
         }
         public static void DeleteUser(User _user)
         {
@@ -55,25 +56,12 @@ namespace NDict.Models
         public static void AddUser(User _user)
         {
             Users.Add(_user);
-        }
+        }  
 
-        public static void SetLearningWords()
+        public static void GetFlagLanguage()
         {
-            List<int> idWordsForLeraning=new List<int>();
-            for (int i = 0; i < _currentUser.countWordsForLearning; i++)
-            {
-                var rnd = new Random();
-                int k = rnd.Next(0, NDictionary.countOfWords - 1);
-                for (int j = 0; j < idWordsForLeraning.Count(); i++)
-                {
-                    if (idWordsForLeraning.Count() != 0 && k == idWordsForLeraning[j])
-                    {
-                        k = rnd.Next(0, NDictionary.countOfWords - 1);
-                    }
-                }
-                _currentUser.wordsForLearning.Add(NDictionary.Words[k]);
-            }
+            var rnd = new Random();
+            flagLanguage = rnd.Next(0,2)==1?true:false;
         }
-
     }
 }

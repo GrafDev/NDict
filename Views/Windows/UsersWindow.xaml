@@ -83,7 +83,8 @@
                      IsSelectionRangeEnabled="True"
                      Margin="20,0,15,0"
                      Value="{Binding Select_User.TypeGame,Mode=TwoWay}"/>
-                    <Grid Margin="20,0,15,20" VerticalAlignment="Top">
+                    
+                    <Grid Margin="20,0,15,5" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -91,7 +92,6 @@
                         <Label Grid.Column="0" Content="Train" HorizontalAlignment="Left"/>
                         <Label Grid.Column="1" Content="Play" HorizontalAlignment="Right" />
                     </Grid>
-
                 </StackPanel>
                 <StackPanel   Orientation="Horizontal"  Grid.Row="1" HorizontalAlignment="Left">
                     <Button x:Name="Button_Ok"

@@ -33,7 +33,7 @@ namespace NDict.Views.Windows
             if (e.Key == Key.Return)
             {
                 var commandOk = new OkProfileCommand();
-                commandOk.Action(true);
+                commandOk.Action();
             }
 
             //if (e.Key == Key.Escape)

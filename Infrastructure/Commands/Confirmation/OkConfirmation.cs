@@ -45,9 +45,9 @@ namespace NDict.Infrastructure.Commands.Confirmation
             }
                 var user = App.UsersVM.Select_User;
                 DBUsers.DeleteUser(user);
-                Players.DeleteUser(user);
+                Player.DeleteUser(user);
                 App.UsersVM.ListOfUsers.Remove(user);
-                App.UsersVM.Select_User = Players.Users.ToList()[0];
+                App.UsersVM.Select_User = Player.Users.ToList()[0];
             return true;
         }
     }

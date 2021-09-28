@@ -9,26 +9,25 @@ using NDict.Models;
 
 namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
 {
-    class OkProfileCommand: Command
+    class OkProfileCommand : Command
     {
         public override bool CanExecute(object parameter) => true;
         public override void Execute(object parameter)
         {
 
-            Action(true);
+            Action();
 
         }
-        public void Action(bool flagOkOrCancel)
+        public void Action()
         {
-            if (flagOkOrCancel)
-            {
-                Players.CurrentUser = App.UsersVM.Select_User;
-                App.MainVM.Text_Button_Profile = Players.CurrentUser.Name;
-                App.MainVM.Text_Button_Profile_Dificult = Players.CurrentUser.Difficult.ToString();
-                App.MainVM.Text_Button_Play = Players.CurrentUser.TypeGame == 1 ? "Play":"Train";
-                Players.SetCurrentUser(Players.CurrentUser);
-                DBUsers.UpdateUser(Players.CurrentUser);
-            }
+
+            Player.CurrentUser = App.UsersVM.Select_User;
+            App.MainVM.Text_Button_Profile = Player.CurrentUser.Name;
+            App.MainVM.Text_Button_Profile_Dificult = Player.CurrentUser.Difficult.ToString();
+            App.MainVM.Text_Button_Play = Player.CurrentUser.TypeGame == 1 ? "Play" : "Train";
+            Player.SetCurrentUser(Player.CurrentUser);
+            DBUsers.UpdateUser(Player.CurrentUser);
+            Knobs.Loaded();
 
             foreach (Window _window in App.Current.Windows)
             {
@@ -39,7 +38,10 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
                     NDict.App.Current.MainWindow.Activate();
                 }
             }
+
+
+
         }
-        
+
     }
 }

@@ -5,6 +5,7 @@ using NDict.ViewModels;
 using NDict.Views.Windows;
 using System.IO;
 using System.Xml.Serialization;
+using NDict.Services;
 
 namespace NDict.Models
 {
@@ -36,7 +37,7 @@ namespace NDict.Models
                 Vocabulary _vocabulary = (Vocabulary)formatter.Deserialize(fs);
                 title = _vocabulary.title;
                 countOfWords = _vocabulary.CountOfDict;
-                Words = _vocabulary.words;
+                Words = _vocabulary.words;                
             }
         }      
 

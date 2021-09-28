@@ -25,8 +25,7 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
                 Timers.Start();                
                 App.MainVM.flagPlayProcess = true;
                 App.MainVM.FlagButtonClose = false;
-                App.MainVM.LabelSecondWordOfQuestion = "";
-                App.MainVM.LabelFirstWordOfQuestion = "";
+                Questions.ClearQuestion();
                 App.MainVM.Border_CloseButton_Brash = "red";
                 App.MainVM.Border_CloseButton_Thinkness = "1";
                 App.MainVM.IsEnabled_ButtonOfQuestion = "True";

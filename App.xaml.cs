@@ -32,15 +32,13 @@ namespace NDict
         {
             TestVM = new TestViewModel();
 
-            DBUsers.Loaded();
+            DBUsers.Loaded();            
             NDictionary.Loaded();
-                        
-
-
+            Player.Loaded();
             MainVM = new MainWindowViewModel();
             UsersVM = new UsersWindowViewModel();            
-            AddUserVM = new AddUserViewModel();
-            Players.Loaded();
+            AddUserVM = new AddUserViewModel();            
+            Questions.ShowQuestion("NDict","");
             Knobs.Loaded();
 
         }

@@ -36,10 +36,10 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
                 userWindow.Owner = NDict.App.Current.MainWindow;
                 userWindow.Show();
                 userWindow.Activate();
-                App.UsersVM.ListOfUsers = Players.Users.ToList();
-                App.UsersVM.Select_User = Players.CurrentUser;
-                App.UsersVM.current_User = Players.CurrentUser;
-                App.UsersVM.current_BaseOfUsers = Players.Users.ToList();
+                App.UsersVM.ListOfUsers = Player.Users.ToList();
+                App.UsersVM.Select_User = Player.CurrentUser;
+                App.UsersVM.current_User = Player.CurrentUser;
+                App.UsersVM.current_BaseOfUsers = Player.Users.ToList();
                 App.Current.MainWindow.IsEnabled = false;
             }
 

@@ -26,8 +26,7 @@ namespace NDict.Models
 
         public static void Loaded()
         {
-            LoadDB();
-            Players.Loaded();
+            LoadDB();            
         }
 
         public static void LoadDB()

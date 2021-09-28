@@ -25,12 +25,12 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
                     Timers.ShowTime();
                     Timers.Stop();
                     App.MainVM.Text_Button_Close = "Close";
-                    App.MainVM.Text_Button_Play = Players.CurrentUser.TypeGame == 0 ? "Train" : "Play";
+                    App.MainVM.Text_Button_Play = Player.CurrentUser.TypeGame == 0 ? "Train" : "Play";
                     App.MainVM.FlagButtonClose = true;
                     App.MainVM.flagPlayProcess = false;
                     //App.MainVM.Border_CloseButton_Brash = "Black";
                     App.MainVM.Border_CloseButton_Thinkness = "0";
-
+                    Knobs.ClearKnobs();
                 }
 
             }

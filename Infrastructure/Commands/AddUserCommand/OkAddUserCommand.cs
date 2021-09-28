@@ -34,9 +34,9 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
             {
                 User user = new User { Name = _name };
                 DBUsers.AddUser(user);
-                Players.AddUser(user);
-                Players.SetCurrentUser(user);
-                App.UsersVM.ListOfUsers = Players.Users.ToList();
+                Player.AddUser(user);
+                Player.SetCurrentUser(user);
+                App.UsersVM.ListOfUsers = Player.Users.ToList();
                 App.UsersVM.Select_User = user; // TODO: Current name                
                 CheckDefaultName();
 
@@ -64,7 +64,7 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
         {
             User _user = new User();
             bool FlagDefaultUser = false;
-            foreach (User user in Players.Users)
+            foreach (User user in Player.Users)
             {
                 if (user.Name == "Default")
                 {
@@ -76,7 +76,7 @@ namespace NDict.Infrastructure.Commands.AddUserCommand
             if (FlagDefaultUser)
             {
                 DBUsers.DeleteUser(_user);
-                Players.DeleteUser(_user);
+                Player.DeleteUser(_user);
             }
         }
     }

@@ -30,12 +30,12 @@ namespace NDict.ViewModels
         private string _Button_Close="Close";
         public string Text_Button_Close { get => _Button_Close; set => Set(ref _Button_Close, value); }
 
-        private string _Button_Profile = Players.CurrentUser.Name;
+        private string _Button_Profile = Player.CurrentUser.Name;
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
 
         public bool FlagButtonClose=true;
 
-        private string _Button_Profile_Dificult = Players.CurrentUser.Difficult.ToString();
+        private string _Button_Profile_Dificult = Player.CurrentUser.Difficult.ToString();
         public string Text_Button_Profile_Dificult { get => _Button_Profile_Dificult; set => Set(ref _Button_Profile_Dificult, value); }
 
         private string border_Close_Thinkness = "0";
@@ -54,34 +54,17 @@ namespace NDict.ViewModels
 
         #endregion
         #region Labels for Question
-        private string _LabelFirstWordOfQuestion = "N-Dict";
+        private string _LabelFirstWordOfQuestion;
         /// <summary> First word question</summary>
         public string LabelFirstWordOfQuestion { get => _LabelFirstWordOfQuestion; set => Set(ref _LabelFirstWordOfQuestion, value); }
 
-        private string labelSecondWordOfQuestion = "";
+        private string labelSecondWordOfQuestion;
         /// <summary> Second word question </summary>
         public string LabelSecondWordOfQuestion { get => labelSecondWordOfQuestion; set => Set(ref labelSecondWordOfQuestion, value); }
         #endregion
         #region Text of Button of Answers
-        private string _Button01 = "";
-        public string Text_Button01 { get => _Button01; set => Set(ref _Button01, value); }
-
-        private string _Button02 = "";
-        public string Text_Button02 { get => _Button02; set => Set(ref _Button02, value); }
-
-        private string _Button03 = "";
-        public string Text_Button03 { get => _Button03; set => Set(ref _Button03, value); }
-
-        private string _Button04 = "";
-        public string Text_Button04 { get => _Button04; set => Set(ref _Button04, value); }
-
-        private string _Button05 = "";
-        public string Text_Button05 { get => _Button05; set => Set(ref _Button05, value); }
-
-        private string _Button06 = "";
-        public string Text_Button06 { get => _Button06; set => Set(ref _Button06, value); }
-
-
+        public ObservableCollection<ButtonsAnswer> Buttons{ get; set; }
+        
         #endregion       
         #region StatusBar
 
@@ -97,14 +80,17 @@ namespace NDict.ViewModels
 
         #endregion
  
-
-
-
         public bool flagPlayProcess=false;
         public MainWindowViewModel()
         {
-            Text_Button_Profile = Players.CurrentUser.Name;
-            Text_Button_Play = Players.CurrentUser.TypeGame == 1 ? "Play" : "Train";
+            Text_Button_Profile = Player.CurrentUser.Name;
+            Text_Button_Play = Player.CurrentUser.TypeGame == 1 ? "Play" : "Train";
+            Buttons = new ObservableCollection<ButtonsAnswer>();
+            for (int i=0; i < Knobs.countOfKnobs; i++)
+            {
+                var tempButtonsAnswer=new ButtonsAnswer();
+                Buttons.Add(tempButtonsAnswer);
+            }          
         }
     }
 }
