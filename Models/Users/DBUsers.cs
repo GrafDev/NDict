@@ -26,7 +26,7 @@ namespace NDict.Models
 
         public static void Loaded()
         {
-            LoadDB();            
+            LoadDB();
         }
 
         public static void LoadDB()
@@ -38,19 +38,20 @@ namespace NDict.Models
                 _user.Name = "Default";
                 _user.Difficult = 1;
                 db.Database.EnsureCreated();
-                db.Users.Add(_user);
+                db.Users.Add(_user);                
                 try
                 {
                     db.SaveChanges();
                 }
                 catch (Exception e)
-                {
+                {                    
                     //Console.WriteLine(e);
                     // Provide for exceptions.
                 }
+                
             }
 
-            // App.TestVM.TestBlock = db.Users.ToList().ToString();
+            //App.TestVM.Test2 = db.Users.Count().ToString();
         }
         public static void AddUser(User _user)
         {
@@ -108,5 +109,7 @@ namespace NDict.Models
             var _users = db.Users.ToList();
             return _users;
         }
+
+
     }
 }

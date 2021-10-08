@@ -18,7 +18,7 @@ namespace NDict.Infrastructure.Commands.ChoiseProfileCommand
         {
             
 
-            if (Player.Users.Count > 1)
+            if (Players.Users.Count > 1)
             {
 
                 var okOrCancelWindow = new ConfirmationWindow();

@@ -15,15 +15,15 @@ namespace NDict.Models
             for (int i = 0; i < countOfKnobs; i++)
             {
                 var rnd = new Random();
-                int k = rnd.Next(1, Player.CurrentUser.countWordsForLearning);
-                wordsForAnswer.Add(Player.CurrentUser.wordsForLearning[k]);
+                int k = rnd.Next(1, Players.CurrentUser.countWordsForLearning);
+                wordsForAnswer.Add(Players.CurrentUser.wordsForLearning[k]);
             }
         }
         static public void ShowKnobs()
         {
             for (int i = 0; i < countOfKnobs; i++)
             {
-                string tempStr = Player.FlagLanguage ? tempStr = wordsForAnswer[i].Language01 : tempStr = wordsForAnswer[i].Language02;
+                string tempStr = Players.FlagLanguage ? tempStr = wordsForAnswer[i].Language01 : tempStr = wordsForAnswer[i].Language02;
                 App.MainVM.Buttons[i].Value = tempStr;
             }
 
@@ -33,11 +33,10 @@ namespace NDict.Models
             for (int i = 0; i < countOfKnobs; i++)
             {
                 var rnd = new Random();
-                int k = rnd.Next(1, Player.CurrentUser.countWordsForLearning);
+                int k = rnd.Next(1, Players.CurrentUser.countWordsForLearning);
                 App.MainVM.Buttons[i].Value = "";
                 App.MainVM.IsEnabled_ButtonOfAnswer = "false";
             }
         }
-
     }
 }

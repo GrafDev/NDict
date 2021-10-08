@@ -14,7 +14,8 @@
         <!--<vm:TestViewModel/>-->
     </Window.DataContext>
     <Grid>
-
+        <StackPanel Orientation="Vertical">
+           <TextBlock Text="{Binding Test2}"/>
         <ListView x:Name="List_Of_Users" 
                              Margin="5,5,5,5"
                              ScrollViewer.HorizontalScrollBarVisibility="Hidden"
@@ -24,7 +25,9 @@
                              BorderThickness="1"    
                              ItemsSource="{Binding ListOfWordsLearning}"                             
                              DisplayMemberPath="test"
-                             />
-        <TextBlock Text="{Binding Test2}"/>
+                             /> 
+        </StackPanel>
+        
+        
     </Grid>
 </Window>

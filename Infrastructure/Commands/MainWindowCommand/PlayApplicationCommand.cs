@@ -30,8 +30,8 @@ namespace NDict.Infrastructure.Commands.MainWindowCommand
                 App.MainVM.Border_CloseButton_Brash = "red";
                 App.MainVM.Border_CloseButton_Thinkness = "1";
                 App.MainVM.IsEnabled_ButtonOfQuestion = "True";
-                Player.GetFlagLanguage();
-                Tests.ShowWindow();
+                Players.GetFlagLanguage();
+                //Tests.GetLearningWord();                
             }
 
             //_Test();

@@ -8,22 +8,28 @@ namespace NDict.Services
     static class Utils
     {
         static Random rnd = new Random();
-        internal static string ConvertArrayOfStringToString(string[] names)
+        internal static List<Word> ConvertStringToArrayOfWord(string str)
         {
-            string str = "";
-            foreach (string name in names)
+            var words=new List<Word>();
+            var tempArrayOFString = str.Split(new string[] { "%" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach(string _tempString in tempArrayOFString)
             {
-                str = str + name+"\n";
+                var _str = _tempString.Split(new string[] { "*" }, StringSplitOptions.RemoveEmptyEntries);
+                var word = new Word();
+                word.Id = Convert.ToInt32(_str[0]);
+                word.Language01 = _str[1];
+                word.Language02 = _str[2];
+                words.Add(word);
             }
-            return str;
+            return words;
         }
 
-        internal static string ConvertArrayOfWordToString(Word[] names)
+        internal static string ConvertArrayOfWordToString(List<Word> words)
         {
             string str = "";
-            foreach (Word name in names)
+            foreach (Word name in words)
             {
-                str = str + ($"ID {name.Id .ToString()}, ENG- {name.Language01}, RUS- {name.Language02}  \n");
+                str = str + ($"{name.Id.ToString()}*{name.Language01}*{name.Language02}%");
             }
             return str;
         }

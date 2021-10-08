@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using NDict.Models;
+using NDict.Services;
 
 namespace NDict.Models
 {
@@ -14,37 +15,58 @@ namespace NDict.Models
         public int FlagCurrent { get; set; }
         public int TypeGame { get; set; }
 
-        public List<Word> wordsForLearning =new List<Word>();
-        public List<Word> learnedWords =new List<Word>();
+        public string DBWordsForLearning = "";
+        public string DBLearnedWords = "";
 
-        public int countWordsForLearning=50;
-       
-        public int countLeranedWords=10;
+        internal List<Word> wordsForLearning = new List<Word>();
+        internal List<Word> learnedWords = new List<Word>();
+
+        public int countWordsForLearning = 50;
+
+        public int countLeranedWords = 10;
 
         public User()
         {
-            if (wordsForLearning.Count < countWordsForLearning)
-            {
-                wordsForLearning = SetLearningWords();
-            }            
+
         }
 
-        public List<Word> SetLearningWords()
+        public void LoadedWords()
+        {
+            if (DBWordsForLearning != "")
+            {
+                wordsForLearning = Utils.ConvertStringToArrayOfWord(DBWordsForLearning);
+            }
+            else
+            {
+                wordsForLearning = SetLearningWords(NDictionary.Words);
+                DBWordsForLearning = Utils.ConvertArrayOfWordToString(wordsForLearning);
+            }
+        }
+
+        public List<Word> SetLearningWords(List<Word> DBWords)
         {
             List<Word> tempWords = new List<Word>();
-            List<int> idWordsForLeraning = new List<int>();
-            for (int i = 0; i < countWordsForLearning; i++)
+            try
             {
-                var rnd = new Random();
-                int k = rnd.Next(0, NDictionary.countOfWords - 1);
-                for (int j = 0; j < idWordsForLeraning.Count; i++)
+                
+                List<int> idWordsForLeraning = new List<int>();
+                for (int i = 0; i < countWordsForLearning; i++)
                 {
-                    if (idWordsForLeraning.Count != 0 && k == idWordsForLeraning[j])
+                    var rnd = new Random();
+                    int k = rnd.Next(0, DBWords.Count - 1);
+                    for (int j = 0; j < idWordsForLeraning.Count; i++)
                     {
-                        k = rnd.Next(0, NDictionary.countOfWords - 1);
+                        if (idWordsForLeraning.Count != 0 && k == idWordsForLeraning[j])
+                        {
+                            k = rnd.Next(0, DBWords.Count - 1);
+                        }
                     }
+                    tempWords.Add(DBWords[k]);
                 }
-                tempWords.Add(NDictionary.Words[k]);
+            }
+            catch
+            {
+                //Tests.TextError(NDictionary.Words.Count.ToString());
             }
             return tempWords;
         }

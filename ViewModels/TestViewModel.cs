@@ -11,6 +11,7 @@ namespace NDict.ViewModels
         private string _testBlock="Ok";
         public string TitleBlock { get => _testBlock; set => Set(ref _testBlock, value); }
         #endregion
+
         private List<Word> listOfWordsLerning = new List<Word>();
         public List<Word> ListOfWordsLearning { get => listOfWordsLerning; set => Set(ref listOfWordsLerning, value); }
 

@@ -25,20 +25,24 @@ namespace NDict.Models
 
 
         static public void Loaded()
-        {
-            Words = new List<Word>();
-            LoadXML();
+        {            
+            Words = LoadXML();
+            //Tests.ShowWindow();
+            //Tests.GetLearningWordDB();
+            //Tests.TextError(_words.Count.ToString());
         }
 
-        static void LoadXML()
+        static List<Word> LoadXML()
         {
+            var _words = new List<Word>();
             using (FileStream fs = new FileStream(nameOfFileXML, FileMode.OpenOrCreate))
             {
                 Vocabulary _vocabulary = (Vocabulary)formatter.Deserialize(fs);
                 title = _vocabulary.title;
                 countOfWords = _vocabulary.CountOfDict;
-                Words = _vocabulary.words;                
+                _words = _vocabulary.words;                
             }
+            return _words;
         }      
 
     }

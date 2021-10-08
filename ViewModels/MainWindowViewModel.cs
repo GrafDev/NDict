@@ -30,12 +30,12 @@ namespace NDict.ViewModels
         private string _Button_Close="Close";
         public string Text_Button_Close { get => _Button_Close; set => Set(ref _Button_Close, value); }
 
-        private string _Button_Profile = Player.CurrentUser.Name;
+        private string _Button_Profile = Players.CurrentUser.Name;
         public string Text_Button_Profile { get => _Button_Profile; set => Set(ref _Button_Profile, value); }
 
         public bool FlagButtonClose=true;
 
-        private string _Button_Profile_Dificult = Player.CurrentUser.Difficult.ToString();
+        private string _Button_Profile_Dificult = Players.CurrentUser.Difficult.ToString();
         public string Text_Button_Profile_Dificult { get => _Button_Profile_Dificult; set => Set(ref _Button_Profile_Dificult, value); }
 
         private string border_Close_Thinkness = "0";
@@ -83,8 +83,8 @@ namespace NDict.ViewModels
         public bool flagPlayProcess=false;
         public MainWindowViewModel()
         {
-            Text_Button_Profile = Player.CurrentUser.Name;
-            Text_Button_Play = Player.CurrentUser.TypeGame == 1 ? "Play" : "Train";
+            Text_Button_Profile = Players.CurrentUser.Name;
+            Text_Button_Play = Players.CurrentUser.TypeGame == 1 ? "Play" : "Train";
             Buttons = new ObservableCollection<ButtonsAnswer>();
             for (int i=0; i < Knobs.countOfKnobs; i++)
             {
